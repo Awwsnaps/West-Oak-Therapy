@@ -8,11 +8,11 @@ export default function Home() {
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900">
-            West Oak Therapy
-            <span className="block text-xl md:text-2xl font-normal text-neutral-500 mt-2">Creative Direction Presentation</span>
+            The Relationship Architect
+            <span className="block text-xl md:text-2xl font-normal text-neutral-500 mt-2">Jennifer Weinmann, LMFT — Creative Direction Presentation</span>
           </h1>
           <p className="text-lg text-neutral-600 max-w-2xl">
-            Three distinct creative approaches for Jennifer Weinmann's practice. Select a direction below to view the prototype.
+            Three distinct creative approaches anchored in the "Forest and Trees" framework. Select a direction below to view the prototype.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-neutral-900 mb-2">Grounded Sanctuary</h3>
                   <p className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">The Safe & Traditional</p>
                   <p className="text-neutral-600 leading-relaxed">
-                    A warm, professional site establishing immediate trust. "Exceed expectations within expectations."
+                    "I see the Forest and the Trees." A warm, professional site establishing trust through the Relationship Architect positioning.
                   </p>
                 </div>
                 <div className="flex items-center text-[#D79E54] font-medium group-hover:gap-3 transition-all">
@@ -50,7 +50,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-neutral-900 mb-2">Narrative Sanctuary</h3>
                   <p className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">The Story-First</p>
                   <p className="text-neutral-600 leading-relaxed">
-                    An immersive editorial experience that draws visitors into a story of transformation.
+                    "The Space Between." An immersive editorial experience that frames relationship struggles as a shared pattern to be understood.
                   </p>
                 </div>
                 <div className="flex items-center text-[#2F6479] font-medium group-hover:gap-3 transition-all">
@@ -71,7 +71,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-white mb-2">The Mirror</h3>
                   <p className="text-sm font-medium text-white/50 uppercase tracking-wider mb-4">The Experimental</p>
                   <p className="text-white/70 leading-relaxed">
-                    An interactive, confrontational experience that reflects the visitor's reality back to them.
+                    "We Keep Having the Same Fight." An interactive experience that reflects the relationship dynamic back to the user.
                   </p>
                 </div>
                 <div className="flex items-center text-white font-medium group-hover:gap-3 transition-all">

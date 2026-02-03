@@ -55,28 +55,28 @@ export default function NarrativeSanctuary() {
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 text-brand-vermilion/60 flex flex-col items-center gap-2"
         >
-          <span className="text-sm tracking-widest uppercase font-libre">Your story continues</span>
+          <span className="text-sm tracking-widest uppercase font-libre">The story continues</span>
           <ArrowDown className="w-5 h-5 animate-bounce" />
         </motion.div>
       </section>
 
-      {/* Story Section 1: The Pattern */}
+      {/* Story Section 1: The Space Between */}
       <section className="min-h-screen flex items-center py-24 px-6 md:px-12 bg-brand-coffee relative overflow-hidden">
         <div className="container mx-auto grid md:grid-cols-2 gap-16 md:gap-32 items-center">
           <div className="space-y-12 relative z-10">
-            <span className="text-brand-gold font-playfair italic text-3xl">01. The Pattern</span>
+            <span className="text-brand-gold font-playfair italic text-3xl">01. The Space Between</span>
             <h2 className="font-playfair text-5xl md:text-6xl text-white leading-tight">
-              The Weight No One Sees
+              It used to feel like connection.
             </h2>
             <div className="font-source text-xl md:text-2xl text-brand-vermilion/80 space-y-8 leading-relaxed font-light">
               <p>
-                By every measure, you're successful. The promotion came. The relationship happened. The family grew. You did everything you were supposed to do.
+                You love them. That's not the problem. The problem is the space between you.
               </p>
               <p>
-                So why do you feel further away from the people you love? Why does the drink at the end of the day feel less like a choice and more like a requirement?
+                Now it feels like distance. Maybe tension. Maybe nothing at all. You've tried talking. You've tried not talking. You've tried date nights and vacations and putting the phones away.
               </p>
               <p className="text-white font-normal border-l-2 border-brand-gold pl-6">
-                Why do you keep building walls when all you want is to tear them down?
+                But the space is still there. And you can't figure out what's living in it.
               </p>
             </div>
           </div>
@@ -89,85 +89,63 @@ export default function NarrativeSanctuary() {
         </div>
       </section>
 
-      {/* Story Section 2: The Pivot */}
+      {/* Story Section 2: The Pattern */}
       <section className="min-h-screen flex items-center py-24 px-6 md:px-12 bg-brand-vermilion text-brand-coffee relative">
         <div className="container mx-auto grid md:grid-cols-2 gap-16 md:gap-32 items-center">
            <div className="order-2 md:order-1 relative">
              <img src={abstract} alt="Transformation" className="w-full max-w-lg mx-auto mix-blend-multiply opacity-80" />
            </div>
            <div className="order-1 md:order-2 space-y-12">
-            <span className="text-brand-teal font-playfair italic text-3xl">02. The Pivot</span>
+            <span className="text-brand-teal font-playfair italic text-3xl">02. The Pattern</span>
             <h2 className="font-playfair text-5xl md:text-6xl text-brand-coffee leading-tight">
-              What If It's Not You?
+              You Can't See It From Inside
             </h2>
             <div className="font-source text-xl md:text-2xl text-brand-coffee/80 space-y-8 leading-relaxed font-light">
               <p>
-                What if the patterns you can't break aren't character flaws—they're adaptations?
+                You see your partner's behavior. They see yours. Neither of you sees the dance.
               </p>
               <p>
-                What if the distance you feel isn't failure—it's protection?
+                The way your withdrawal triggers their pursuit. The way their criticism triggers your shutdown. The way you both keep doing the exact thing that makes the other person do the exact thing you wish they'd stop doing.
               </p>
               <p className="font-normal text-brand-teal">
-                And what if there's a different way forward?
+                It's not about who's right. It's about a pattern that has you both.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Story Section 3: The Path */}
+      {/* Story Section 3: The Guide */}
       <section className="py-32 px-6 md:px-12 bg-white text-brand-coffee">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-24">
-            <span className="text-brand-gold font-playfair italic text-3xl">03. The Path</span>
-            <h2 className="font-playfair text-5xl mt-6 text-brand-teal">Your Next Chapter</h2>
+            <span className="text-brand-gold font-playfair italic text-3xl">03. The Guide</span>
+            <h2 className="font-playfair text-5xl mt-6 text-brand-teal">Someone Who Sees It All</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-16">
-            <div className="space-y-6">
-              <div className="text-6xl font-playfair text-brand-vermilion/50">I</div>
-              <h3 className="font-playfair text-3xl text-brand-coffee">Understanding</h3>
-              <p className="font-source text-lg text-brand-coffee/70 leading-relaxed">
-                Before you can change the pattern, you have to understand the pattern. Where it came from. What it's protecting you from.
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="font-source text-2xl text-brand-coffee/80 leading-relaxed font-light space-y-8">
+              <p>
+                What if you had someone who could see the whole thing? Not your side. Not their side. The actual pattern between you.
+              </p>
+              <p>
+                Someone who could advocate for what the relationship needs—while making sure neither of you gets lost in the process.
+              </p>
+              <p className="font-medium text-brand-teal">
+                Someone who treats the space between you as something real. Something worth building. Something that can actually change.
               </p>
             </div>
-            <div className="space-y-6">
-              <div className="text-6xl font-playfair text-brand-vermilion/50">II</div>
-              <h3 className="font-playfair text-3xl text-brand-coffee">Reconnection</h3>
-              <p className="font-source text-lg text-brand-coffee/70 leading-relaxed">
-                The walls between you and your partner weren't built overnight. Taking them down is careful work—strategic, intentional, guided.
+            <div className="bg-brand-coffee/5 p-12 rounded-lg border-l-4 border-brand-teal">
+              <h3 className="font-playfair text-3xl text-brand-coffee mb-6">The Relationship Architect</h3>
+              <p className="font-source text-lg text-brand-coffee/70 leading-relaxed mb-8">
+                I don't take sides. I take the side of the relationship itself. That means I'll advocate for what the connection needs, even when it's uncomfortable, while never losing sight of what each of you needs to thrive.
               </p>
-            </div>
-            <div className="space-y-6">
-              <div className="text-6xl font-playfair text-brand-vermilion/50">III</div>
-              <h3 className="font-playfair text-3xl text-brand-coffee">Liberation</h3>
-              <p className="font-source text-lg text-brand-coffee/70 leading-relaxed">
-                When alcohol or cannabis becomes the answer, the real question is: what are you trying not to feel? Let's find out.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Author Reveal */}
-      <section className="py-32 px-6 md:px-12 bg-brand-coffee text-brand-vermilion">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-5">
-              <div className="relative">
-                <div className="absolute inset-0 border border-brand-gold translate-x-4 translate-y-4" />
-                <img src={portrait} alt="Jennifer" className="relative z-10 grayscale hover:grayscale-0 transition-all duration-700 w-full" />
-              </div>
-            </div>
-            <div className="md:col-span-7 space-y-8">
-              <h2 className="font-playfair text-5xl text-white">Your Guide Through the Terrain</h2>
-              <div className="font-source text-xl space-y-6 font-light leading-relaxed text-brand-vermilion/90">
-                <p>
-                  I'm Jennifer Weinmann—licensed therapist, clinical supervisor, and someone who has walked this path with hundreds of high-performing people who looked like they had it all together.
-                </p>
-                <p>
-                  I bring both the analytical precision you respect and the genuine human care you need. No judgment. No shortcuts. Just real understanding and strategic support.
-                </p>
+              <div className="flex items-center gap-4">
+                 <img src={portrait} alt="Jennifer" className="w-16 h-16 rounded-full object-cover grayscale" />
+                 <div>
+                   <div className="font-bold text-brand-coffee">Jennifer Weinmann, LMFT</div>
+                   <div className="text-brand-teal text-sm">Clinical Supervisor & Therapist</div>
+                 </div>
               </div>
             </div>
           </div>
@@ -178,10 +156,10 @@ export default function NarrativeSanctuary() {
       <section className="py-32 px-6 md:px-12 bg-brand-coffee text-center border-t border-brand-vermilion/10">
         <div className="container mx-auto max-w-4xl space-y-16">
           <blockquote className="font-playfair italic text-3xl md:text-5xl leading-tight text-white/90">
-            "I finally understood why I kept doing the things I hated doing."
+            "She saw the pattern we couldn't see because we were both inside it."
           </blockquote>
           <blockquote className="font-playfair italic text-3xl md:text-5xl leading-tight text-brand-gold/80">
-            "She saw through the performance to the actual person underneath."
+            "She didn't just listen—she helped us rebuild the entire foundation."
           </blockquote>
         </div>
       </section>

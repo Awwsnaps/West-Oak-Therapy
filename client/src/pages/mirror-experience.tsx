@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import portrait from "@/assets/jennifer-portrait.png";
 import glass from "@/assets/luxury-glass.png";
-import texture from "@/assets/luxury-texture.png";
+import wood from "@/assets/luxury-wood.png";
 import light from "@/assets/light-leak.png";
 
 export default function MirrorExperience() {
@@ -116,8 +116,8 @@ export default function MirrorExperience() {
       <div className="fixed inset-0 z-0">
          {/* Texture Overlay */}
          <div 
-           className="absolute inset-0 opacity-40 mix-blend-overlay"
-           style={{ backgroundImage: `url(${texture})`, backgroundSize: 'cover' }}
+           className="absolute inset-0 opacity-60 mix-blend-overlay"
+           style={{ backgroundImage: `url(${wood})`, backgroundSize: 'cover' }}
          />
          
          {/* Cinematic Light Leak */}

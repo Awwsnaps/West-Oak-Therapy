@@ -8,6 +8,7 @@ import Home from "@/pages/home";
 import GroundedSanctuary from "@/pages/grounded-sanctuary";
 import NarrativeSanctuary from "@/pages/narrative-sanctuary";
 import MirrorExperience from "@/pages/mirror-experience";
+import ModernArchitect from "@/pages/modern-architect";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/grounded" component={GroundedSanctuary} />
       <Route path="/narrative" component={NarrativeSanctuary} />
       <Route path="/mirror" component={MirrorExperience} />
+      <Route path="/omega" component={ModernArchitect} />
       <Route component={NotFound} />
     </Switch>
   );

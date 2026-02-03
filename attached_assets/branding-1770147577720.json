@@ -1,0 +1,120 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "DM Sans",
+      "role": "body"
+    },
+    {
+      "family": "Erode",
+      "role": "heading"
+    }
+  ],
+  "colors": {
+    "primary": "#0000EE",
+    "accent": "#05290D",
+    "background": "#FFFFFF",
+    "textPrimary": "#05290D",
+    "link": "#05290D"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "DM Sans",
+      "heading": "Erode"
+    },
+    "fontStacks": {
+      "heading": [
+        "Erode",
+        "serif"
+      ],
+      "body": [
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Erode",
+        "serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "72px",
+      "h2": "48px",
+      "body": "26px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#05290D",
+      "textColor": "#0000EE",
+      "borderRadius": "8px",
+      "borderRadiusCorners": {
+        "topLeft": "8px",
+        "topRight": "8px",
+        "bottomRight": "8px",
+        "bottomLeft": "8px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#FFFFFF",
+      "textColor": "#0000EE",
+      "borderRadius": "8px",
+      "borderRadiusCorners": {
+        "topLeft": "8px",
+        "topRight": "8px",
+        "bottomRight": "8px",
+        "bottomLeft": "8px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": null,
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": "File saved at: attached_assets/ogImage.png"
+  },
+  "__framework_hints": [
+    "Framer a72a541"
+  ],
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Choose plan",
+      "reasoning": "Button #0 with the text 'Choose plan' has a vibrant dark green background (#05290D), which stands out as a primary call-to-action. The text is action-oriented, encouraging users to make a decision, which is typical for a primary CTA."
+    },
+    "secondary": {
+      "index": 4,
+      "text": "Choose plan",
+      "reasoning": "Button #4 also has the text 'Choose plan' but with a white background (#FFFFFF). It serves as a secondary option due to its less prominent color, providing an alternative style for the same action."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "creative agencies and freelancers"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": false,
+      "llmSucceeded": false,
+      "finalSource": "none"
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}

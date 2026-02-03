@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Sparkles, BookOpen, Shield } from "lucide-react";
+import { ArrowRight, Sparkles, BookOpen, Shield, PenTool } from "lucide-react";
 
 export default function Home() {
   return (
@@ -12,11 +12,11 @@ export default function Home() {
             <span className="block text-xl md:text-2xl font-normal text-neutral-500 mt-2">Jennifer Weinmann, LMFT — Creative Direction Presentation</span>
           </h1>
           <p className="text-lg text-neutral-600 max-w-2xl">
-            Three distinct creative approaches anchored in the "Forest and Trees" framework. Select a direction below to view the prototype.
+            Four distinct creative approaches anchored in the "Forest and Trees" framework. Select a direction below to view the prototype.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Direction 1 */}
           <Link href="/grounded">
@@ -28,11 +28,11 @@ export default function Home() {
                 <div>
                   <h3 className="text-2xl font-bold text-neutral-900 mb-2">Grounded Sanctuary</h3>
                   <p className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">The Safe & Traditional</p>
-                  <p className="text-neutral-600 leading-relaxed">
-                    "I see the Forest and the Trees." A warm, professional site establishing trust through the Relationship Architect positioning.
+                  <p className="text-neutral-600 leading-relaxed text-sm">
+                    "I see the Forest and the Trees." A warm, professional site establishing trust through clarity.
                   </p>
                 </div>
-                <div className="flex items-center text-[#D79E54] font-medium group-hover:gap-3 transition-all">
+                <div className="flex items-center text-[#D79E54] font-medium group-hover:gap-3 transition-all text-sm">
                   View Direction <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </CardContent>
@@ -49,11 +49,11 @@ export default function Home() {
                 <div>
                   <h3 className="text-2xl font-bold text-neutral-900 mb-2">Narrative Sanctuary</h3>
                   <p className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">The Story-First</p>
-                  <p className="text-neutral-600 leading-relaxed">
-                    "The Space Between." An immersive editorial experience that frames relationship struggles as a shared pattern to be understood.
+                  <p className="text-neutral-600 leading-relaxed text-sm">
+                    "The Space Between." An immersive editorial experience focused on shared patterns.
                   </p>
                 </div>
-                <div className="flex items-center text-[#2F6479] font-medium group-hover:gap-3 transition-all">
+                <div className="flex items-center text-[#2F6479] font-medium group-hover:gap-3 transition-all text-sm">
                   View Direction <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </CardContent>
@@ -70,11 +70,32 @@ export default function Home() {
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">The Mirror</h3>
                   <p className="text-sm font-medium text-white/50 uppercase tracking-wider mb-4">The Experimental</p>
-                  <p className="text-white/70 leading-relaxed">
-                    "We Keep Having the Same Fight." An interactive experience that reflects the relationship dynamic back to the user.
+                  <p className="text-white/70 leading-relaxed text-sm">
+                    "We Keep Having the Same Fight." An interactive experience reflecting the relationship dynamic.
                   </p>
                 </div>
-                <div className="flex items-center text-white font-medium group-hover:gap-3 transition-all">
+                <div className="flex items-center text-white font-medium group-hover:gap-3 transition-all text-sm">
+                  View Direction <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          {/* Direction 4 */}
+          <Link href="/omega">
+            <Card className="h-full group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border-t-4 border-t-[#05290D]">
+              <CardContent className="p-8 space-y-6">
+                <div className="w-12 h-12 bg-[#05290D]/10 rounded-lg flex items-center justify-center text-[#05290D] group-hover:scale-110 transition-transform">
+                  <PenTool className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-neutral-900 mb-2">The Modern Architect</h3>
+                  <p className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">The Portfolio</p>
+                  <p className="text-neutral-600 leading-relaxed text-sm">
+                    "Build the relationship you envisioned." Bold, modern, and architectural.
+                  </p>
+                </div>
+                <div className="flex items-center text-[#05290D] font-medium group-hover:gap-3 transition-all text-sm">
                   View Direction <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </CardContent>

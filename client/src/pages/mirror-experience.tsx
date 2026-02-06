@@ -1,10 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
   const [stage, setStage] = useState<"question" | "mirror" | "insight" | "guide" | "door">("question");
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
+  const [selectedSphere, setSelectedSphere] = useState<string | null>(null);
+
+  // Additional sections data
+  const infoSections = [
+    {
+      group: "Practice",
+      items: [
+        { id: "exp", title: "Professional Experience", content: "Over 15 years specializing in complex relationship dynamics and high-performance stress management. Licensed Marriage and Family Therapist (LMFT)." },
+        { id: "services", title: "Services", content: "Individual therapy, couples intensive workshops, and strategic relationship consulting. Specialized support for substance use patterns." }
+      ]
+    },
+    {
+      group: "Process",
+      items: [
+        { id: "booking", title: "Booking", content: "Initial consultations are available via the portal. We typically schedule 50-minute sessions, with 90-minute intensives available for couples." },
+        { id: "payment", title: "Payment", content: "All major credit cards accepted. Secure digital billing through our client portal." },
+        { id: "forms", title: "Intake Forms", content: "Digital forms will be sent upon booking. Please complete them 24 hours before our first session." }
+      ]
+    },
+    {
+      group: "Resources & Fees",
+      items: [
+        { id: "resources", title: "Client Resources", content: "Access to the 'Architect's Toolkit'—a curated library of worksheets, reading lists, and pattern-tracking tools." },
+        { id: "insurance", title: "*Why I don't take insurance", content: "To protect your privacy and ensure our work is dictated by your needs, not a diagnosis required by an insurance carrier. This allows for total clinical freedom and confidentiality." },
+        { id: "fees", title: "Fees", content: "Standard sessions: $250. Couples intensives: $400. Inquire for concierge or out-of-office intensive pricing." }
+      ]
+    }
+  ];
 
   // Content for different paths
   const content = {
@@ -109,6 +137,17 @@ export default function MirrorExperience() {
   return (
     <div className="min-h-screen bg-[#050505] text-[#F5F5F5] font-dm selection:bg-white/20 selection:text-white overflow-hidden relative">
       
+      {/* Header & Nav */}
+      <nav className="fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center pointer-events-none">
+        <div className="font-syne font-bold text-lg tracking-tight pointer-events-auto cursor-pointer" onClick={() => setStage("question")}>
+          West Oak Therapy
+        </div>
+        <button className="w-10 h-10 flex flex-col items-end justify-center gap-1.5 pointer-events-auto group">
+          <span className="w-8 h-px bg-white/60 group-hover:bg-white transition-all"></span>
+          <span className="w-5 h-px bg-white/60 group-hover:w-8 group-hover:bg-white transition-all"></span>
+        </button>
+      </nav>
+
       {/* Minimal ambient light - simplified */}
       <div className="fixed inset-0 z-0 pointer-events-none">
          <motion.div 
@@ -119,7 +158,7 @@ export default function MirrorExperience() {
       </div>
 
       {/* Simplified Progress Indicator */}
-      <div className="fixed top-8 left-8 md:top-12 md:left-12 flex gap-3 z-50">
+      <div className="fixed top-24 left-8 md:top-32 md:left-12 flex gap-3 z-50">
         {["question", "mirror", "insight", "guide", "door"].map((s, i) => (
           <div key={s} className="flex flex-col items-center">
             <div 
@@ -179,6 +218,16 @@ export default function MirrorExperience() {
                 </motion.button>
               ))}
             </div>
+
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              onClick={() => setStage("door")}
+              className="mt-12 text-xs tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors py-4 px-8 border border-white/5 rounded-full hover:bg-white/5"
+            >
+              Skip to Logistics
+            </motion.button>
           </motion.div>
         )}
 
@@ -312,22 +361,22 @@ export default function MirrorExperience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="h-screen flex flex-col items-center justify-center p-8 text-center bg-[#F5F5F0] text-[#1F0E0B] relative z-10"
+            className="min-h-screen flex flex-col items-center justify-start pt-32 pb-20 p-8 text-center bg-[#F5F5F0] text-[#1F0E0B] relative z-10 overflow-y-auto"
           >
             <motion.h1 
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="font-syne font-bold text-6xl md:text-8xl mb-16 tracking-tighter text-[#05290D]"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="font-syne font-bold text-6xl md:text-8xl mb-12 tracking-tighter text-[#05290D]"
             >
               Ready?
             </motion.h1>
 
-            <div className="flex flex-col md:flex-row gap-6 w-full max-w-lg justify-center">
+            <div className="flex flex-col md:flex-row gap-6 w-full max-w-lg justify-center mb-24">
               <motion.button 
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
                 className="px-8 py-4 bg-[#05290D] text-white text-base font-medium tracking-widest uppercase hover:bg-[#8C3B24] transition-colors duration-300"
               >
                 Yes — Let's Talk
@@ -335,11 +384,67 @@ export default function MirrorExperience() {
               <motion.button 
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
                 className="px-8 py-4 border border-[#05290D]/20 text-[#05290D]/60 text-base font-medium tracking-widest uppercase hover:bg-[#05290D]/5 transition-colors duration-300"
               >
                 Not Yet
               </motion.button>
+            </div>
+
+            {/* Information Spheres System */}
+            <div className="w-full max-w-5xl mx-auto space-y-24 pb-20">
+              {infoSections.map((group, groupIdx) => (
+                <div key={groupIdx} className="space-y-8">
+                  <h3 className="text-xs tracking-[0.4em] uppercase opacity-40 font-bold">{group.group}</h3>
+                  <div className="flex flex-wrap justify-center gap-12 md:gap-24">
+                    {group.items.map((item, i) => (
+                      <motion.div
+                        key={item.id}
+                        layout
+                        onClick={() => setSelectedSphere(selectedSphere === item.id ? null : item.id)}
+                        className={`relative cursor-pointer transition-all duration-500 flex flex-col items-center
+                          ${selectedSphere === item.id ? "z-50 w-full md:w-[600px]" : "w-32 h-32 md:w-40 md:h-40"}`}
+                      >
+                        <motion.div
+                          layout
+                          className={`rounded-full flex items-center justify-center border border-[#05290D]/10 bg-white shadow-sm hover:shadow-md transition-shadow
+                            ${selectedSphere === item.id 
+                              ? "w-full aspect-[2/1] rounded-3xl p-8" 
+                              : "w-full h-full"}`}
+                        >
+                          <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
+                            <motion.span 
+                              layout
+                              className={`font-syne font-bold leading-tight transition-all duration-500
+                                ${selectedSphere === item.id ? "text-2xl md:text-3xl text-[#05290D] mb-4" : "text-sm md:text-base text-[#1F0E0B]/60"}`}
+                            >
+                              {item.title}
+                            </motion.span>
+                            
+                            <AnimatePresence>
+                              {selectedSphere === item.id && (
+                                <motion.p
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0, y: 5 }}
+                                  className="text-[#1F0E0B]/70 leading-relaxed text-lg max-w-md"
+                                >
+                                  {item.content}
+                                </motion.p>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        </motion.div>
+                        
+                        {/* Decorative shadow sphere for closed state */}
+                        {selectedSphere !== item.id && (
+                          <div className="absolute inset-0 rounded-full bg-[#05290D]/5 blur-xl -z-10 animate-pulse" />
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
             
             <motion.button 
@@ -347,7 +452,7 @@ export default function MirrorExperience() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5 }}
               onClick={() => setStage("question")}
-              className="absolute bottom-12 text-xs tracking-[0.2em] uppercase text-[#05290D]/30 hover:text-[#05290D] transition-colors"
+              className="mt-20 text-xs tracking-[0.2em] uppercase text-[#05290D]/30 hover:text-[#05290D] transition-colors"
             >
               Start experience over
             </motion.button>

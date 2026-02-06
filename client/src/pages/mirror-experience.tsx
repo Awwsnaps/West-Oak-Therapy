@@ -137,14 +137,14 @@ export default function MirrorExperience() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#F5F5F5] font-dm selection:bg-white/20 selection:text-white overflow-hidden relative">
+    <div className="min-h-screen bg-[#FDFCFB] text-[#2D2926] font-dm selection:bg-[#E5E0DA] selection:text-[#2D2926] overflow-hidden relative">
       
       {/* Header & Nav */}
-      <nav className={`fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center transition-colors duration-500 border-b ${
+      <nav className={`fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center transition-all duration-700 border-b ${
         stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight"
-          ? "bg-white/80 border-[#05290D]/5 text-[#05290D]" 
-          : "bg-[#050505]/80 border-white/5 text-white"
-      } backdrop-blur-md`}>
+          ? "bg-[#FDFCFB]/90 border-[#2D2926]/5 text-[#2D2926]" 
+          : "bg-[#1A1A1A]/90 border-white/5 text-[#FDFCFB]"
+      } backdrop-blur-xl`}>
         <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => {
           setStage("splash");
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -152,17 +152,17 @@ export default function MirrorExperience() {
           West Oak Therapy
         </div>
         <button className="w-10 h-10 flex flex-col items-end justify-center gap-1.5 group">
-          <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
-          <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
+          <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#2D2926]/60 group-hover:bg-[#2D2926]" : "bg-[#FDFCFB]/60 group-hover:bg-[#FDFCFB]"}`}></span>
+          <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#2D2926]/60 group-hover:bg-[#2D2926]" : "bg-[#FDFCFB]/60 group-hover:bg-[#FDFCFB]"}`}></span>
         </button>
       </nav>
 
-      {/* Minimal ambient light - simplified */}
+      {/* Minimal ambient light - Scandinavian soft focus */}
       <div className="fixed inset-0 z-0 pointer-events-none">
          <motion.div 
-           className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-[#D79E54]/[0.05] blur-[150px] rounded-full"
-           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+           className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-[#E5E0DA]/30 blur-[150px] rounded-full"
+           animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.4, 0.3] }}
+           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
          />
       </div>
 
@@ -174,10 +174,10 @@ export default function MirrorExperience() {
               <div 
                 className={`h-1 rounded-full transition-all duration-700 ease-out
                   ${stage === s 
-                    ? "w-8 bg-[#D79E54]" 
+                    ? "w-8 bg-[#8C3B24]" 
                     : ["mirror", "insight", "guide", "door"].indexOf(s) < ["mirror", "insight", "guide", "door"].indexOf(stage)
-                      ? "w-8 bg-[#8C3B24]/40"
-                      : "w-2 bg-[#05290D]/10"
+                      ? "w-8 bg-[#8C3B24]/20"
+                      : "w-2 bg-[#2D2926]/10"
                 }`}
               />
             </div>
@@ -194,85 +194,85 @@ export default function MirrorExperience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: -50 }}
-            className="min-h-screen bg-white text-[#05290D] relative z-10 overflow-x-hidden"
+            className="min-h-screen bg-[#FDFCFB] text-[#2D2926] relative z-10 overflow-x-hidden"
           >
             {/* Hero Section */}
             <section className="h-screen flex flex-col justify-center px-8 md:px-24">
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 className="max-w-4xl"
               >
-                <span className="text-xs tracking-[0.4em] uppercase opacity-60 mb-8 block font-medium">Licensed Marriage & Family Therapy</span>
-                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter mb-12">
-                  Building <br />
-                  <span className="italic font-serif font-normal text-[#8C3B24]">Resilient</span> <br />
-                  Connection.
+                <span className="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-10 block font-semibold">Licensed Marriage & Family Therapy</span>
+                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight mb-12">
+                  Healing <br />
+                  <span className="italic font-serif font-light text-[#8C3B24] tracking-normal">Structure</span> <br />
+                  & Heart.
                 </h1>
-                <p className="text-xl md:text-2xl font-light max-w-2xl leading-relaxed text-[#05290D]/80 mb-12">
-                  A specialized practice for high-performers, couples in conflict, and those seeking to rewrite the architecture of their relationships.
+                <p className="text-xl md:text-2xl font-light max-w-xl leading-relaxed text-[#2D2926]/70 mb-16">
+                  A modern therapeutic practice specializing in high-performance relationship architecture and deep emotional restoration.
                 </p>
-                <div className="flex gap-4">
+                <div className="flex gap-6">
                   <button 
                     onClick={() => {
                       const el = document.getElementById('about-jen');
                       el?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="px-8 py-4 border border-[#05290D]/20 rounded-full text-sm tracking-widest uppercase hover:bg-[#05290D] hover:text-white transition-all duration-500"
+                    className="px-10 py-5 border border-[#2D2926]/10 rounded-full text-[11px] tracking-[0.25em] uppercase hover:bg-[#2D2926] hover:text-[#FDFCFB] transition-all duration-700 ease-in-out"
                   >
-                    Explore Practice
+                    Explore
                   </button>
                   <button 
                     onClick={() => {
                       const el = document.getElementById('why-here');
                       el?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="px-8 py-4 bg-[#8C3B24] text-white rounded-full text-sm tracking-widest uppercase hover:bg-[#05290D] transition-all duration-500"
+                    className="px-10 py-5 bg-[#8C3B24] text-[#FDFCFB] rounded-full text-[11px] tracking-[0.25em] uppercase hover:bg-[#2D2926] transition-all duration-700 ease-in-out"
                   >
-                    Start Reflection
+                    Reflect
                   </button>
                 </div>
               </motion.div>
               
               <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-30 flex flex-col items-center gap-2"
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-20 flex flex-col items-center gap-3"
               >
-                <span className="text-[10px] tracking-widest uppercase">Scroll</span>
-                <div className="w-px h-12 bg-[#05290D]" />
+                <span className="text-[9px] tracking-[0.3em] uppercase">Discovery</span>
+                <div className="w-px h-16 bg-[#2D2926]" />
               </motion.div>
             </section>
 
             {/* About Section */}
-            <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#F5F5F0]">
+            <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#F8F7F5]">
               <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-24 items-center">
-                <div className="relative">
-                  <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale contrast-110">
-                    <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover" />
+                <div className="relative group">
+                  <div className="aspect-[4/5] rounded-3xl overflow-hidden grayscale brightness-105 contrast-[0.95] transition-all duration-1000 group-hover:grayscale-0">
+                    <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms]" />
                   </div>
-                  <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-[#D79E54]/10 rounded-full blur-3xl -z-10" />
+                  <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
                 </div>
                 <div>
-                  <h2 className="font-syne font-bold text-4xl md:text-6xl mb-8 tracking-tight text-[#05290D]">
-                    Meet Jennifer <br /> Weinmann
+                  <h2 className="font-syne font-bold text-4xl md:text-6xl mb-10 tracking-tight text-[#2D2926] leading-tight">
+                    Rooted in <br /> <span className="italic font-serif font-light text-[#8C3B24]">Excellence.</span>
                   </h2>
-                  <div className="space-y-6 text-lg text-[#05290D]/80 font-light leading-relaxed">
+                  <div className="space-y-8 text-xl text-[#2D2926]/60 font-light leading-relaxed">
                     <p>
-                      With over 15 years of experience, I've dedicated my career to helping individuals and couples navigate the complexities of modern intimacy and high-performance stress.
+                      I am Jennifer Weinmann. My practice is built on the intersection of deep clinical expertise and a modern, architectural approach to human connection.
                     </p>
                     <p>
-                      My approach is architectural—we look at the foundations of your connection, identify the structural weaknesses in your patterns, and build something designed to last.
+                      We don't just talk about problems; we map the structural patterns that define your life, reinforcing what works and redesigning what doesn't.
                     </p>
                     <button 
                       onClick={() => {
                         const el = document.getElementById('why-here');
                         el?.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="mt-8 flex items-center gap-4 text-[#8C3B24] font-medium tracking-widest uppercase text-sm group"
+                      className="mt-12 flex items-center gap-4 text-[#8C3B24] font-semibold tracking-[0.2em] uppercase text-[11px] group"
                     >
-                      Begin Your Journey <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      Begin Your Mapping <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                     </button>
                   </div>
                 </div>
@@ -280,39 +280,39 @@ export default function MirrorExperience() {
             </section>
 
             {/* Why are you here Section */}
-            <section id="why-here" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-white">
+            <section id="why-here" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#FDFCFB]">
               <div className="container mx-auto max-w-4xl text-center">
                 <motion.h2 
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="font-syne font-medium text-5xl md:text-7xl mb-20 tracking-tight text-[#05290D]"
+                  transition={{ duration: 1 }}
+                  className="font-syne font-bold text-5xl md:text-7xl mb-24 tracking-tight text-[#2D2926]"
                 >
-                  Why are you here?
+                  What brought <br /> you here?
                 </motion.h2>
                 
-                <div className="flex flex-col gap-px w-full max-w-xl mx-auto border-y border-[#05290D]/10 bg-[#05290D]/5">
+                <div className="flex flex-col gap-px w-full max-w-xl mx-auto border-y border-[#2D2926]/10 bg-[#2D2926]/5 rounded-sm overflow-hidden shadow-2xl shadow-[#2D2926]/5">
                   {[
                     { label: "My relationship is struggling", val: "relationship" },
                     { label: "We keep having the same fight", val: "same_fight" },
-                    { label: "I'm using alcohol or cannabis too much", val: "substances" },
-                    { label: "I feel disconnected from my family", val: "disconnected" },
-                    { label: "I don't know, but something needs to change", val: "unknown" }
+                    { label: "I'm using substances to cope", val: "substances" },
+                    { label: "I feel disconnected from my life", val: "disconnected" },
+                    { label: "Something needs to change", val: "unknown" }
                   ].map((opt, i) => (
                     <motion.button
                       key={i}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: i * 0.1, duration: 0.5 }}
+                      transition={{ delay: i * 0.1, duration: 0.6 }}
                       onClick={() => handleChoice(opt.val as any)}
-                      className="group relative flex items-center justify-between p-6 bg-white hover:bg-[#F5F5F0] transition-colors duration-300 text-left w-full"
+                      className="group relative flex items-center justify-between p-8 bg-[#FDFCFB] hover:bg-[#F8F7F5] transition-all duration-500 text-left w-full border-b border-[#2D2926]/5 last:border-0"
                     >
-                      <span className="text-lg md:text-xl font-light text-[#05290D]/50 group-hover:text-[#8C3B24] transition-colors tracking-wide">
+                      <span className="text-lg md:text-xl font-light text-[#2D2926]/40 group-hover:text-[#2D2926] transition-colors tracking-wide">
                         {opt.label}
                       </span>
-                      <span className="text-[#05290D]/10 group-hover:text-[#8C3B24] transition-colors duration-300 text-xl font-light">→</span>
+                      <span className="text-[#2D2926]/10 group-hover:text-[#8C3B24] transition-all duration-500 text-xl font-light translate-x-0 group-hover:translate-x-2">→</span>
                     </motion.button>
                   ))}
                 </div>
@@ -328,18 +328,18 @@ export default function MirrorExperience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.05, filter: "blur(20px)" }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
             onClick={() => setStage("insight")}
           >
-            <div className="space-y-8">
+            <div className="space-y-10">
               {content[path].mirror.map((line, i) => (
                 <motion.p
                   key={i}
-                  initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
+                  initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: i * 1.5, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl leading-tight font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#D79E54]" : "text-[#05290D]/40"}`}
+                  transition={{ delay: i * 1.8, duration: 1.5, ease: "easeOut" }}
+                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight transition-colors duration-1000 ${i === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/40"}`}
                 >
                   {line}
                 </motion.p>
@@ -349,10 +349,10 @@ export default function MirrorExperience() {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: content[path].mirror.length * 1.5 + 1, duration: 1 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-[#D79E54]/40"
+              transition={{ delay: content[path].mirror.length * 1.8 + 1, duration: 1.5 }}
+              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/20"
             >
-              Click to continue
+              Continue the reflection
             </motion.div>
           </motion.div>
         )}
@@ -363,19 +363,19 @@ export default function MirrorExperience() {
             key="insight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, filter: "blur(20px)" }}
-            transition={{ duration: 1 }}
+            exit={{ opacity: 0, filter: "blur(30px)" }}
+            transition={{ duration: 1.5 }}
             className="h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
             onClick={() => setStage("guide")}
           >
-            <div className="space-y-8 relative">
+            <div className="space-y-12 relative">
               {content[path].insight.map((line, i) => (
                 <motion.p
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 1 + 0.5, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-[#8C3B24] mb-12 block text-sm font-sans tracking-[0.2em] uppercase" : "text-[#05290D] leading-tight font-medium"}`}
+                  transition={{ delay: i * 1.2 + 0.8, duration: 1.5, ease: "easeOut" }}
+                  className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-[#8C3B24] mb-16 block text-[10px] font-sans tracking-[0.5em] uppercase font-bold" : "text-[#2D2926] leading-[1.2] font-semibold tracking-tight"}`}
                 >
                   {line}
                 </motion.p>
@@ -385,10 +385,10 @@ export default function MirrorExperience() {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 4, duration: 1 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-[#8C3B24]/40"
+              transition={{ delay: 5, duration: 1.5 }}
+              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-[#8C3B24]/40"
             >
-              Click to continue
+              Move toward clarity
             </motion.div>
           </motion.div>
         )}
@@ -400,15 +400,15 @@ export default function MirrorExperience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 1 }}
-            className="min-h-screen flex flex-col items-center justify-center p-8 text-center relative z-10 bg-[#F5F5F0] text-[#1F0E0B]"
+            transition={{ duration: 1.5 }}
+            className="min-h-screen flex flex-col items-center justify-center p-8 text-center relative z-10 bg-[#F8F7F5] text-[#2D2926]"
             onClick={() => setStage("door")}
           >
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-12 grayscale contrast-125 border-4 border-[#05290D]/10"
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              className="w-56 h-56 md:w-72 md:h-72 rounded-3xl overflow-hidden mb-16 grayscale brightness-105 contrast-[0.9] border border-[#2D2926]/5 shadow-2xl"
             >
               <img src={portrait} alt="Jennifer" className="w-full h-full object-cover" />
             </motion.div>
@@ -416,30 +416,30 @@ export default function MirrorExperience() {
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-syne font-bold text-4xl md:text-5xl mb-8 tracking-tight text-[#05290D]"
+              transition={{ delay: 0.4, duration: 1 }}
+              className="font-syne font-bold text-4xl md:text-5xl mb-10 tracking-tight text-[#2D2926] leading-tight"
             >
-              I specialize in exactly this.
+              Expert guidance for <br /> <span className="italic font-serif font-light text-[#8C3B24]">complex</span> terrain.
             </motion.h2>
 
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="max-w-xl text-lg md:text-xl leading-relaxed space-y-6 font-light text-[#1F0E0B]/80"
+              transition={{ delay: 0.8, duration: 1 }}
+              className="max-w-xl text-xl md:text-2xl leading-relaxed space-y-8 font-light text-[#2D2926]/60"
             >
-              <p>I'm Jennifer Weinmann—The Relationship Architect.</p>
-              <p>I help people build, repair, and transform the relationships that matter most—by seeing what's really happening between them, not just within them.</p>
-              <p className="font-medium text-[#8C3B24]">No judgment. No shortcuts. Just real understanding.</p>
+              <p>I am The Relationship Architect.</p>
+              <p>My work is about mapping the hidden pathways of connection, revealing the structures that keep you stuck, and building the ones that set you free.</p>
+              <p className="font-semibold text-[#8C3B24] tracking-wide">Intentional. Evidence-based. Transformative.</p>
             </motion.div>
             
              <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 2, duration: 1 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-[#05290D]/40"
+              transition={{ delay: 3, duration: 1.5 }}
+              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/30"
             >
-              Click to continue
+              Enter the practice
             </motion.div>
           </motion.div>
         )}
@@ -450,57 +450,58 @@ export default function MirrorExperience() {
             key="door"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="min-h-screen flex flex-col items-center justify-start pt-32 pb-20 p-8 text-center bg-white text-[#05290D] relative z-10 overflow-y-auto"
+            transition={{ duration: 1.5 }}
+            className="min-h-screen flex flex-col items-center justify-start pt-32 pb-20 p-8 text-center bg-[#FDFCFB] text-[#2D2926] relative z-10 overflow-y-auto"
           >
             <div className="container mx-auto max-w-6xl">
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="mb-24"
+                transition={{ duration: 1.2 }}
+                className="mb-32"
               >
-                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tighter leading-[0.9]">
-                  Let's start <br />
-                  <span className="italic font-serif font-normal">building.</span>
+                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-[10rem] mb-12 tracking-tighter leading-[0.85]">
+                  Construct <br />
+                  <span className="italic font-serif font-light text-[#8C3B24]">Meaning.</span>
                 </h1>
                 
-                <div className="flex flex-col md:flex-row gap-6 w-full max-w-xl mx-auto justify-center mt-12">
+                <div className="flex flex-col md:flex-row gap-8 w-full max-w-xl mx-auto justify-center mt-16">
                   <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-12 py-5 bg-[#05290D] text-white text-lg font-medium tracking-widest uppercase hover:bg-[#8C3B24] transition-colors duration-500 rounded-full shadow-lg"
+                    whileHover={{ scale: 1.03, backgroundColor: "#1A1A1A" }}
+                    whileTap={{ scale: 0.97 }}
+                    className="px-14 py-6 bg-[#2D2926] text-[#FDFCFB] text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-2xl"
                   >
-                    Book Consultation
+                    Consultation
                   </motion.button>
                   <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-12 py-5 border border-[#05290D] text-[#05290D] text-lg font-medium tracking-widest uppercase hover:bg-[#05290D]/5 transition-colors duration-500 rounded-full"
+                    whileHover={{ scale: 1.03, backgroundColor: "#F8F7F5" }}
+                    whileTap={{ scale: 0.97 }}
+                    className="px-14 py-6 border border-[#2D2926]/10 text-[#2D2926] text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full"
                   >
-                    View Portal
+                    Portal
                   </motion.button>
                 </div>
               </motion.div>
 
               {/* Modern Architect Style Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 text-left border-t border-[#05290D]/10 pt-16">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24 text-left border-t border-[#2D2926]/5 pt-24">
                 {infoSections.flatMap(group => group.items).map((item, i) => (
                   <motion.div
                     key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 1 }}
                     className="group"
                   >
-                    <div className="flex justify-between items-start mb-6">
-                      <span className="font-mono text-xs text-[#05290D]/40">0{i + 1}</span>
-                      <div className="w-8 h-8 rounded-full border border-[#05290D]/10 flex items-center justify-center group-hover:bg-[#05290D] group-hover:text-white transition-all duration-500">
+                    <div className="flex justify-between items-center mb-8">
+                      <span className="font-mono text-[10px] tracking-widest text-[#2D2926]/20">ARCH-0{i + 1}</span>
+                      <div className="w-10 h-10 rounded-full border border-[#2D2926]/10 flex items-center justify-center group-hover:bg-[#8C3B24] group-hover:border-[#8C3B24] group-hover:text-[#FDFCFB] transition-all duration-700">
                         <ArrowUpRight className="w-4 h-4" />
                       </div>
                     </div>
-                    <h3 className="font-syne text-2xl font-bold mb-4 tracking-tight">{item.title}</h3>
-                    <p className="text-[#05290D]/70 leading-relaxed font-light">
+                    <h3 className="font-syne text-2xl font-bold mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{item.title}</h3>
+                    <p className="text-[#2D2926]/50 leading-relaxed font-light text-lg">
                       {item.content}
                     </p>
                   </motion.div>
@@ -508,20 +509,20 @@ export default function MirrorExperience() {
               </div>
 
               {/* Final Footer Style Reset */}
-              <div className="mt-32 pt-16 border-t border-[#05290D]/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[#05290D]/40 text-xs tracking-widest uppercase font-medium">
-                <div>© 2026 West Oak Therapy</div>
-                <div className="flex gap-8">
-                  <span className="cursor-pointer hover:text-[#05290D] transition-colors">Privacy</span>
-                  <span className="cursor-pointer hover:text-[#05290D] transition-colors">Terms</span>
+              <div className="mt-48 pt-16 border-t border-[#2D2926]/5 flex flex-col md:flex-row justify-between items-center gap-12 text-[#2D2926]/30 text-[10px] tracking-[0.4em] uppercase font-bold">
+                <div>© 2026 Jennifer Weinmann / West Oak</div>
+                <div className="flex gap-12">
+                  <span className="cursor-pointer hover:text-[#8C3B24] transition-colors duration-500">Security</span>
+                  <span className="cursor-pointer hover:text-[#8C3B24] transition-colors duration-500">Confidentiality</span>
                 </div>
                 <motion.button 
                   onClick={() => {
                     setStage("splash");
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="hover:text-[#05290D] transition-colors"
+                  className="hover:text-[#8C3B24] transition-colors duration-500"
                 >
-                  Back to Beginning
+                  Return to Top
                 </motion.button>
               </div>
             </div>

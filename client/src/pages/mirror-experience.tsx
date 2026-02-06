@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
-  const [stage, setStage] = useState<"question" | "mirror" | "insight" | "guide" | "door">("question");
+  const [stage, setStage] = useState<"splash" | "question" | "mirror" | "insight" | "guide" | "door">("splash");
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
   const [selectedSphere, setSelectedSphere] = useState<string | null>(null);
 
@@ -140,16 +140,16 @@ export default function MirrorExperience() {
       
       {/* Header & Nav */}
       <nav className={`fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center transition-colors duration-500 border-b ${
-        stage === "door" || stage === "guide" 
+        stage === "door" || stage === "guide" || stage === "splash"
           ? "bg-white/80 border-[#05290D]/5 text-[#05290D]" 
           : "bg-[#050505]/80 border-white/5 text-white"
       } backdrop-blur-md`}>
-        <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => setStage("question")}>
+        <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => setStage("splash")}>
           West Oak Therapy
         </div>
         <button className="w-10 h-10 flex flex-col items-end justify-center gap-1.5 group">
-          <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
-          <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
+          <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" || stage === "splash" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
+          <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" || stage === "splash" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
         </button>
       </nav>
 
@@ -163,24 +163,114 @@ export default function MirrorExperience() {
       </div>
 
       {/* Simplified Progress Indicator */}
-      <div className="fixed top-24 left-8 md:top-32 md:left-12 flex gap-3 z-50">
-        {["question", "mirror", "insight", "guide", "door"].map((s, i) => (
-          <div key={s} className="flex flex-col items-center">
-            <div 
-              className={`h-1 rounded-full transition-all duration-700 ease-out
-                ${stage === s 
-                  ? "w-8 bg-[#D79E54]" 
-                  : ["question", "mirror", "insight", "guide", "door"].indexOf(s) < ["question", "mirror", "insight", "guide", "door"].indexOf(stage)
-                    ? "w-8 bg-[#8C3B24]/40"
-                    : "w-2 bg-white/10"
-                }`}
-            />
-          </div>
-        ))}
-      </div>
+      {stage !== "splash" && (
+        <div className="fixed top-24 left-8 md:top-32 md:left-12 flex gap-3 z-50">
+          {["question", "mirror", "insight", "guide", "door"].map((s, i) => (
+            <div key={s} className="flex flex-col items-center">
+              <div 
+                className={`h-1 rounded-full transition-all duration-700 ease-out
+                  ${stage === s 
+                    ? "w-8 bg-[#D79E54]" 
+                    : ["question", "mirror", "insight", "guide", "door"].indexOf(s) < ["question", "mirror", "insight", "guide", "door"].indexOf(stage)
+                      ? "w-8 bg-[#8C3B24]/40"
+                      : "w-2 bg-white/10"
+                  }`}
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       <AnimatePresence mode="wait">
         
+        {/* STAGE 0: SPLASH */}
+        {stage === "splash" && (
+          <motion.div 
+            key="splash"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="min-h-screen bg-white text-[#05290D] relative z-10 overflow-x-hidden"
+          >
+            {/* Hero Section */}
+            <section className="h-screen flex flex-col justify-center px-8 md:px-24">
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="max-w-4xl"
+              >
+                <span className="text-xs tracking-[0.4em] uppercase opacity-60 mb-8 block font-medium">Licensed Marriage & Family Therapy</span>
+                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter mb-12">
+                  Building <br />
+                  <span className="italic font-serif font-normal text-[#8C3B24]">Resilient</span> <br />
+                  Connection.
+                </h1>
+                <p className="text-xl md:text-2xl font-light max-w-2xl leading-relaxed text-[#05290D]/80 mb-12">
+                  A specialized practice for high-performers, couples in conflict, and those seeking to rewrite the architecture of their relationships.
+                </p>
+                <div className="flex gap-4">
+                  <button 
+                    onClick={() => {
+                      const el = document.getElementById('about-jen');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="px-8 py-4 border border-[#05290D]/20 rounded-full text-sm tracking-widest uppercase hover:bg-[#05290D] hover:text-white transition-all duration-500"
+                  >
+                    Explore Practice
+                  </button>
+                  <button 
+                    onClick={() => setStage("question")}
+                    className="px-8 py-4 bg-[#8C3B24] text-white rounded-full text-sm tracking-widest uppercase hover:bg-[#05290D] transition-all duration-500"
+                  >
+                    Start Reflection
+                  </button>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-30 flex flex-col items-center gap-2"
+              >
+                <span className="text-[10px] tracking-widest uppercase">Scroll</span>
+                <div className="w-px h-12 bg-[#05290D]" />
+              </motion.div>
+            </section>
+
+            {/* About Section */}
+            <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#F5F5F0]">
+              <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-24 items-center">
+                <div className="relative">
+                  <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale contrast-110">
+                    <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-[#D79E54]/10 rounded-full blur-3xl -z-10" />
+                </div>
+                <div>
+                  <h2 className="font-syne font-bold text-4xl md:text-6xl mb-8 tracking-tight text-[#05290D]">
+                    Meet Jennifer <br /> Weinmann
+                  </h2>
+                  <div className="space-y-6 text-lg text-[#05290D]/80 font-light leading-relaxed">
+                    <p>
+                      With over 15 years of experience, I've dedicated my career to helping individuals and couples navigate the complexities of modern intimacy and high-performance stress.
+                    </p>
+                    <p>
+                      My approach is architectural—we look at the foundations of your connection, identify the structural weaknesses in your patterns, and build something designed to last.
+                    </p>
+                    <button 
+                      onClick={() => setStage("question")}
+                      className="mt-8 flex items-center gap-4 text-[#8C3B24] font-medium tracking-widest uppercase text-sm group"
+                    >
+                      Begin Your Journey <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </motion.div>
+        )}
+
         {/* STAGE 1: THE QUESTION */}
         {stage === "question" && (
           <motion.div 

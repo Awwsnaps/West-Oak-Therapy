@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
@@ -354,108 +355,84 @@ export default function MirrorExperience() {
           </motion.div>
         )}
 
-        {/* STAGE 5: THE DOOR */}
+        {/* STAGE 5: THE DOOR (Logistics) */}
         {stage === "door" && (
           <motion.div 
             key="door"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="min-h-screen flex flex-col items-center justify-start pt-32 pb-20 p-8 text-center bg-[#F5F5F0] text-[#1F0E0B] relative z-10 overflow-y-auto"
+            className="min-h-screen flex flex-col items-center justify-start pt-32 pb-20 p-8 text-center bg-white text-[#05290D] relative z-10 overflow-y-auto"
           >
-            <motion.h1 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="font-syne font-bold text-6xl md:text-8xl mb-12 tracking-tighter text-[#05290D]"
-            >
-              Ready?
-            </motion.h1>
-
-            <div className="flex flex-col md:flex-row gap-6 w-full max-w-lg justify-center mb-24">
-              <motion.button 
+            <div className="container mx-auto max-w-6xl">
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="px-8 py-4 bg-[#05290D] text-white text-base font-medium tracking-widest uppercase hover:bg-[#8C3B24] transition-colors duration-300"
+                transition={{ duration: 0.8 }}
+                className="mb-24"
               >
-                Yes — Let's Talk
-              </motion.button>
-              <motion.button 
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="px-8 py-4 border border-[#05290D]/20 text-[#05290D]/60 text-base font-medium tracking-widest uppercase hover:bg-[#05290D]/5 transition-colors duration-300"
-              >
-                Not Yet
-              </motion.button>
-            </div>
-
-            {/* Information Spheres System */}
-            <div className="w-full max-w-5xl mx-auto space-y-24 pb-20">
-              {infoSections.map((group, groupIdx) => (
-                <div key={groupIdx} className="space-y-8">
-                  <h3 className="text-xs tracking-[0.4em] uppercase opacity-40 font-bold">{group.group}</h3>
-                  <div className="flex flex-wrap justify-center gap-12 md:gap-24">
-                    {group.items.map((item, i) => (
-                      <motion.div
-                        key={item.id}
-                        layout
-                        onClick={() => setSelectedSphere(selectedSphere === item.id ? null : item.id)}
-                        className={`relative cursor-pointer transition-all duration-500 flex flex-col items-center
-                          ${selectedSphere === item.id ? "z-50 w-full md:w-[600px]" : "w-32 h-32 md:w-40 md:h-40"}`}
-                      >
-                        <motion.div
-                          layout
-                          className={`rounded-full flex items-center justify-center border border-[#05290D]/10 bg-white shadow-sm hover:shadow-md transition-shadow
-                            ${selectedSphere === item.id 
-                              ? "w-full aspect-[2/1] rounded-3xl p-8" 
-                              : "w-full h-full"}`}
-                        >
-                          <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
-                            <motion.span 
-                              layout
-                              className={`font-syne font-bold leading-tight transition-all duration-500
-                                ${selectedSphere === item.id ? "text-2xl md:text-3xl text-[#05290D] mb-4" : "text-sm md:text-base text-[#1F0E0B]/60"}`}
-                            >
-                              {item.title}
-                            </motion.span>
-                            
-                            <AnimatePresence>
-                              {selectedSphere === item.id && (
-                                <motion.p
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  exit={{ opacity: 0, y: 5 }}
-                                  className="text-[#1F0E0B]/70 leading-relaxed text-lg max-w-md"
-                                >
-                                  {item.content}
-                                </motion.p>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        </motion.div>
-                        
-                        {/* Decorative shadow sphere for closed state */}
-                        {selectedSphere !== item.id && (
-                          <div className="absolute inset-0 rounded-full bg-[#05290D]/5 blur-xl -z-10 animate-pulse" />
-                        )}
-                      </motion.div>
-                    ))}
-                  </div>
+                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tighter leading-[0.9]">
+                  Let's start <br />
+                  <span className="italic font-serif font-normal">building.</span>
+                </h1>
+                
+                <div className="flex flex-col md:flex-row gap-6 w-full max-w-xl mx-auto justify-center mt-12">
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-12 py-5 bg-[#05290D] text-white text-lg font-medium tracking-widest uppercase hover:bg-[#8C3B24] transition-colors duration-500 rounded-full shadow-lg"
+                  >
+                    Book Consultation
+                  </motion.button>
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-12 py-5 border border-[#05290D] text-[#05290D] text-lg font-medium tracking-widest uppercase hover:bg-[#05290D]/5 transition-colors duration-500 rounded-full"
+                  >
+                    View Portal
+                  </motion.button>
                 </div>
-              ))}
+              </motion.div>
+
+              {/* Modern Architect Style Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 text-left border-t border-[#05290D]/10 pt-16">
+                {infoSections.flatMap(group => group.items).map((item, i) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="group"
+                  >
+                    <div className="flex justify-between items-start mb-6">
+                      <span className="font-mono text-xs text-[#05290D]/40">0{i + 1}</span>
+                      <div className="w-8 h-8 rounded-full border border-[#05290D]/10 flex items-center justify-center group-hover:bg-[#05290D] group-hover:text-white transition-all duration-500">
+                        <ArrowUpRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                    <h3 className="font-syne text-2xl font-bold mb-4 tracking-tight">{item.title}</h3>
+                    <p className="text-[#05290D]/70 leading-relaxed font-light">
+                      {item.content}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Final Footer Style Reset */}
+              <div className="mt-32 pt-16 border-t border-[#05290D]/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[#05290D]/40 text-xs tracking-widest uppercase font-medium">
+                <div>© 2026 West Oak Therapy</div>
+                <div className="flex gap-8">
+                  <span className="cursor-pointer hover:text-[#05290D] transition-colors">Privacy</span>
+                  <span className="cursor-pointer hover:text-[#05290D] transition-colors">Terms</span>
+                </div>
+                <motion.button 
+                  onClick={() => setStage("question")}
+                  className="hover:text-[#05290D] transition-colors"
+                >
+                  Back to Beginning
+                </motion.button>
+              </div>
             </div>
-            
-            <motion.button 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5 }}
-              onClick={() => setStage("question")}
-              className="mt-20 text-xs tracking-[0.2em] uppercase text-[#05290D]/30 hover:text-[#05290D] transition-colors"
-            >
-              Start experience over
-            </motion.button>
           </motion.div>
         )}
 

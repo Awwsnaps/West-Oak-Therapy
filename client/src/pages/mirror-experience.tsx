@@ -298,14 +298,17 @@ export default function MirrorExperience() {
                   </p>
                 </motion.div>
                 
-                <div className="flex flex-col gap-4 w-full max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
                   {[
                     { label: "My relationship is struggling", val: "relationship", color: "bg-[#8C3B24]" },
                     { label: "We keep having the same fight", val: "same_fight", color: "bg-[#D79E54]" },
                     { label: "I'm using substances to cope", val: "substances", color: "bg-[#2D2926]" },
                     { label: "I feel disconnected from my life", val: "disconnected", color: "bg-[#6B705C]" },
                     { label: "Career & performance stress", val: "unknown", color: "bg-[#A5A58D]" },
-                    { label: "Something else needs to change", val: "unknown", color: "bg-[#B7B7A4]" }
+                    { label: "Something else needs to change", val: "unknown", color: "bg-[#B7B7A4]" },
+                    { label: "Communication patterns", val: "same_fight", color: "bg-[#4A4E69]" },
+                    { label: "Intimacy & connection", val: "relationship", color: "bg-[#9A8C98]" },
+                    { label: "Personal growth", val: "unknown", color: "bg-[#F2E9E4]" }
                   ].map((opt, i) => (
                     <motion.button
                       key={i}
@@ -314,15 +317,19 @@ export default function MirrorExperience() {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.6 }}
                       onClick={() => handleChoice(opt.val as any)}
-                      className={`group relative w-full h-32 md:h-40 overflow-hidden rounded-2xl ${opt.color} transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] text-left px-8 md:px-12 flex items-center justify-between shadow-lg shadow-[#2D2926]/5`}
+                      className={`group relative w-full aspect-video overflow-hidden rounded-2xl ${opt.color} transition-all duration-500 hover:scale-[1.05] active:scale-[0.98] text-left px-6 py-8 flex flex-col justify-between shadow-lg shadow-[#2D2926]/5`}
                     >
-                      <span className="text-white text-2xl md:text-4xl font-syne font-bold tracking-tight leading-none group-hover:translate-x-2 transition-transform duration-500">
+                      <div className="flex justify-between items-start">
+                        <span className={`text-[10px] font-mono tracking-widest ${i === 8 ? "text-[#2D2926]/40" : "text-white/40"}`}>CASE-0{i + 1}</span>
+                        <ArrowUpRight className={`w-6 h-6 ${i === 8 ? "text-[#2D2926]/40" : "text-white/40"} group-hover:text-white group-hover:rotate-45 transition-all duration-500`} />
+                      </div>
+                      
+                      <span className={`text-xl md:text-2xl font-syne font-bold tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-500 ${i === 8 ? "text-[#2D2926]" : "text-white"}`}>
                         {opt.label}
                       </span>
-                      <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 text-white/40 group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
                       
                       {/* Subtle architectural texture overlay */}
-                      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]" />
+                      <div className={`absolute inset-0 opacity-5 pointer-events-none ${i === 8 ? "bg-[radial-gradient(#000000_1px,transparent_1px)]" : "bg-[radial-gradient(#ffffff_1px,transparent_1px)]"} [background-size:16px_16px]`} />
                     </motion.button>
                   ))}
                 </div>

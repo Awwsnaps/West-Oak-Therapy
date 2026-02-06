@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
-  const [stage, setStage] = useState<"splash" | "question" | "mirror" | "insight" | "guide" | "door">("splash");
+  const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "door">("splash");
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
   const [selectedSphere, setSelectedSphere] = useState<string | null>(null);
 
@@ -133,6 +133,7 @@ export default function MirrorExperience() {
   const handleChoice = (selectedPath: "relationship" | "substances" | "disconnected" | "same_fight" | "unknown") => {
     setPath(selectedPath);
     setStage("mirror");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -140,16 +141,19 @@ export default function MirrorExperience() {
       
       {/* Header & Nav */}
       <nav className={`fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center transition-colors duration-500 border-b ${
-        stage === "door" || stage === "guide" || stage === "splash"
+        stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight"
           ? "bg-white/80 border-[#05290D]/5 text-[#05290D]" 
           : "bg-[#050505]/80 border-white/5 text-white"
       } backdrop-blur-md`}>
-        <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => setStage("splash")}>
+        <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => {
+          setStage("splash");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}>
           West Oak Therapy
         </div>
         <button className="w-10 h-10 flex flex-col items-end justify-center gap-1.5 group">
-          <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" || stage === "splash" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
-          <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" || stage === "splash" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
+          <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
+          <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
         </button>
       </nav>
 
@@ -165,16 +169,16 @@ export default function MirrorExperience() {
       {/* Simplified Progress Indicator */}
       {stage !== "splash" && (
         <div className="fixed top-24 left-8 md:top-32 md:left-12 flex gap-3 z-50">
-          {["question", "mirror", "insight", "guide", "door"].map((s, i) => (
+          {["mirror", "insight", "guide", "door"].map((s, i) => (
             <div key={s} className="flex flex-col items-center">
               <div 
                 className={`h-1 rounded-full transition-all duration-700 ease-out
                   ${stage === s 
                     ? "w-8 bg-[#D79E54]" 
-                    : ["question", "mirror", "insight", "guide", "door"].indexOf(s) < ["question", "mirror", "insight", "guide", "door"].indexOf(stage)
+                    : ["mirror", "insight", "guide", "door"].indexOf(s) < ["mirror", "insight", "guide", "door"].indexOf(stage)
                       ? "w-8 bg-[#8C3B24]/40"
-                      : "w-2 bg-white/10"
-                  }`}
+                      : "w-2 bg-[#05290D]/10"
+                }`}
               />
             </div>
           ))}
@@ -183,7 +187,7 @@ export default function MirrorExperience() {
 
       <AnimatePresence mode="wait">
         
-        {/* STAGE 0: SPLASH */}
+        {/* STAGE 0: SPLASH (Includes Introduction & Question) */}
         {stage === "splash" && (
           <motion.div 
             key="splash"
@@ -220,7 +224,10 @@ export default function MirrorExperience() {
                     Explore Practice
                   </button>
                   <button 
-                    onClick={() => setStage("question")}
+                    onClick={() => {
+                      const el = document.getElementById('why-here');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                     className="px-8 py-4 bg-[#8C3B24] text-white rounded-full text-sm tracking-widest uppercase hover:bg-[#05290D] transition-all duration-500"
                   >
                     Start Reflection
@@ -259,7 +266,10 @@ export default function MirrorExperience() {
                       My approach is architectural—we look at the foundations of your connection, identify the structural weaknesses in your patterns, and build something designed to last.
                     </p>
                     <button 
-                      onClick={() => setStage("question")}
+                      onClick={() => {
+                        const el = document.getElementById('why-here');
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                      }}
                       className="mt-8 flex items-center gap-4 text-[#8C3B24] font-medium tracking-widest uppercase text-sm group"
                     >
                       Begin Your Journey <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -268,61 +278,46 @@ export default function MirrorExperience() {
                 </div>
               </div>
             </section>
-          </motion.div>
-        )}
 
-        {/* STAGE 1: THE QUESTION */}
-        {stage === "question" && (
-          <motion.div 
-            key="question"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="h-screen flex flex-col items-center justify-center p-8 max-w-4xl mx-auto relative z-10"
-          >
-            <motion.h1 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-syne font-medium text-5xl md:text-7xl mb-20 tracking-tight text-center text-[#F5F5F5]"
-            >
-              Why are you here?
-            </motion.h1>
-            
-            <div className="flex flex-col gap-px w-full max-w-xl border-y border-white/10 bg-white/5">
-              {[
-                { label: "My relationship is struggling", val: "relationship" },
-                { label: "We keep having the same fight", val: "same_fight" },
-                { label: "I'm using alcohol or cannabis too much", val: "substances" },
-                { label: "I feel disconnected from my family", val: "disconnected" },
-                { label: "I don't know, but something needs to change", val: "unknown" }
-              ].map((opt, i) => (
-                <motion.button
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 + (i * 0.05), duration: 0.5 }}
-                  onClick={() => handleChoice(opt.val as any)}
-                  className="group relative flex items-center justify-between p-6 bg-[#050505] hover:bg-[#0A0A0A] transition-colors duration-300 text-left w-full"
+            {/* Why are you here Section */}
+            <section id="why-here" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-white">
+              <div className="container mx-auto max-w-4xl text-center">
+                <motion.h2 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="font-syne font-medium text-5xl md:text-7xl mb-20 tracking-tight text-[#05290D]"
                 >
-                  <span className="text-lg md:text-xl font-light text-white/50 group-hover:text-[#D79E54] transition-colors tracking-wide">
-                    {opt.label}
-                  </span>
-                  <span className="text-white/10 group-hover:text-[#D79E54] transition-colors duration-300 text-xl font-light">→</span>
-                </motion.button>
-              ))}
-            </div>
-
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              onClick={() => setStage("door")}
-              className="mt-12 text-xs tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors py-4 px-8 border border-white/5 rounded-full hover:bg-white/5"
-            >
-              Skip to Logistics
-            </motion.button>
+                  Why are you here?
+                </motion.h2>
+                
+                <div className="flex flex-col gap-px w-full max-w-xl mx-auto border-y border-[#05290D]/10 bg-[#05290D]/5">
+                  {[
+                    { label: "My relationship is struggling", val: "relationship" },
+                    { label: "We keep having the same fight", val: "same_fight" },
+                    { label: "I'm using alcohol or cannabis too much", val: "substances" },
+                    { label: "I feel disconnected from my family", val: "disconnected" },
+                    { label: "I don't know, but something needs to change", val: "unknown" }
+                  ].map((opt, i) => (
+                    <motion.button
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1, duration: 0.5 }}
+                      onClick={() => handleChoice(opt.val as any)}
+                      className="group relative flex items-center justify-between p-6 bg-white hover:bg-[#F5F5F0] transition-colors duration-300 text-left w-full"
+                    >
+                      <span className="text-lg md:text-xl font-light text-[#05290D]/50 group-hover:text-[#8C3B24] transition-colors tracking-wide">
+                        {opt.label}
+                      </span>
+                      <span className="text-[#05290D]/10 group-hover:text-[#8C3B24] transition-colors duration-300 text-xl font-light">→</span>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            </section>
           </motion.div>
         )}
 
@@ -344,7 +339,7 @@ export default function MirrorExperience() {
                   initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ delay: i * 1.5, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl leading-tight font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#D79E54]" : "text-white/40"}`}
+                  className={`text-2xl md:text-4xl leading-tight font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#D79E54]" : "text-[#05290D]/40"}`}
                 >
                   {line}
                 </motion.p>
@@ -380,7 +375,7 @@ export default function MirrorExperience() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 1 + 0.5, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-[#8C3B24] mb-12 block text-sm font-sans tracking-[0.2em] uppercase" : "text-[#F5F5F5] leading-tight font-medium"}`}
+                  className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-[#8C3B24] mb-12 block text-sm font-sans tracking-[0.2em] uppercase" : "text-[#05290D] leading-tight font-medium"}`}
                 >
                   {line}
                 </motion.p>
@@ -520,7 +515,10 @@ export default function MirrorExperience() {
                   <span className="cursor-pointer hover:text-[#05290D] transition-colors">Terms</span>
                 </div>
                 <motion.button 
-                  onClick={() => setStage("question")}
+                  onClick={() => {
+                    setStage("splash");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   className="hover:text-[#05290D] transition-colors"
                 >
                   Back to Beginning

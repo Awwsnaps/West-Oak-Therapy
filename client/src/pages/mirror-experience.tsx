@@ -298,14 +298,14 @@ export default function MirrorExperience() {
                   </p>
                 </motion.div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
+                <div className="flex flex-col gap-4 w-full max-w-4xl mx-auto">
                   {[
-                    { label: "My relationship is struggling", val: "relationship", img: "/src/assets/images/relationship.jpg", color: "bg-[#8C3B24]/10" },
-                    { label: "We keep having the same fight", val: "same_fight", img: "/src/assets/images/conflict.jpg", color: "bg-[#D79E54]/10" },
-                    { label: "I'm using substances to cope", val: "substances", img: "/src/assets/images/substances.jpg", color: "bg-[#2D2926]/10" },
-                    { label: "I feel disconnected from my life", val: "disconnected", img: "/src/assets/images/disconnected.jpg", color: "bg-[#E5E0DA]/20" },
-                    { label: "Career & performance stress", val: "unknown", img: "/src/assets/images/career.jpg", color: "bg-[#8C3B24]/5" },
-                    { label: "Something else needs to change", val: "unknown", img: "/src/assets/images/unknown.jpg", color: "bg-[#2D2926]/5" }
+                    { label: "My relationship is struggling", val: "relationship", color: "bg-[#8C3B24]" },
+                    { label: "We keep having the same fight", val: "same_fight", color: "bg-[#D79E54]" },
+                    { label: "I'm using substances to cope", val: "substances", color: "bg-[#2D2926]" },
+                    { label: "I feel disconnected from my life", val: "disconnected", color: "bg-[#6B705C]" },
+                    { label: "Career & performance stress", val: "unknown", color: "bg-[#A5A58D]" },
+                    { label: "Something else needs to change", val: "unknown", color: "bg-[#B7B7A4]" }
                   ].map((opt, i) => (
                     <motion.button
                       key={i}
@@ -314,21 +314,15 @@ export default function MirrorExperience() {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.6 }}
                       onClick={() => handleChoice(opt.val as any)}
-                      className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-[#2D2926]/10 text-left"
+                      className={`group relative w-full h-32 md:h-40 overflow-hidden rounded-2xl ${opt.color} transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] text-left px-8 md:px-12 flex items-center justify-between shadow-lg shadow-[#2D2926]/5`}
                     >
-                      <img 
-                        src={opt.img} 
-                        alt={opt.label}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-40 group-hover:opacity-100" 
-                      />
-                      <div className={`absolute inset-0 ${opt.color} mix-blend-multiply transition-opacity group-hover:opacity-0`} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926]/80 via-[#2D2926]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                      <div className="absolute bottom-0 left-0 p-8 w-full">
-                        <span className="text-white text-xl font-syne font-bold leading-tight block mb-2 group-hover:text-[#FDFCFB]">
-                          {opt.label}
-                        </span>
-                        <div className="h-px w-0 bg-[#8C3B24] transition-all duration-500 group-hover:w-full" />
-                      </div>
+                      <span className="text-white text-2xl md:text-4xl font-syne font-bold tracking-tight leading-none group-hover:translate-x-2 transition-transform duration-500">
+                        {opt.label}
+                      </span>
+                      <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 text-white/40 group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
+                      
+                      {/* Subtle architectural texture overlay */}
+                      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]" />
                     </motion.button>
                   ))}
                 </div>

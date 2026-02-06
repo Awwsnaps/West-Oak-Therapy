@@ -139,13 +139,17 @@ export default function MirrorExperience() {
     <div className="min-h-screen bg-[#050505] text-[#F5F5F5] font-dm selection:bg-white/20 selection:text-white overflow-hidden relative">
       
       {/* Header & Nav */}
-      <nav className="fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center pointer-events-none">
-        <div className="font-syne font-bold text-lg tracking-tight pointer-events-auto cursor-pointer" onClick={() => setStage("question")}>
+      <nav className={`fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center transition-colors duration-500 border-b ${
+        stage === "door" || stage === "guide" 
+          ? "bg-white/80 border-[#05290D]/5 text-[#05290D]" 
+          : "bg-[#050505]/80 border-white/5 text-white"
+      } backdrop-blur-md`}>
+        <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => setStage("question")}>
           West Oak Therapy
         </div>
-        <button className="w-10 h-10 flex flex-col items-end justify-center gap-1.5 pointer-events-auto group">
-          <span className="w-8 h-px bg-white/60 group-hover:bg-white transition-all"></span>
-          <span className="w-5 h-px bg-white/60 group-hover:w-8 group-hover:bg-white transition-all"></span>
+        <button className="w-10 h-10 flex flex-col items-end justify-center gap-1.5 group">
+          <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
+          <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" ? "bg-[#05290D]/60 group-hover:bg-[#05290D]" : "bg-white/60 group-hover:bg-white"}`}></span>
         </button>
       </nav>
 

@@ -298,27 +298,37 @@ export default function MirrorExperience() {
                   </p>
                 </motion.div>
                 
-                <div className="flex flex-col gap-px w-full max-w-xl mx-auto border-y border-[#2D2926]/10 bg-[#2D2926]/5 rounded-sm overflow-hidden shadow-2xl shadow-[#2D2926]/5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
                   {[
-                    { label: "My relationship is struggling", val: "relationship" },
-                    { label: "We keep having the same fight", val: "same_fight" },
-                    { label: "I'm using substances to cope", val: "substances" },
-                    { label: "I feel disconnected from my life", val: "disconnected" },
-                    { label: "Something needs to change", val: "unknown" }
+                    { label: "My relationship is struggling", val: "relationship", img: "/src/assets/images/relationship.jpg", color: "bg-[#8C3B24]/10" },
+                    { label: "We keep having the same fight", val: "same_fight", img: "/src/assets/images/conflict.jpg", color: "bg-[#D79E54]/10" },
+                    { label: "I'm using substances to cope", val: "substances", img: "/src/assets/images/substances.jpg", color: "bg-[#2D2926]/10" },
+                    { label: "I feel disconnected from my life", val: "disconnected", img: "/src/assets/images/disconnected.jpg", color: "bg-[#E5E0DA]/20" },
+                    { label: "Career & performance stress", val: "unknown", img: "/src/assets/images/career.jpg", color: "bg-[#8C3B24]/5" },
+                    { label: "Something else needs to change", val: "unknown", img: "/src/assets/images/unknown.jpg", color: "bg-[#2D2926]/5" }
                   ].map((opt, i) => (
                     <motion.button
                       key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.6 }}
                       onClick={() => handleChoice(opt.val as any)}
-                      className="group relative flex items-center justify-between p-8 bg-[#FDFCFB] hover:bg-[#F8F7F5] transition-all duration-500 text-left w-full border-b border-[#2D2926]/5 last:border-0"
+                      className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-[#2D2926]/10 text-left"
                     >
-                      <span className="text-lg md:text-xl font-light text-[#2D2926]/40 group-hover:text-[#2D2926] transition-colors tracking-wide">
-                        {opt.label}
-                      </span>
-                      <span className="text-[#2D2926]/10 group-hover:text-[#8C3B24] transition-all duration-500 text-xl font-light translate-x-0 group-hover:translate-x-2">→</span>
+                      <img 
+                        src={opt.img} 
+                        alt={opt.label}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-40 group-hover:opacity-100" 
+                      />
+                      <div className={`absolute inset-0 ${opt.color} mix-blend-multiply transition-opacity group-hover:opacity-0`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926]/80 via-[#2D2926]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                      <div className="absolute bottom-0 left-0 p-8 w-full">
+                        <span className="text-white text-xl font-syne font-bold leading-tight block mb-2 group-hover:text-[#FDFCFB]">
+                          {opt.label}
+                        </span>
+                        <div className="h-px w-0 bg-[#8C3B24] transition-all duration-500 group-hover:w-full" />
+                      </div>
                     </motion.button>
                   ))}
                 </div>

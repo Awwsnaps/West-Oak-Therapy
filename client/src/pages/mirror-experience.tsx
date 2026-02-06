@@ -282,15 +282,21 @@ export default function MirrorExperience() {
             {/* Why are you here Section */}
             <section id="why-here" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#FDFCFB]">
               <div className="container mx-auto max-w-4xl text-center">
-                <motion.h2 
+                <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
-                  className="font-syne font-bold text-5xl md:text-7xl mb-24 tracking-tight text-[#2D2926]"
+                  className="mb-16 max-w-2xl mx-auto"
                 >
-                  What brought <br /> you here?
-                </motion.h2>
+                  <span className="text-[10px] tracking-[0.5em] uppercase text-[#8C3B24] font-bold mb-6 block">The Orientation</span>
+                  <h2 className="font-syne font-bold text-5xl md:text-7xl mb-8 tracking-tight text-[#2D2926]">
+                    Where do we <br /> begin?
+                  </h2>
+                  <p className="text-lg md:text-xl text-[#2D2926]/60 font-light leading-relaxed">
+                    Select the path that most closely aligns with your current reality. This choice isn't permanent—it's simply the structural starting point for our reflection. 
+                  </p>
+                </motion.div>
                 
                 <div className="flex flex-col gap-px w-full max-w-xl mx-auto border-y border-[#2D2926]/10 bg-[#2D2926]/5 rounded-sm overflow-hidden shadow-2xl shadow-[#2D2926]/5">
                   {[

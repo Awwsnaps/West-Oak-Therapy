@@ -112,7 +112,7 @@ export default function MirrorExperience() {
       {/* Minimal ambient light - simplified */}
       <div className="fixed inset-0 z-0 pointer-events-none">
          <motion.div 
-           className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-white/[0.03] blur-[150px] rounded-full"
+           className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-[#D79E54]/[0.05] blur-[150px] rounded-full"
            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
          />
@@ -125,9 +125,9 @@ export default function MirrorExperience() {
             <div 
               className={`h-1 rounded-full transition-all duration-700 ease-out
                 ${stage === s 
-                  ? "w-8 bg-white" 
+                  ? "w-8 bg-[#D79E54]" 
                   : ["question", "mirror", "insight", "guide", "door"].indexOf(s) < ["question", "mirror", "insight", "guide", "door"].indexOf(stage)
-                    ? "w-8 bg-white/20"
+                    ? "w-8 bg-[#8C3B24]/40"
                     : "w-2 bg-white/10"
                 }`}
             />
@@ -151,7 +151,7 @@ export default function MirrorExperience() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-syne font-medium text-5xl md:text-7xl mb-20 tracking-tight text-center"
+              className="font-syne font-medium text-5xl md:text-7xl mb-20 tracking-tight text-center text-[#F5F5F5]"
             >
               Why are you here?
             </motion.h1>
@@ -172,10 +172,10 @@ export default function MirrorExperience() {
                   onClick={() => handleChoice(opt.val as any)}
                   className="group relative flex items-center justify-between p-6 bg-[#050505] hover:bg-[#0A0A0A] transition-colors duration-300 text-left w-full"
                 >
-                  <span className="text-lg md:text-xl font-light text-white/70 group-hover:text-white transition-colors tracking-wide">
+                  <span className="text-lg md:text-xl font-light text-white/50 group-hover:text-[#D79E54] transition-colors tracking-wide">
                     {opt.label}
                   </span>
-                  <span className="text-white/20 group-hover:text-white transition-colors duration-300 text-xl font-light">→</span>
+                  <span className="text-white/10 group-hover:text-[#D79E54] transition-colors duration-300 text-xl font-light">→</span>
                 </motion.button>
               ))}
             </div>
@@ -200,7 +200,7 @@ export default function MirrorExperience() {
                   initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ delay: i * 1.5, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl leading-tight font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-white" : "text-white/60"}`}
+                  className={`text-2xl md:text-4xl leading-tight font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#D79E54]" : "text-white/40"}`}
                 >
                   {line}
                 </motion.p>
@@ -211,7 +211,7 @@ export default function MirrorExperience() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: content[path].mirror.length * 1.5 + 1, duration: 1 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-white/30"
+              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-[#D79E54]/40"
             >
               Click to continue
             </motion.div>
@@ -236,7 +236,7 @@ export default function MirrorExperience() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 1 + 0.5, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-white/40 mb-12 block text-sm font-sans tracking-[0.2em] uppercase" : "text-white leading-tight font-medium"}`}
+                  className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-[#8C3B24] mb-12 block text-sm font-sans tracking-[0.2em] uppercase" : "text-[#F5F5F5] leading-tight font-medium"}`}
                 >
                   {line}
                 </motion.p>
@@ -247,7 +247,7 @@ export default function MirrorExperience() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 4, duration: 1 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-white/30"
+              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-[#8C3B24]/40"
             >
               Click to continue
             </motion.div>
@@ -262,14 +262,14 @@ export default function MirrorExperience() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 1 }}
-            className="min-h-screen flex flex-col items-center justify-center p-8 text-center relative z-10 bg-[#E1C9B5] text-[#1F0E0B]"
+            className="min-h-screen flex flex-col items-center justify-center p-8 text-center relative z-10 bg-[#F5F5F0] text-[#1F0E0B]"
             onClick={() => setStage("door")}
           >
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-12 grayscale contrast-125"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-12 grayscale contrast-125 border-4 border-[#05290D]/10"
             >
               <img src={portrait} alt="Jennifer" className="w-full h-full object-cover" />
             </motion.div>
@@ -278,7 +278,7 @@ export default function MirrorExperience() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-syne font-bold text-4xl md:text-5xl mb-8 tracking-tight"
+              className="font-syne font-bold text-4xl md:text-5xl mb-8 tracking-tight text-[#05290D]"
             >
               I specialize in exactly this.
             </motion.h2>
@@ -287,18 +287,18 @@ export default function MirrorExperience() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="max-w-xl text-lg md:text-xl leading-relaxed space-y-6 font-light"
+              className="max-w-xl text-lg md:text-xl leading-relaxed space-y-6 font-light text-[#1F0E0B]/80"
             >
               <p>I'm Jennifer Weinmann—The Relationship Architect.</p>
               <p>I help people build, repair, and transform the relationships that matter most—by seeing what's really happening between them, not just within them.</p>
-              <p className="font-medium">No judgment. No shortcuts. Just real understanding.</p>
+              <p className="font-medium text-[#8C3B24]">No judgment. No shortcuts. Just real understanding.</p>
             </motion.div>
             
              <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2, duration: 1 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase opacity-40"
+              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase text-[#05290D]/40"
             >
               Click to continue
             </motion.div>
@@ -312,13 +312,13 @@ export default function MirrorExperience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="h-screen flex flex-col items-center justify-center p-8 text-center bg-white text-[#1F0E0B] relative z-10"
+            className="h-screen flex flex-col items-center justify-center p-8 text-center bg-[#F5F5F0] text-[#1F0E0B] relative z-10"
           >
             <motion.h1 
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="font-syne font-bold text-6xl md:text-8xl mb-16 tracking-tighter"
+              className="font-syne font-bold text-6xl md:text-8xl mb-16 tracking-tighter text-[#05290D]"
             >
               Ready?
             </motion.h1>
@@ -328,7 +328,7 @@ export default function MirrorExperience() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="px-8 py-4 bg-[#1F0E0B] text-white text-base font-medium tracking-widest uppercase hover:bg-[#2F6479] transition-colors duration-300"
+                className="px-8 py-4 bg-[#05290D] text-white text-base font-medium tracking-widest uppercase hover:bg-[#8C3B24] transition-colors duration-300"
               >
                 Yes — Let's Talk
               </motion.button>
@@ -336,7 +336,7 @@ export default function MirrorExperience() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="px-8 py-4 border border-[#1F0E0B]/20 text-[#1F0E0B]/60 text-base font-medium tracking-widest uppercase hover:bg-[#1F0E0B]/5 transition-colors duration-300"
+                className="px-8 py-4 border border-[#05290D]/20 text-[#05290D]/60 text-base font-medium tracking-widest uppercase hover:bg-[#05290D]/5 transition-colors duration-300"
               >
                 Not Yet
               </motion.button>
@@ -347,7 +347,7 @@ export default function MirrorExperience() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5 }}
               onClick={() => setStage("question")}
-              className="absolute bottom-12 text-xs tracking-[0.2em] uppercase text-black/30 hover:text-black transition-colors"
+              className="absolute bottom-12 text-xs tracking-[0.2em] uppercase text-[#05290D]/30 hover:text-[#05290D] transition-colors"
             >
               Start experience over
             </motion.button>

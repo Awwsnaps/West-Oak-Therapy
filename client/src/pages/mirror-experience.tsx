@@ -156,7 +156,6 @@ export default function MirrorExperience() {
           {[
             { label: "Home", action: () => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); } },
             { label: "About", action: () => setStage("guide") },
-            { label: "Portal", action: () => {} },
             { label: "Service", action: () => setStage("service") }
           ].map((item) => (
             <button 
@@ -170,6 +169,11 @@ export default function MirrorExperience() {
         </div>
 
         <div className="flex items-center gap-4">
+          <button 
+            className="hidden md:block px-6 py-2 border border-white/20 text-white rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-white hover:text-[#1A1A1A] transition-all duration-500"
+          >
+            Client Portal
+          </button>
           <button 
             onClick={() => setStage("service")}
             className="hidden md:block px-6 py-2 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"

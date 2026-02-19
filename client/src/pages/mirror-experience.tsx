@@ -8,29 +8,29 @@ export default function MirrorExperience() {
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
   const [selectedSphere, setSelectedSphere] = useState<string | null>(null);
 
-  // Additional sections data
+  // Updated sections data from new practice info
   const infoSections = [
     {
       group: "Practice",
       items: [
-        { id: "exp", title: "Professional Experience", content: "Over 15 years specializing in complex relationship dynamics and high-performance stress management. Licensed Marriage and Family Therapist (LMFT)." },
-        { id: "services", title: "Services", content: "Individual therapy, couples intensive workshops, and strategic relationship consulting. Specialized support for substance use patterns." }
+        { id: "exp", title: "The Strategic Healer", content: "Jennifer Weinmann, LMFT, is a licensed therapist with fourteen years of clinical experience. She blends evidence‑based assessment with systems thinking and trauma‑informed care to help professionals, couples, and families rebuild meaningful connection." },
+        { id: "approach", title: "Clinical Approach", content: "Strategically compassionate care balancing clinical clarity with human warmth. Using Relational Life Therapy (RLT) and outcome tracking to make progress visible, durable, and far‑reaching." }
       ]
     },
     {
-      group: "Process",
+      group: "Focus Areas",
       items: [
-        { id: "booking", title: "Booking", content: "Initial consultations are available via the portal. We typically schedule 50-minute sessions, with 90-minute intensives available for couples." },
-        { id: "payment", title: "Payment", content: "All major credit cards accepted. Secure digital billing through our client portal." },
-        { id: "forms", title: "Intake Forms", content: "Digital forms will be sent upon booking. Please complete them 24 hours before our first session." }
+        { id: "co-occurring", title: "Co‑occurring & Trauma", content: "Integrated approaches for managing mental health and substance‑use together. Specialized in trauma-informed care and complex stabilization." },
+        { id: "couples", title: "Couples & Families", content: "RLT-informed work to repair patterns, improve communication, and shift generational dynamics with safety-first pacing." },
+        { id: "professionals", title: "Professionals & Leaders", content: "Depth‑oriented therapy respecting career demands while prioritizing sustainable, systemic change." }
       ]
     },
     {
-      group: "Resources & Fees",
+      group: "Logistics",
       items: [
-        { id: "resources", title: "Client Resources", content: "Access to the 'Architect's Toolkit'—a curated library of worksheets, reading lists, and pattern-tracking tools." },
-        { id: "insurance", title: "*Why I don't take insurance", content: "To protect your privacy and ensure our work is dictated by your needs, not a diagnosis required by an insurance carrier. This allows for total clinical freedom and confidentiality." },
-        { id: "fees", title: "Fees", content: "Standard sessions: $250. Couples intensives: $400. Inquire for concierge or out-of-office intensive pricing." }
+        { id: "sessions", title: "Session Format", content: "Available in 60, 90, or 120 minute lengths. Frequency is individualized, typically starting weekly and adjusted based on progress." },
+        { id: "insurance", title: "*Why I don't take insurance", content: "To preserve clinical autonomy and protect your privacy. Insurance often requires simplified labels and limits session length; private pay allows for flexible, optimal care tailored to your complex needs." },
+        { id: "fees", title: "Investment", content: "Individual: $200-$400. Couples: $250-$500 (based on 60/90/120 min). Superbills provided for potential OON reimbursement." }
       ]
     }
   ];
@@ -256,14 +256,17 @@ export default function MirrorExperience() {
                 </div>
                 <div>
                   <h2 className="font-syne font-bold text-4xl md:text-6xl mb-10 tracking-tight text-[#2D2926] leading-tight">
-                    Rooted in <br /> <span className="italic font-serif font-light text-[#8C3B24]">Excellence.</span>
+                    The <span className="italic font-serif font-light text-[#8C3B24]">Strategic</span> Healer.
                   </h2>
                   <div className="space-y-8 text-xl text-[#2D2926]/60 font-light leading-relaxed">
                     <p>
-                      I am Jennifer Weinmann. My practice is built on the intersection of deep clinical expertise and a modern, architectural approach to human connection.
+                      I am Jennifer Weinmann, LMFT. My practice is built on the intersection of deep clinical expertise and a modern, architectural approach to human connection.
                     </p>
                     <p>
-                      We don't just talk about problems; we map the structural patterns that define your life, reinforcing what works and redesigning what doesn't.
+                      With fourteen years of experience, I help professionals and families heal from trauma, manage co-occurring challenges, and rebuild meaningful presence. 
+                    </p>
+                    <p className="italic text-[#8C3B24] font-serif text-2xl">
+                      "Healing accelerates when strategy meets compassion in service of transformation."
                     </p>
                     <button 
                       onClick={() => {
@@ -445,9 +448,9 @@ export default function MirrorExperience() {
               transition={{ delay: 0.8, duration: 1 }}
               className="max-w-xl text-xl md:text-2xl leading-relaxed space-y-8 font-light text-[#2D2926]/60"
             >
-              <p>I am The Relationship Architect.</p>
+              <p>I am Jennifer Weinmann, LMFT—The Strategic Healer.</p>
               <p>My work is about mapping the hidden pathways of connection, revealing the structures that keep you stuck, and building the ones that set you free.</p>
-              <p className="font-semibold text-[#8C3B24] tracking-wide">Intentional. Evidence-based. Transformative.</p>
+              <p className="font-semibold text-[#8C3B24] tracking-wide">Strategically compassionate care that balances clinical clarity with human warmth.</p>
             </motion.div>
             
              <motion.div 

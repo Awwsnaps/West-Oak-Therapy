@@ -155,8 +155,8 @@ export default function MirrorExperience() {
         <div className="hidden md:flex items-center gap-10">
           {[
             { label: "Home", action: () => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); } },
-            { label: "About", action: () => { document.getElementById('about-jen')?.scrollIntoView({ behavior: 'smooth' }); } },
-            { label: "Blog", action: () => {} },
+            { label: "About", action: () => setStage("guide") },
+            { label: "Portal", action: () => {} },
             { label: "Service", action: () => setStage("door") }
           ].map((item) => (
             <button 

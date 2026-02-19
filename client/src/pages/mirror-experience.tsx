@@ -742,33 +742,6 @@ export default function MirrorExperience() {
                 </p>
               </div>
 
-              {/* Modern Architect Style Grid (Logistics) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 md:gap-x-16 gap-y-16 md:gap-y-24 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24 mb-20 md:mb-32">
-                {infoSections.flatMap(group => group.items)
-                  .filter((_, i) => i !== 4 && i !== 6) // Remove ARCH-05 (index 4) and ARCH-07 (index 6)
-                  .map((item, i) => (
-                    <motion.div
-                      key={item.id}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1, duration: 1 }}
-                      className="group"
-                    >
-                      <div className="flex justify-between items-center mb-6 md:mb-8">
-                        <span className="font-mono text-[9px] md:text-[10px] tracking-widest text-[#2D2926]/20">ARCH-0{i + 1}</span>
-                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#2D2926]/10 flex items-center justify-center group-hover:bg-[#8C3B24] group-hover:border-[#8C3B24] group-hover:text-[#FDFCFB] transition-all duration-700">
-                          <ArrowUpRight className="w-4 h-4" />
-                        </div>
-                      </div>
-                      <h3 className="font-syne text-xl md:text-2xl font-bold mb-4 md:mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{item.title}</h3>
-                      <p className="text-[#2D2926]/50 leading-relaxed font-light text-base md:text-lg">
-                        {item.content}
-                      </p>
-                    </motion.div>
-                  ))}
-              </div>
-
               {/* Fees Section */}
               <div className="mb-20 md:mb-32 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
@@ -829,6 +802,33 @@ export default function MirrorExperience() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Modern Architect Style Grid (Logistics) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 md:gap-x-16 gap-y-16 md:gap-y-24 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24 mb-20 md:mb-32">
+                {infoSections.flatMap(group => group.items)
+                  .filter((_, i) => i !== 4 && i !== 6) // Remove ARCH-05 (index 4) and ARCH-07 (index 6)
+                  .map((item, i) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1, duration: 1 }}
+                      className="group"
+                    >
+                      <div className="flex justify-between items-center mb-6 md:mb-8">
+                        <span className="font-mono text-[9px] md:text-[10px] tracking-widest text-[#2D2926]/20">ARCH-0{i + 1}</span>
+                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#2D2926]/10 flex items-center justify-center group-hover:bg-[#8C3B24] group-hover:border-[#8C3B24] group-hover:text-[#FDFCFB] transition-all duration-700">
+                          <ArrowUpRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                      <h3 className="font-syne text-xl md:text-2xl font-bold mb-4 md:mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{item.title}</h3>
+                      <p className="text-[#2D2926]/50 leading-relaxed font-light text-base md:text-lg">
+                        {item.content}
+                      </p>
+                    </motion.div>
+                  ))}
               </div>
 
               {/* FAQ Section */}

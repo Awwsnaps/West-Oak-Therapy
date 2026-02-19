@@ -4,7 +4,7 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
-  const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "door">("splash");
+  const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "service">("splash");
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
   const [mirrorIndex, setMirrorIndex] = useState(0);
 
@@ -141,7 +141,7 @@ export default function MirrorExperience() {
       
       {/* Header & Nav */}
       <nav className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[100] px-8 py-4 flex justify-between items-center transition-all duration-700 rounded-full border ${
-        stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight"
+        stage === "service" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight"
           ? "bg-[#1A1A1A]/80 border-white/10 text-white" 
           : "bg-[#1A1A1A]/90 border-white/5 text-[#FDFCFB]"
       } backdrop-blur-xl shadow-2xl`}>
@@ -157,7 +157,7 @@ export default function MirrorExperience() {
             { label: "Home", action: () => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); } },
             { label: "About", action: () => setStage("guide") },
             { label: "Portal", action: () => {} },
-            { label: "Service", action: () => setStage("door") }
+            { label: "Service", action: () => setStage("service") }
           ].map((item) => (
             <button 
               key={item.label}
@@ -171,7 +171,7 @@ export default function MirrorExperience() {
 
         <div className="flex items-center gap-4">
           <button 
-            onClick={() => setStage("door")}
+            onClick={() => setStage("service")}
             className="hidden md:block px-6 py-2 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
           >
             Book a Consultation
@@ -195,9 +195,9 @@ export default function MirrorExperience() {
       {/* Narrative Progress Marker */}
       {stage !== "splash" && (
         <div className="fixed top-24 left-8 md:top-32 md:left-12 flex flex-col gap-6 z-50">
-          {["mirror", "insight", "guide", "door"].map((s, i) => {
-            const index = ["mirror", "insight", "guide", "door"].indexOf(s);
-            const currentIndex = ["mirror", "insight", "guide", "door"].indexOf(stage);
+          {["mirror", "insight", "guide", "service"].map((s, i) => {
+            const index = ["mirror", "insight", "guide", "service"].indexOf(s);
+            const currentIndex = ["mirror", "insight", "guide", "service"].indexOf(stage);
             const isCompleted = index < currentIndex;
             const isActive = stage === s;
             
@@ -225,7 +225,7 @@ export default function MirrorExperience() {
                 </div>
                 <span className={`text-[8px] tracking-[0.3em] uppercase font-bold transition-all duration-500 
                   ${isActive ? "text-[#8C3B24] opacity-100" : isCompleted ? "text-[#2D2926] opacity-40 group-hover:opacity-100" : "text-[#2D2926] opacity-0"}`}>
-                  {s === "mirror" ? "Reflection" : s === "door" ? "Logistics" : s}
+                  {s === "mirror" ? "Reflection" : s === "service" ? "Service" : s}
                 </span>
               </button>
             );
@@ -622,7 +622,7 @@ export default function MirrorExperience() {
                       <motion.button 
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => setStage("door")}
+                        onClick={() => setStage("service")}
                         className="px-10 py-4 bg-[#8C3B24] text-white rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl"
                       >
                         Begin Your Work
@@ -635,10 +635,10 @@ export default function MirrorExperience() {
           </motion.div>
         )}
 
-        {/* STAGE 5: THE DOOR (Logistics) */}
-        {stage === "door" && (
+        {/* STAGE 5: THE SERVICE (Logistics) */}
+        {stage === "service" && (
           <motion.div 
-            key="door"
+            key="service"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}

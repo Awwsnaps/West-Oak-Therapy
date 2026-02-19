@@ -245,7 +245,7 @@ export default function MirrorExperience() {
             className="min-h-screen bg-[#FDFCFB] text-[#2D2926] relative z-10 overflow-x-hidden"
           >
             {/* Hero Section */}
-            <section className="relative h-screen flex flex-col justify-end px-8 md:px-24 pb-20 md:pb-32 overflow-hidden">
+            <section className="relative min-h-screen flex flex-col justify-end px-6 md:px-24 pb-12 md:pb-32 overflow-hidden">
               {/* Cinematic Background Image */}
               <div className="absolute inset-0 z-0">
                 <img 
@@ -253,39 +253,39 @@ export default function MirrorExperience() {
                   alt="Scandinavian architectural backdrop" 
                   className="w-full h-full object-cover brightness-75 contrast-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               </div>
 
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10 w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-end"
+                className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end"
               >
-                <div className="flex flex-col items-start">
-                  <div className="flex gap-3 mb-8">
+                <div className="flex flex-col items-start pt-24 md:pt-0">
+                  <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
                     {["Construct Meaning", "Map Connection", "Architect Peace"].map((tag) => (
-                      <span key={tag} className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[9px] tracking-[0.2em] uppercase font-bold text-white/90">
+                      <span key={tag} className="px-3 md:px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[8px] md:text-[9px] tracking-[0.2em] uppercase font-bold text-white/90">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h1 className="font-syne font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-0 text-white">
+                  <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1] md:leading-[0.9] tracking-tighter mb-0 text-white">
                     Building <br />
                     <span className="italic font-serif font-light text-[#D79E54] tracking-normal">Resilient</span> <br />
                     Intimacy.
                   </h1>
                 </div>
 
-                <div className="flex flex-col items-start md:pl-12">
-                  <div className="flex items-center gap-3 mb-8 group cursor-pointer">
-                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-[#D79E54] transition-all duration-500">
-                      <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-current border-b-[5px] border-b-transparent translate-x-0.5" />
+                <div className="flex flex-col items-start md:pl-12 pb-4 md:pb-0">
+                  <div className="flex items-center gap-3 mb-6 md:mb-8 group cursor-pointer">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-[#D79E54] transition-all duration-500">
+                      <div className="w-0 h-0 border-t-[4px] md:border-t-[5px] border-t-transparent border-l-[6px] md:border-l-[8px] border-l-current border-b-[4px] md:border-b-[5px] border-b-transparent translate-x-0.5" />
                     </div>
-                    <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-white/80 group-hover:text-white transition-colors">How we work</span>
+                    <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase font-bold text-white/80 group-hover:text-white transition-colors">How we work</span>
                   </div>
                   
-                  <p className="text-lg md:text-xl font-light leading-relaxed text-white/70 mb-10 max-w-md">
+                  <p className="text-base md:text-xl font-light leading-relaxed text-white/70 mb-8 md:mb-10 max-w-md">
                     For high-performing individuals and couples who want a strategic partner, not just another therapist. We map the hidden pathways of connection to create lasting structural change.
                   </p>
                   
@@ -294,7 +294,7 @@ export default function MirrorExperience() {
                       const el = document.getElementById('why-here');
                       el?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="px-12 py-5 bg-white text-[#1A1A1A] rounded-full text-[11px] tracking-[0.3em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-700 ease-in-out shadow-2xl"
+                    className="w-full md:w-auto px-10 md:px-12 py-4 md:py-5 bg-white text-[#1A1A1A] rounded-full text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-700 ease-in-out shadow-2xl"
                   >
                     Start Your Reflection
                   </button>
@@ -303,62 +303,62 @@ export default function MirrorExperience() {
             </section>
 
             {/* About Section */}
-            <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#F8F7F5]">
+            <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 py-20 md:py-32 bg-[#F8F7F5]">
               <div className="container mx-auto max-w-6xl">
-                <div className="grid md:grid-cols-2 gap-24 items-start mb-32">
-                  <div className="relative group sticky top-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start mb-20 md:mb-32">
+                  <div className="relative group md:sticky md:top-32">
                     <div className="aspect-[4/5] rounded-3xl overflow-hidden brightness-105 contrast-[0.95] shadow-2xl">
                       <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-100" />
                     </div>
-                    <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
-                    <div className="mt-8 p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
-                      <p className="italic text-[#8C3B24] font-serif text-xl leading-relaxed">
+                    <div className="absolute -bottom-10 -right-10 w-48 md:w-64 h-48 md:h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
+                    <div className="mt-6 md:mt-8 p-6 md:p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
+                      <p className="italic text-[#8C3B24] font-serif text-lg md:text-xl leading-relaxed">
                         "Healing accelerates when strategy meets compassion in service of transformation."
                       </p>
                     </div>
                   </div>
                   
-                  <div className="space-y-16">
+                  <div className="space-y-12 md:space-y-16">
                     <div>
-                      <h2 className="font-syne font-bold text-5xl md:text-7xl mb-8 tracking-tight text-[#2D2926] leading-tight">
+                      <h2 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl mb-6 md:mb-8 tracking-tight text-[#2D2926] leading-tight">
                         The <span className="italic font-serif font-light text-[#8C3B24]">Strategic</span> Healer.
                       </h2>
-                      <p className="text-xl text-[#2D2926]/70 font-light leading-relaxed">
+                      <p className="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
                         Licensed marriage and family therapist with fourteen years of clinical experience helping professionals, couples, and families heal from trauma, address co-occurring mental health and substance-use challenges, and rebuild meaningful connection.
                       </p>
                     </div>
 
-                    <div className="grid gap-12">
+                    <div className="grid gap-10 md:gap-12">
                       <div>
-                        <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6">What to expect</h3>
-                        <p className="text-lg text-[#2D2926]/60 font-light leading-relaxed">
+                        <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-4 md:mb-6">What to expect</h3>
+                        <p className="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed">
                           Strategically compassionate care that balances clinical clarity with human warmth. Sessions combine structured assessment, measurable goals, and practical skill‑building with narrative reframing and relational repair.
                         </p>
                       </div>
 
-                      <div className="grid sm:grid-cols-2 gap-8">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
                         <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
                           <h4 className="font-syne font-bold text-sm mb-3">Trauma & Co-occurring</h4>
-                          <p className="text-sm text-[#2D2926]/50 font-light">Integrated approaches for managing mental health and substance-use together.</p>
+                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Integrated approaches for managing mental health and substance-use together.</p>
                         </div>
                         <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
                           <h4 className="font-syne font-bold text-sm mb-3">Family & Couples</h4>
-                          <p className="text-sm text-[#2D2926]/50 font-light">Repairing patterns and shifting dynamics using Relational Life Therapy (RLT).</p>
+                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Repairing patterns and shifting dynamics using Relational Life Therapy (RLT).</p>
                         </div>
                         <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
                           <h4 className="font-syne font-bold text-sm mb-3">Professionals</h4>
-                          <p className="text-sm text-[#2D2926]/50 font-light">Depth-oriented therapy that respects high-level career demands.</p>
+                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Depth-oriented therapy that respects high-level career demands.</p>
                         </div>
                         <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
                           <h4 className="font-syne font-bold text-sm mb-3">Crisis Management</h4>
-                          <p className="text-sm text-[#2D2926]/50 font-light">Collaborative, system-level responses when safety concerns arise.</p>
+                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Collaborative, system-level responses when safety concerns arise.</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="pt-8 border-t border-[#2D2926]/10">
-                      <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#2D2926]/40 mb-6">Professional Background</h3>
-                      <p className="text-lg text-[#2D2926]/60 font-light leading-relaxed mb-8">
+                      <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#2D2926]/40 mb-6">Professional Background</h3>
+                      <p className="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed mb-8">
                         Certified Clinical Trauma Professional with experience as a clinical director, college faculty, and statewide program administrator. Jennifer uses continuous improvement methods to make care more efficient and effective.
                       </p>
                       <button 
@@ -366,7 +366,7 @@ export default function MirrorExperience() {
                           const el = document.getElementById('why-here');
                           el?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="flex items-center gap-4 text-[#8C3B24] font-semibold tracking-[0.2em] uppercase text-[11px] group"
+                        className="flex items-center gap-4 text-[#8C3B24] font-semibold tracking-[0.2em] uppercase text-[10px] md:text-[11px] group"
                       >
                         Begin Your Mapping <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                       </button>
@@ -374,16 +374,18 @@ export default function MirrorExperience() {
                   </div>
                 </div>
 
-                <div className="bg-[#22333B] rounded-[3rem] p-12 md:p-24 text-white relative overflow-hidden">
+                <div className="bg-[#22333B] rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 text-white relative overflow-hidden">
                   <div className="relative z-10 max-w-3xl">
-                    <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#D79E54] mb-8">A Note About Fit</h3>
-                    <p className="text-2xl md:text-4xl font-light leading-tight mb-12">
+                    <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#D79E54] mb-6 md:mb-8">A Note About Fit</h3>
+                    <p className="text-xl md:text-4xl font-light leading-tight mb-8 md:mb-12">
                       Clients who benefit most are ready for <span className="italic font-serif text-[#D79E54]">honest, sustained work</span> and want a therapist who combines clinical rigor with genuine empathy.
                     </p>
-                    <div className="flex flex-wrap gap-4">
-                      <span className="px-4 py-2 bg-white/10 rounded-full text-[10px] tracking-widest uppercase border border-white/10">Clinical Rigor</span>
-                      <span className="px-4 py-2 bg-white/10 rounded-full text-[10px] tracking-widest uppercase border border-white/10">Genuine Empathy</span>
-                      <span className="px-4 py-2 bg-white/10 rounded-full text-[10px] tracking-widest uppercase border border-white/10">Sustained Change</span>
+                    <div className="flex flex-wrap gap-3 md:gap-4">
+                      {["Clinical Rigor", "Genuine Empathy", "Sustained Change"].map((tag) => (
+                        <span key={tag} className="px-3 md:px-4 py-2 bg-white/10 rounded-full text-[8px] md:text-[10px] tracking-widest uppercase border border-white/10">
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                   {/* Subtle background texture for the dark card */}
@@ -451,52 +453,55 @@ export default function MirrorExperience() {
           </motion.div>
         )}
 
-        {/* STAGE 2: THE MIRROR */}
-        {stage === "mirror" && path && (
-          <motion.div 
-            key="mirror"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 1.05, filter: "blur(20px)" }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-            className="min-h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
-          >
-            <div className="space-y-10 py-20">
-              {content[path].mirror.map((line, i) => (
-                <motion.p
-                  key={i}
-                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: i * 0.4, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
-                >
-                  {line}
-                </motion.p>
-              ))}
-            </div>
-            
-            <div className="flex items-center gap-8 mt-12">
-              <motion.button 
+            {/* STAGE 1: THE MIRROR (Reflective Questioning) */}
+            {stage === "mirror" && path && (
+              <motion.div 
+                key="mirror"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: content[path].mirror.length * 0.4 + 0.6 }}
-                onClick={() => setStage("splash")}
-                className="flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group"
+                exit={{ opacity: 0, scale: 1.05, filter: "blur(20px)" }}
+                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 text-center max-w-4xl mx-auto relative z-10"
               >
-                <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" /> Back
-              </motion.button>
-              <motion.button 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: content[path].mirror.length * 0.4 + 0.5 }}
-                onClick={() => setStage("insight")}
-                className="px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
-              >
-                Continue to Insight
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
+                <div className="space-y-8 md:space-y-10 py-12 md:py-20">
+                  {content[path].mirror.map((line, i) => (
+                    <motion.p
+                      key={i}
+                      initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      transition={{ delay: i * 0.4, duration: 1, ease: "easeOut" }}
+                      className={`text-xl sm:text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
+                    >
+                      {line}
+                    </motion.p>
+                  ))}
+                </div>
+                
+                <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8 mt-8 md:mt-12">
+                  <motion.button 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: content[path].mirror.length * 0.4 + 0.6 }}
+                    onClick={() => setStage("splash")}
+                    className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group order-2 sm:order-1"
+                  >
+                    <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1 inline-block mr-2" /> Exit Reflection
+                  </motion.button>
+                  <motion.button 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: content[path].mirror.length * 0.4 + 0.5 }}
+                    onClick={() => {
+                      setStage("insight");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] md:text-[11px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-700 shadow-xl order-1 sm:order-2"
+                  >
+                    Continue to Insight
+                  </motion.button>
+                </div>
+              </motion.div>
+            )}
 
         {/* STAGE 3: THE INSIGHT */}
         {stage === "insight" && path && (
@@ -506,38 +511,41 @@ export default function MirrorExperience() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, filter: "blur(30px)" }}
             transition={{ duration: 1.5 }}
-            className="min-h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
+            className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 text-center max-w-4xl mx-auto relative z-10"
           >
-            <div className="space-y-10 py-20">
+            <div className="space-y-8 md:space-y-10 py-12 md:py-20">
               {content[path].insight.map((line, i) => (
                 <motion.p
                   key={i}
                   initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ delay: i * 0.4, duration: 1, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].insight.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
+                  className={`text-xl sm:text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].insight.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
                 >
                   {line}
                 </motion.p>
               ))}
             </div>
 
-            <div className="flex items-center gap-8 mt-12">
+            <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8 mt-8 md:mt-12">
               <motion.button 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: content[path].insight.length * 0.4 + 0.6 }}
                 onClick={() => setStage("mirror")}
-                className="flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group"
+                className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group order-2 sm:order-1"
               >
-                <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" /> Back
+                <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1 inline-block mr-2" /> Back to Mirror
               </motion.button>
               <motion.button 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: content[path].insight.length * 0.4 + 0.5 }}
-                onClick={() => setStage("guide")}
-                className="mt-12 px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
+                onClick={() => {
+                  setStage("guide");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] md:text-[11px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-700 shadow-xl order-1 sm:order-2"
               >
                 Meet Jennifer
               </motion.button>
@@ -553,77 +561,80 @@ export default function MirrorExperience() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 1.5 }}
-            className="min-h-screen bg-[#F8F7F5] text-[#2D2926] relative z-10 overflow-y-auto pt-32 pb-20 px-8"
+            className="min-h-screen bg-[#F8F7F5] text-[#2D2926] relative z-10 overflow-y-auto pt-24 md:pt-32 pb-12 md:pb-20 px-6 md:px-8"
           >
             <div className="container mx-auto max-w-6xl">
-              <div className="grid md:grid-cols-2 gap-24 items-start mb-24 text-left">
-                <div className="relative group sticky top-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start mb-16 md:mb-24 text-left">
+                <div className="relative group md:sticky md:top-8">
                   <div className="aspect-[4/5] rounded-3xl overflow-hidden brightness-105 contrast-[0.95] shadow-2xl">
                     <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-100" />
                   </div>
-                  <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
-                  <div className="mt-8 p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
-                    <p className="italic text-[#8C3B24] font-serif text-xl leading-relaxed">
+                  <div className="absolute -bottom-10 -right-10 w-48 md:w-64 h-48 md:h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
+                  <div className="mt-6 md:mt-8 p-6 md:p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
+                    <p className="italic text-[#8C3B24] font-serif text-lg md:text-xl leading-relaxed">
                       "Healing accelerates when strategy meets compassion in service of transformation."
                     </p>
                   </div>
                 </div>
                 
-                <div className="space-y-16">
+                <div className="space-y-12 md:space-y-16">
                   <div>
-                    <h2 className="font-syne font-bold text-5xl md:text-7xl mb-8 tracking-tight text-[#2D2926] leading-tight">
+                    <h2 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl mb-6 md:mb-8 tracking-tight text-[#2D2926] leading-tight">
                       The <span className="italic font-serif font-light text-[#8C3B24]">Strategic</span> Healer.
                     </h2>
-                    <p className="text-xl text-[#2D2926]/70 font-light leading-relaxed">
+                    <p className="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
                       Licensed marriage and family therapist with fourteen years of clinical experience helping professionals, couples, and families heal from trauma, address co-occurring mental health and substance-use challenges, and rebuild meaningful connection.
                     </p>
                   </div>
 
-                  <div className="grid gap-12">
+                  <div className="grid gap-10 md:gap-12">
                     <div>
-                      <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6">What to expect</h3>
-                      <p className="text-lg text-[#2D2926]/60 font-light leading-relaxed">
+                      <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-4 md:mb-6">What to expect</h3>
+                      <p className="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed">
                         Strategically compassionate care that balances clinical clarity with human warmth. Sessions combine structured assessment, measurable goals, and practical skill‑building with narrative reframing and relational repair.
                       </p>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
                       <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                        <h4 className="font-syne font-bold text-sm mb-3">Trauma & Co-occurring</h4>
-                        <p className="text-sm text-[#2D2926]/50 font-light">Integrated approaches for managing mental health and substance-use together.</p>
+                        <h4 className="font-syne font-bold text-sm mb-2 md:mb-3">Trauma & Co-occurring</h4>
+                        <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Integrated approaches for managing mental health and substance-use together.</p>
                       </div>
                       <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                        <h4 className="font-syne font-bold text-sm mb-3">Family & Couples</h4>
-                        <p className="text-sm text-[#2D2926]/50 font-light">Repairing patterns and shifting dynamics using Relational Life Therapy (RLT).</p>
+                        <h4 className="font-syne font-bold text-sm mb-2 md:mb-3">Family & Couples</h4>
+                        <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Repairing patterns and shifting dynamics using Relational Life Therapy (RLT).</p>
                       </div>
                       <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                        <h4 className="font-syne font-bold text-sm mb-3">Professionals</h4>
-                        <p className="text-sm text-[#2D2926]/50 font-light">Depth-oriented therapy that respects high-level career demands.</p>
+                        <h4 className="font-syne font-bold text-sm mb-2 md:mb-3">Professionals</h4>
+                        <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Depth-oriented therapy that respects high-level career demands.</p>
                       </div>
                       <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                        <h4 className="font-syne font-bold text-sm mb-3">Crisis Management</h4>
-                        <p className="text-sm text-[#2D2926]/50 font-light">Collaborative, system-level responses when safety concerns arise.</p>
+                        <h4 className="font-syne font-bold text-sm mb-2 md:mb-3">Crisis Management</h4>
+                        <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Collaborative, system-level responses when safety concerns arise.</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="pt-8 border-t border-[#2D2926]/10">
-                    <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#2D2926]/40 mb-6">Professional Background</h3>
-                    <p className="text-lg text-[#2D2926]/60 font-light leading-relaxed mb-12">
+                    <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#2D2926]/40 mb-4 md:mb-6">Professional Background</h3>
+                    <p className="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed mb-10 md:mb-12">
                       Certified Clinical Trauma Professional with experience as a clinical director, college faculty, and statewide program administrator. Jennifer uses continuous improvement methods to make care more efficient and effective.
                     </p>
-                    <div className="flex items-center gap-8">
+                    <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
                       <button 
                         onClick={() => setStage("insight")}
-                        className="flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group"
+                        className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group"
                       >
-                        <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" /> Back
+                        <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1 inline-block mr-2" /> Back
                       </button>
                       <motion.button 
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => setStage("service")}
-                        className="px-10 py-4 bg-[#8C3B24] text-white rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl"
+                        onClick={() => {
+                          setStage("service");
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                        className="w-full sm:w-auto px-10 py-4 bg-[#8C3B24] text-white rounded-full text-[10px] md:text-[11px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl"
                       >
                         Begin Your Work
                       </motion.button>
@@ -642,32 +653,32 @@ export default function MirrorExperience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
-            className="min-h-screen flex flex-col items-center justify-start pt-32 pb-20 p-8 text-center bg-[#FDFCFB] text-[#2D2926] relative z-10 overflow-y-auto"
+            className="min-h-screen flex flex-col items-center justify-start pt-24 md:pt-32 pb-12 md:pb-20 px-6 md:px-8 text-center bg-[#FDFCFB] text-[#2D2926] relative z-10 overflow-y-auto"
           >
             <div className="container mx-auto max-w-6xl">
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.2 }}
-                className="mb-32"
+                className="mb-20 md:mb-32"
               >
-                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-[10rem] mb-12 tracking-tighter leading-[0.85]">
+                <h1 className="font-syne font-bold text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] mb-8 md:mb-12 tracking-tighter leading-[0.85]">
                   Construct <br />
                   <span className="italic font-serif font-light text-[#8C3B24]">Meaning.</span>
                 </h1>
                 
-                <div className="flex flex-col md:flex-row gap-8 w-full max-w-xl mx-auto justify-center mt-16">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full max-w-xl mx-auto justify-center mt-12 md:mt-16">
                   <motion.button 
                     whileHover={{ scale: 1.03, backgroundColor: "#1A1A1A" }}
                     whileTap={{ scale: 0.97 }}
-                    className="px-14 py-6 bg-[#2D2926] text-[#FDFCFB] text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-2xl"
+                    className="w-full md:w-auto px-10 md:px-14 py-4 md:py-6 bg-[#2D2926] text-[#FDFCFB] text-[10px] md:text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-2xl"
                   >
                     Consultation
                   </motion.button>
                   <motion.button 
                     whileHover={{ scale: 1.03, backgroundColor: "#F8F7F5" }}
                     whileTap={{ scale: 0.97 }}
-                    className="px-14 py-6 border border-[#2D2926]/10 text-[#2D2926] text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full"
+                    className="w-full md:w-auto px-10 md:px-14 py-4 md:py-6 border border-[#2D2926]/10 text-[#2D2926] text-[10px] md:text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full"
                   >
                     Portal
                   </motion.button>
@@ -675,11 +686,11 @@ export default function MirrorExperience() {
               </motion.div>
 
               {/* Services Offered Section */}
-              <div className="mb-48 text-left">
-                <h2 className="font-syne font-bold text-4xl md:text-6xl mb-16 tracking-tight text-[#2D2926]">
+              <div className="mb-32 md:mb-48 text-left">
+                <h2 className="font-syne font-bold text-3xl md:text-6xl mb-12 md:mb-16 tracking-tight text-[#2D2926]">
                   Services <br /> <span className="italic font-serif font-light text-[#8C3B24]">Offered.</span>
                 </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {[
                     { 
                       title: "Individual Therapy", 
@@ -712,27 +723,27 @@ export default function MirrorExperience() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.8 }}
-                      className="p-8 bg-white rounded-[2rem] border border-[#2D2926]/5 shadow-sm hover:shadow-xl hover:shadow-[#2D2926]/5 transition-all duration-500 group flex flex-col justify-between"
+                      className="p-6 md:p-8 bg-white rounded-[1.5rem] md:rounded-[2rem] border border-[#2D2926]/5 shadow-sm hover:shadow-xl hover:shadow-[#2D2926]/5 transition-all duration-500 group flex flex-col justify-between"
                     >
                       <div>
-                        <h3 className="font-syne font-bold text-2xl mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{service.title}</h3>
-                        <p className="text-[#2D2926]/60 font-light leading-relaxed">
+                        <h3 className="font-syne font-bold text-xl md:text-2xl mb-4 md:mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{service.title}</h3>
+                        <p className="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">
                           {service.content}
                         </p>
                       </div>
-                      <div className="mt-8 pt-6 border-t border-[#2D2926]/5 flex justify-end">
+                      <div className="mt-6 md:mt-8 pt-6 border-t border-[#2D2926]/5 flex justify-end">
                         <ArrowUpRight className="w-5 h-5 text-[#2D2926]/20 group-hover:text-[#8C3B24] transition-colors" />
                       </div>
                     </motion.div>
                   ))}
                 </div>
-                <p className="mt-16 text-center text-[#2D2926]/40 font-light tracking-wide italic">
+                <p className="mt-12 md:mt-16 text-center text-[#2D2926]/40 font-light tracking-wide italic text-sm md:text-base">
                   Request an intake call to discuss fit and next steps.
                 </p>
               </div>
 
               {/* Modern Architect Style Grid (Logistics) */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24 text-left border-t border-[#2D2926]/5 pt-24 mb-32">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 md:gap-x-16 gap-y-16 md:gap-y-24 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24 mb-20 md:mb-32">
                 {infoSections.flatMap(group => group.items)
                   .filter((_, i) => i !== 4 && i !== 6) // Remove ARCH-05 (index 4) and ARCH-07 (index 6)
                   .map((item, i) => (
@@ -744,14 +755,14 @@ export default function MirrorExperience() {
                       transition={{ delay: i * 0.1, duration: 1 }}
                       className="group"
                     >
-                      <div className="flex justify-between items-center mb-8">
-                        <span className="font-mono text-[10px] tracking-widest text-[#2D2926]/20">ARCH-0{i + 1}</span>
-                        <div className="w-10 h-10 rounded-full border border-[#2D2926]/10 flex items-center justify-center group-hover:bg-[#8C3B24] group-hover:border-[#8C3B24] group-hover:text-[#FDFCFB] transition-all duration-700">
+                      <div className="flex justify-between items-center mb-6 md:mb-8">
+                        <span className="font-mono text-[9px] md:text-[10px] tracking-widest text-[#2D2926]/20">ARCH-0{i + 1}</span>
+                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#2D2926]/10 flex items-center justify-center group-hover:bg-[#8C3B24] group-hover:border-[#8C3B24] group-hover:text-[#FDFCFB] transition-all duration-700">
                           <ArrowUpRight className="w-4 h-4" />
                         </div>
                       </div>
-                      <h3 className="font-syne text-2xl font-bold mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{item.title}</h3>
-                      <p className="text-[#2D2926]/50 leading-relaxed font-light text-lg">
+                      <h3 className="font-syne text-xl md:text-2xl font-bold mb-4 md:mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{item.title}</h3>
+                      <p className="text-[#2D2926]/50 leading-relaxed font-light text-base md:text-lg">
                         {item.content}
                       </p>
                     </motion.div>
@@ -759,9 +770,9 @@ export default function MirrorExperience() {
               </div>
 
               {/* FAQ Section */}
-              <div className="mb-32 text-left border-t border-[#2D2926]/5 pt-24">
-                <h2 className="font-syne font-bold text-4xl mb-16 tracking-tight pb-8">Practice FAQ</h2>
-                <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+              <div className="mb-20 md:mb-32 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24">
+                <h2 className="font-syne font-bold text-3xl md:text-4xl mb-12 md:mb-16 tracking-tight pb-6 md:pb-8">Practice FAQ</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-10 md:gap-y-12">
                   {[
                     { q: "Who is my therapist and what is her approach?", a: "Jennifer Weinmann, LMFT, combines evidence‑based interventions with trauma‑informed, systems‑focused care. Her approach balances measurable treatment planning with relational warmth to help clients heal from trauma and create durable change." },
                     { q: "What therapeutic models do you use?", a: "Trauma‑informed, evidence‑based modalities tailored to each client. Relational Life Therapy (RLT) is used for couples and family work. Treatment integrates systems thinking and measurable outcome tracking." },
@@ -771,8 +782,8 @@ export default function MirrorExperience() {
                     { q: "How do I start?", a: "A brief intake call clarifies needs, availability, and fit. You'll be asked about goals, current concerns, and any immediate safety issues." }
                   ].map((faq, i) => (
                     <div key={i} className="group">
-                      <h4 className="font-syne font-bold text-lg mb-4 text-[#2D2926] group-hover:text-[#8C3B24] transition-colors duration-500">{faq.q}</h4>
-                      <p className="text-[#2D2926]/60 font-light leading-relaxed">{faq.a}</p>
+                      <h4 className="font-syne font-bold text-base md:text-lg mb-3 md:mb-4 text-[#2D2926] group-hover:text-[#8C3B24] transition-colors duration-500">{faq.q}</h4>
+                      <p className="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">{faq.a}</p>
                     </div>
                   ))}
                 </div>

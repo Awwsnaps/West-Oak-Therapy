@@ -193,7 +193,7 @@ export default function MirrorExperience() {
       </div>
 
       {/* Narrative Progress Marker */}
-      {stage !== "splash" && (
+      {stage !== "splash" && stage !== "service" && (
         <div className="fixed top-24 left-8 md:top-32 md:left-12 flex flex-col gap-6 z-50">
           {["mirror", "insight", "guide", "service"].map((s, i) => {
             const index = ["mirror", "insight", "guide", "service"].indexOf(s);

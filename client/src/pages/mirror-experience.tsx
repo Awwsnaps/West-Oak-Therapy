@@ -250,8 +250,8 @@ export default function MirrorExperience() {
               <div className="container mx-auto max-w-6xl">
                 <div className="grid md:grid-cols-2 gap-24 items-start mb-32">
                   <div className="relative group sticky top-32">
-                    <div className="aspect-[4/5] rounded-3xl overflow-hidden grayscale brightness-105 contrast-[0.95] transition-all duration-1000 group-hover:grayscale-0 shadow-2xl">
-                      <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms]" />
+                    <div className="aspect-[4/5] rounded-3xl overflow-hidden brightness-105 contrast-[0.95] shadow-2xl">
+                      <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-100" />
                     </div>
                     <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
                     <div className="mt-8 p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
@@ -479,8 +479,8 @@ export default function MirrorExperience() {
             <div className="container mx-auto max-w-6xl">
               <div className="grid md:grid-cols-2 gap-24 items-start mb-24 text-left">
                 <div className="relative group sticky top-8">
-                  <div className="aspect-[4/5] rounded-3xl overflow-hidden grayscale brightness-105 contrast-[0.95] transition-all duration-1000 group-hover:grayscale-0 shadow-2xl">
-                    <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms]" />
+                  <div className="aspect-[4/5] rounded-3xl overflow-hidden brightness-105 contrast-[0.95] shadow-2xl">
+                    <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-100" />
                   </div>
                   <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
                   <div className="mt-8 p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">

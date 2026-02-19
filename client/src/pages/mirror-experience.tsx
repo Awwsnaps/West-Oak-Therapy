@@ -247,37 +247,90 @@ export default function MirrorExperience() {
 
             {/* About Section */}
             <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#F8F7F5]">
-              <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-24 items-center">
-                <div className="relative group">
-                  <div className="aspect-[4/5] rounded-3xl overflow-hidden grayscale brightness-105 contrast-[0.95] transition-all duration-1000 group-hover:grayscale-0">
-                    <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms]" />
+              <div className="container mx-auto max-w-6xl">
+                <div className="grid md:grid-cols-2 gap-24 items-start mb-32">
+                  <div className="relative group sticky top-32">
+                    <div className="aspect-[4/5] rounded-3xl overflow-hidden grayscale brightness-105 contrast-[0.95] transition-all duration-1000 group-hover:grayscale-0 shadow-2xl">
+                      <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms]" />
+                    </div>
+                    <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
+                    <div className="mt-8 p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
+                      <p className="italic text-[#8C3B24] font-serif text-xl leading-relaxed">
+                        "Healing accelerates when strategy meets compassion in service of transformation."
+                      </p>
+                    </div>
                   </div>
-                  <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
+                  
+                  <div className="space-y-16">
+                    <div>
+                      <h2 className="font-syne font-bold text-5xl md:text-7xl mb-8 tracking-tight text-[#2D2926] leading-tight">
+                        The <span className="italic font-serif font-light text-[#8C3B24]">Strategic</span> Healer.
+                      </h2>
+                      <p className="text-xl text-[#2D2926]/70 font-light leading-relaxed">
+                        Licensed marriage and family therapist with fourteen years of clinical experience helping professionals, couples, and families heal from trauma, address co-occurring mental health and substance-use challenges, and rebuild meaningful connection.
+                      </p>
+                    </div>
+
+                    <div className="grid gap-12">
+                      <div>
+                        <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6">What to expect</h3>
+                        <p className="text-lg text-[#2D2926]/60 font-light leading-relaxed">
+                          Strategically compassionate care that balances clinical clarity with human warmth. Sessions combine structured assessment, measurable goals, and practical skill‑building with narrative reframing and relational repair.
+                        </p>
+                      </div>
+
+                      <div className="grid sm:grid-cols-2 gap-8">
+                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                          <h4 className="font-syne font-bold text-sm mb-3">Trauma & Co-occurring</h4>
+                          <p className="text-sm text-[#2D2926]/50 font-light">Integrated approaches for managing mental health and substance-use together.</p>
+                        </div>
+                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                          <h4 className="font-syne font-bold text-sm mb-3">Family & Couples</h4>
+                          <p className="text-sm text-[#2D2926]/50 font-light">Repairing patterns and shifting dynamics using Relational Life Therapy (RLT).</p>
+                        </div>
+                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                          <h4 className="font-syne font-bold text-sm mb-3">Professionals</h4>
+                          <p className="text-sm text-[#2D2926]/50 font-light">Depth-oriented therapy that respects high-level career demands.</p>
+                        </div>
+                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                          <h4 className="font-syne font-bold text-sm mb-3">Crisis Management</h4>
+                          <p className="text-sm text-[#2D2926]/50 font-light">Collaborative, system-level responses when safety concerns arise.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-8 border-t border-[#2D2926]/10">
+                      <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#2D2926]/40 mb-6">Professional Background</h3>
+                      <p className="text-lg text-[#2D2926]/60 font-light leading-relaxed mb-8">
+                        Certified Clinical Trauma Professional with experience as a clinical director, college faculty, and statewide program administrator. Jennifer uses continuous improvement methods to make care more efficient and effective.
+                      </p>
+                      <button 
+                        onClick={() => {
+                          const el = document.getElementById('why-here');
+                          el?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="flex items-center gap-4 text-[#8C3B24] font-semibold tracking-[0.2em] uppercase text-[11px] group"
+                      >
+                        Begin Your Mapping <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="font-syne font-bold text-4xl md:text-6xl mb-10 tracking-tight text-[#2D2926] leading-tight">
-                    The <span className="italic font-serif font-light text-[#8C3B24]">Strategic</span> Healer.
-                  </h2>
-                  <div className="space-y-8 text-xl text-[#2D2926]/60 font-light leading-relaxed">
-                    <p>
-                      I am Jennifer Weinmann, LMFT. My practice is built on the intersection of deep clinical expertise and a modern, architectural approach to human connection.
+
+                <div className="bg-[#22333B] rounded-[3rem] p-12 md:p-24 text-white relative overflow-hidden">
+                  <div className="relative z-10 max-w-3xl">
+                    <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#D79E54] mb-8">A Note About Fit</h3>
+                    <p className="text-2xl md:text-4xl font-light leading-tight mb-12">
+                      Clients who benefit most are ready for <span className="italic font-serif text-[#D79E54]">honest, sustained work</span> and want a therapist who combines clinical rigor with genuine empathy.
                     </p>
-                    <p>
-                      With fourteen years of experience, I help professionals and families heal from trauma, manage co-occurring challenges, and rebuild meaningful presence. 
-                    </p>
-                    <p className="italic text-[#8C3B24] font-serif text-2xl">
-                      "Healing accelerates when strategy meets compassion in service of transformation."
-                    </p>
-                    <button 
-                      onClick={() => {
-                        const el = document.getElementById('why-here');
-                        el?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="mt-12 flex items-center gap-4 text-[#8C3B24] font-semibold tracking-[0.2em] uppercase text-[11px] group"
-                    >
-                      Begin Your Mapping <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
-                    </button>
+                    <div className="flex flex-wrap gap-4">
+                      <span className="px-4 py-2 bg-white/10 rounded-full text-[10px] tracking-widest uppercase border border-white/10">Clinical Rigor</span>
+                      <span className="px-4 py-2 bg-white/10 rounded-full text-[10px] tracking-widest uppercase border border-white/10">Genuine Empathy</span>
+                      <span className="px-4 py-2 bg-white/10 rounded-full text-[10px] tracking-widest uppercase border border-white/10">Sustained Change</span>
+                    </div>
                   </div>
+                  {/* Subtle background texture for the dark card */}
+                  <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px]" />
                 </div>
               </div>
             </section>

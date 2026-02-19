@@ -132,25 +132,8 @@ export default function MirrorExperience() {
 
   const handleChoice = (selectedPath: "relationship" | "substances" | "disconnected" | "same_fight" | "unknown") => {
     setPath(selectedPath);
-    setMirrorIndex(0);
     setStage("mirror");
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const nextMirror = () => {
-    if (path && mirrorIndex < content[path].mirror.length - 1) {
-      setMirrorIndex(prev => prev + 1);
-    } else {
-      setStage("insight");
-    }
-  };
-
-  const prevMirror = () => {
-    if (mirrorIndex > 0) {
-      setMirrorIndex(prev => prev - 1);
-    } else {
-      setStage("splash");
-    }
   };
 
   return (
@@ -366,42 +349,31 @@ export default function MirrorExperience() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.05, filter: "blur(20px)" }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-            className="h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
+            className="min-h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
           >
-            <div className="space-y-10">
-              <AnimatePresence mode="wait">
+            <div className="space-y-10 py-20">
+              {content[path].mirror.map((line, i) => (
                 <motion.p
-                  key={mirrorIndex}
-                  initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                  key={i}
+                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight transition-colors duration-1000 ${mirrorIndex === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]"}`}
+                  transition={{ delay: i * 0.4, duration: 1, ease: "easeOut" }}
+                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
                 >
-                  {content[path].mirror[mirrorIndex]}
+                  {line}
                 </motion.p>
-              </AnimatePresence>
+              ))}
             </div>
             
-            <div className="fixed bottom-24 left-1/2 -translate-x-1/2 flex items-center gap-12">
-              <button 
-                onClick={prevMirror}
-                className="text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#8C3B24] transition-colors duration-500"
-              >
-                Previous
-              </button>
-              <div className="flex gap-2">
-                {content[path].mirror.map((_, i) => (
-                  <div key={i} className={`w-1 h-1 rounded-full transition-all duration-500 ${i === mirrorIndex ? "bg-[#8C3B24] scale-150" : "bg-[#2D2926]/10"}`} />
-                ))}
-              </div>
-              <button 
-                onClick={nextMirror}
-                className="text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#8C3B24] transition-colors duration-500"
-              >
-                {mirrorIndex === content[path].mirror.length - 1 ? "Begin Insight" : "Next"}
-              </button>
-            </div>
+            <motion.button 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: content[path].mirror.length * 0.4 + 0.5 }}
+              onClick={() => setStage("insight")}
+              className="mt-12 px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
+            >
+              Continue to Insight
+            </motion.button>
           </motion.div>
         )}
 

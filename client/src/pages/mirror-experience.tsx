@@ -461,16 +461,16 @@ export default function MirrorExperience() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, scale: 1.05, filter: "blur(20px)" }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 text-center max-w-4xl mx-auto relative z-10"
+                className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 text-center max-w-4xl mx-auto relative z-10 pt-40 md:pt-48"
               >
-                <div className="space-y-8 md:space-y-10 py-12 md:py-20">
+                <div className="space-y-6 md:space-y-8 py-8 md:py-12">
                   {content[path].mirror.map((line, i) => (
                     <motion.p
                       key={i}
                       initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       transition={{ delay: i * 0.4, duration: 1, ease: "easeOut" }}
-                      className={`text-xl sm:text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
+                      className={`text-lg sm:text-xl md:text-3xl leading-[1.3] font-light tracking-tight ${i === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
                     >
                       {line}
                     </motion.p>
@@ -511,16 +511,16 @@ export default function MirrorExperience() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, filter: "blur(30px)" }}
             transition={{ duration: 1.5 }}
-            className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 text-center max-w-4xl mx-auto relative z-10"
+            className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 text-center max-w-4xl mx-auto relative z-10 pt-40 md:pt-48"
           >
-            <div className="space-y-8 md:space-y-10 py-12 md:py-20">
+            <div className="space-y-6 md:space-y-8 py-8 md:py-12">
               {content[path].insight.map((line, i) => (
                 <motion.p
                   key={i}
                   initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ delay: i * 0.4, duration: 1, ease: "easeOut" }}
-                  className={`text-xl sm:text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].insight.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
+                  className={`text-lg sm:text-xl md:text-3xl leading-[1.3] font-light tracking-tight ${i === content[path].insight.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
                 >
                   {line}
                 </motion.p>

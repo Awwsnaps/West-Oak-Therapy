@@ -733,27 +733,29 @@ export default function MirrorExperience() {
 
               {/* Modern Architect Style Grid (Logistics) */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24 text-left border-t border-[#2D2926]/5 pt-24 mb-32">
-                {infoSections.flatMap(group => group.items).map((item, i) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1, duration: 1 }}
-                    className="group"
-                  >
-                    <div className="flex justify-between items-center mb-8">
-                      <span className="font-mono text-[10px] tracking-widest text-[#2D2926]/20">ARCH-0{i + 1}</span>
-                      <div className="w-10 h-10 rounded-full border border-[#2D2926]/10 flex items-center justify-center group-hover:bg-[#8C3B24] group-hover:border-[#8C3B24] group-hover:text-[#FDFCFB] transition-all duration-700">
-                        <ArrowUpRight className="w-4 h-4" />
+                {infoSections.flatMap(group => group.items)
+                  .filter((_, i) => i !== 4 && i !== 6) // Remove ARCH-05 (index 4) and ARCH-07 (index 6)
+                  .map((item, i) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1, duration: 1 }}
+                      className="group"
+                    >
+                      <div className="flex justify-between items-center mb-8">
+                        <span className="font-mono text-[10px] tracking-widest text-[#2D2926]/20">ARCH-0{i + 1}</span>
+                        <div className="w-10 h-10 rounded-full border border-[#2D2926]/10 flex items-center justify-center group-hover:bg-[#8C3B24] group-hover:border-[#8C3B24] group-hover:text-[#FDFCFB] transition-all duration-700">
+                          <ArrowUpRight className="w-4 h-4" />
+                        </div>
                       </div>
-                    </div>
-                    <h3 className="font-syne text-2xl font-bold mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{item.title}</h3>
-                    <p className="text-[#2D2926]/50 leading-relaxed font-light text-lg">
-                      {item.content}
-                    </p>
-                  </motion.div>
-                ))}
+                      <h3 className="font-syne text-2xl font-bold mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{item.title}</h3>
+                      <p className="text-[#2D2926]/50 leading-relaxed font-light text-lg">
+                        {item.content}
+                      </p>
+                    </motion.div>
+                  ))}
               </div>
 
               {/* FAQ Section */}

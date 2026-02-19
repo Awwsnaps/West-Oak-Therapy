@@ -769,6 +769,68 @@ export default function MirrorExperience() {
                   ))}
               </div>
 
+              {/* Fees Section */}
+              <div className="mb-20 md:mb-32 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
+                  <div>
+                    <h2 className="font-syne font-bold text-3xl md:text-5xl mb-12 md:mb-16 tracking-tight">Fees</h2>
+                    
+                    <div className="space-y-12 md:space-y-16">
+                      <div>
+                        <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Individual Therapy</h3>
+                        <div className="space-y-4 md:space-y-6">
+                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">60 minutes</span>
+                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$200</span>
+                          </div>
+                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">90 minutes</span>
+                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$300</span>
+                          </div>
+                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">120 minutes</span>
+                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$400</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Couples Therapy</h3>
+                        <div className="space-y-4 md:space-y-6">
+                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">60 minutes</span>
+                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$250</span>
+                          </div>
+                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">90 minutes</span>
+                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$375</span>
+                          </div>
+                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">120 minutes</span>
+                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$500</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="lg:pt-24">
+                    <div className="p-8 md:p-12 bg-[#F8F7F5] rounded-[2rem] border border-[#2D2926]/5 shadow-sm space-y-8 md:space-y-10">
+                      <p className="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
+                        Fees are collected after the conclusion of each session and billed through the practice’s Electronic Health Record (EHR), <span className="font-bold text-[#2D2926]">SimplePractice</span>.
+                      </p>
+                      
+                      <div className="pt-8 md:pt-10 border-t border-[#2D2926]/10">
+                        <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-[#2D2926] mb-4 md:mb-6">Out‑of‑network billing (OON)</h4>
+                        <p className="text-sm md:text-base text-[#2D2926]/50 font-light leading-relaxed italic">
+                          An itemized statement (superbill) can be provided upon request to submit to your insurer for possible reimbursement; providing a superbill does not guarantee payment—coverage and reimbursement are determined solely by your insurance plan. It may be helpful to check your plan’s OON reimbursement policy before beginning services so you understand any deductible, co‑insurance, or documentation requirements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* FAQ Section */}
               <div className="mb-20 md:mb-32 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24">
                 <h2 className="font-syne font-bold text-3xl md:text-4xl mb-12 md:mb-16 tracking-tight pb-6 md:pb-8">Practice FAQ</h2>

@@ -151,6 +151,24 @@ export default function MirrorExperience() {
         }}>
           West Oak Therapy
         </div>
+        
+        <div className="hidden md:flex items-center gap-8">
+          {[
+            { label: "Book", action: () => setStage("door") },
+            { label: "Portal", action: () => {} },
+            { label: "FAQ", action: () => {} },
+            { label: "Logistics", action: () => setStage("door") }
+          ].map((item) => (
+            <button 
+              key={item.label}
+              onClick={item.action}
+              className="text-[10px] tracking-[0.3em] uppercase font-bold hover:text-[#8C3B24] transition-colors duration-500"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
         <button className="w-10 h-10 flex flex-col items-end justify-center gap-1.5 group">
           <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#2D2926]/60 group-hover:bg-[#2D2926]" : "bg-[#FDFCFB]/60 group-hover:bg-[#FDFCFB]"}`}></span>
           <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#2D2926]/60 group-hover:bg-[#2D2926]" : "bg-[#FDFCFB]/60 group-hover:bg-[#FDFCFB]"}`}></span>

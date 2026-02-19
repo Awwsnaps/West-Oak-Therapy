@@ -6,7 +6,7 @@ import portrait from "@/assets/jennifer-portrait.png";
 export default function MirrorExperience() {
   const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "door">("splash");
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
-  const [selectedSphere, setSelectedSphere] = useState<string | null>(null);
+  const [mirrorIndex, setMirrorIndex] = useState(0);
 
   // Updated sections data from new practice info
   const infoSections = [
@@ -132,8 +132,25 @@ export default function MirrorExperience() {
 
   const handleChoice = (selectedPath: "relationship" | "substances" | "disconnected" | "same_fight" | "unknown") => {
     setPath(selectedPath);
+    setMirrorIndex(0);
     setStage("mirror");
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const nextMirror = () => {
+    if (path && mirrorIndex < content[path].mirror.length - 1) {
+      setMirrorIndex(prev => prev + 1);
+    } else {
+      setStage("insight");
+    }
+  };
+
+  const prevMirror = () => {
+    if (mirrorIndex > 0) {
+      setMirrorIndex(prev => prev - 1);
+    } else {
+      setStage("splash");
+    }
   };
 
   return (
@@ -350,30 +367,41 @@ export default function MirrorExperience() {
             exit={{ opacity: 0, scale: 1.05, filter: "blur(20px)" }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
-            onClick={() => setStage("insight")}
           >
             <div className="space-y-10">
-              {content[path].mirror.map((line, i) => (
+              <AnimatePresence mode="wait">
                 <motion.p
-                  key={i}
+                  key={mirrorIndex}
                   initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: i * 1.8, duration: 1.5, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight transition-colors duration-1000 ${i === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/40"}`}
+                  exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight transition-colors duration-1000 ${mirrorIndex === content[path].mirror.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]"}`}
                 >
-                  {line}
+                  {content[path].mirror[mirrorIndex]}
                 </motion.p>
-              ))}
+              </AnimatePresence>
             </div>
             
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: content[path].mirror.length * 1.8 + 1, duration: 1.5 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/20"
-            >
-              Continue the reflection
-            </motion.div>
+            <div className="fixed bottom-24 left-1/2 -translate-x-1/2 flex items-center gap-12">
+              <button 
+                onClick={prevMirror}
+                className="text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#8C3B24] transition-colors duration-500"
+              >
+                Previous
+              </button>
+              <div className="flex gap-2">
+                {content[path].mirror.map((_, i) => (
+                  <div key={i} className={`w-1 h-1 rounded-full transition-all duration-500 ${i === mirrorIndex ? "bg-[#8C3B24] scale-150" : "bg-[#2D2926]/10"}`} />
+                ))}
+              </div>
+              <button 
+                onClick={nextMirror}
+                className="text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#8C3B24] transition-colors duration-500"
+              >
+                {mirrorIndex === content[path].mirror.length - 1 ? "Begin Insight" : "Next"}
+              </button>
+            </div>
           </motion.div>
         )}
 

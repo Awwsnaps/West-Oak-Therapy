@@ -440,14 +440,14 @@ export default function MirrorExperience() {
             transition={{ duration: 1.5 }}
             className="min-h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
           >
-            <div className="space-y-12 relative py-20">
+            <div className="space-y-10 py-20">
               {content[path].insight.map((line, i) => (
                 <motion.p
                   key={i}
-                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: i * 0.5, duration: 1.2, ease: "easeOut" }}
-                  className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-[#8C3B24] mb-16 block text-[10px] font-sans tracking-[0.5em] uppercase font-bold" : "text-[#2D2926] leading-[1.2] font-semibold tracking-tight"}`}
+                  transition={{ delay: i * 0.4, duration: 1, ease: "easeOut" }}
+                  className={`text-2xl md:text-4xl leading-[1.3] font-light tracking-tight ${i === content[path].insight.length - 1 ? "text-[#8C3B24]" : "text-[#2D2926]/60"}`}
                 >
                   {line}
                 </motion.p>
@@ -457,9 +457,9 @@ export default function MirrorExperience() {
             <motion.button 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: content[path].insight.length * 0.5 + 0.5 }}
+              transition={{ delay: content[path].insight.length * 0.4 + 0.5 }}
               onClick={() => setStage("guide")}
-              className="mt-12 px-10 py-4 bg-[#8C3B24] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl"
+              className="mt-12 px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
             >
               Meet Jennifer
             </motion.button>

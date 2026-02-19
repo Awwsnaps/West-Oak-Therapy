@@ -438,16 +438,15 @@ export default function MirrorExperience() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, filter: "blur(30px)" }}
             transition={{ duration: 1.5 }}
-            className="h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
-            onClick={() => setStage("guide")}
+            className="min-h-screen flex flex-col items-center justify-center p-8 text-center max-w-3xl mx-auto relative z-10"
           >
-            <div className="space-y-12 relative">
+            <div className="space-y-12 relative py-20">
               {content[path].insight.map((line, i) => (
                 <motion.p
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 1.2 + 0.8, duration: 1.5, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ delay: i * 0.5, duration: 1.2, ease: "easeOut" }}
                   className={`text-2xl md:text-4xl font-syne ${i === 0 ? "text-[#8C3B24] mb-16 block text-[10px] font-sans tracking-[0.5em] uppercase font-bold" : "text-[#2D2926] leading-[1.2] font-semibold tracking-tight"}`}
                 >
                   {line}
@@ -455,14 +454,15 @@ export default function MirrorExperience() {
               ))}
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 5, duration: 1.5 }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-[#8C3B24]/40"
+            <motion.button 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: content[path].insight.length * 0.5 + 0.5 }}
+              onClick={() => setStage("guide")}
+              className="mt-12 px-10 py-4 bg-[#8C3B24] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl"
             >
-              Move toward clarity
-            </motion.div>
+              Meet Jennifer
+            </motion.button>
           </motion.div>
         )}
 

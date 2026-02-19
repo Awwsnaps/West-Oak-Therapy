@@ -230,7 +230,7 @@ export default function MirrorExperience() {
                 </div>
                 <span className={`text-[8px] tracking-[0.3em] uppercase font-bold transition-all duration-500 
                   ${isActive ? "text-[#8C3B24] opacity-100" : isCompleted ? "text-[#2D2926] opacity-40 group-hover:opacity-100" : "text-[#2D2926] opacity-0"}`}>
-                  {s === "mirror" ? "Reflection" : s === "service" ? "Service" : s}
+                  {s === "mirror" ? "Reflection" : s === "service" ? "Service" : s === "guide" ? "Therapist" : s}
                 </span>
               </button>
             );
@@ -519,7 +519,7 @@ export default function MirrorExperience() {
                 }}
                 className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] md:text-[11px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-700 shadow-xl order-1 sm:order-2"
               >
-                Meet Jennifer
+                Meet Your Therapist
               </motion.button>
             </div>
           </motion.div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
@@ -166,22 +166,44 @@ export default function MirrorExperience() {
          />
       </div>
 
-      {/* Simplified Progress Indicator */}
+      {/* Narrative Progress Marker */}
       {stage !== "splash" && (
-        <div className="fixed top-24 left-8 md:top-32 md:left-12 flex gap-3 z-50">
-          {["mirror", "insight", "guide", "door"].map((s, i) => (
-            <div key={s} className="flex flex-col items-center">
-              <div 
-                className={`h-1 rounded-full transition-all duration-700 ease-out
-                  ${stage === s 
-                    ? "w-8 bg-[#8C3B24]" 
-                    : ["mirror", "insight", "guide", "door"].indexOf(s) < ["mirror", "insight", "guide", "door"].indexOf(stage)
-                      ? "w-8 bg-[#8C3B24]/20"
-                      : "w-2 bg-[#2D2926]/10"
-                }`}
-              />
-            </div>
-          ))}
+        <div className="fixed top-24 left-8 md:top-32 md:left-12 flex flex-col gap-6 z-50">
+          {["mirror", "insight", "guide", "door"].map((s, i) => {
+            const index = ["mirror", "insight", "guide", "door"].indexOf(s);
+            const currentIndex = ["mirror", "insight", "guide", "door"].indexOf(stage);
+            const isCompleted = index < currentIndex;
+            const isActive = stage === s;
+            
+            return (
+              <button 
+                key={s} 
+                onClick={() => {
+                  if (isCompleted || isActive) {
+                    setStage(s as any);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                className={`flex items-center gap-4 group transition-all duration-500 ${!isCompleted && !isActive ? "cursor-default pointer-events-none" : "cursor-pointer"}`}
+              >
+                <div className="relative flex items-center">
+                  <div 
+                    className={`h-1 rounded-full transition-all duration-700 ease-out
+                      ${isActive 
+                        ? "w-10 bg-[#8C3B24]" 
+                        : isCompleted
+                          ? "w-6 bg-[#8C3B24]/30 group-hover:bg-[#8C3B24]/60"
+                          : "w-2 bg-[#2D2926]/10"
+                    }`}
+                  />
+                </div>
+                <span className={`text-[8px] tracking-[0.3em] uppercase font-bold transition-all duration-500 
+                  ${isActive ? "text-[#8C3B24] opacity-100" : isCompleted ? "text-[#2D2926] opacity-40 group-hover:opacity-100" : "text-[#2D2926] opacity-0"}`}>
+                  {s === "mirror" ? "Reflection" : s === "door" ? "Logistics" : s}
+                </span>
+              </button>
+            );
+          })}
         </div>
       )}
 
@@ -418,15 +440,26 @@ export default function MirrorExperience() {
               ))}
             </div>
             
-            <motion.button 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: content[path].mirror.length * 0.4 + 0.5 }}
-              onClick={() => setStage("insight")}
-              className="mt-12 px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
-            >
-              Continue to Insight
-            </motion.button>
+            <div className="flex items-center gap-8 mt-12">
+              <motion.button 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: content[path].mirror.length * 0.4 + 0.6 }}
+                onClick={() => setStage("splash")}
+                className="flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group"
+              >
+                <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" /> Back
+              </motion.button>
+              <motion.button 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: content[path].mirror.length * 0.4 + 0.5 }}
+                onClick={() => setStage("insight")}
+                className="px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
+              >
+                Continue to Insight
+              </motion.button>
+            </div>
           </motion.div>
         )}
 
@@ -454,15 +487,26 @@ export default function MirrorExperience() {
               ))}
             </div>
 
-            <motion.button 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: content[path].insight.length * 0.4 + 0.5 }}
-              onClick={() => setStage("guide")}
-              className="mt-12 px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
-            >
-              Meet Jennifer
-            </motion.button>
+            <div className="flex items-center gap-8 mt-12">
+              <motion.button 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: content[path].insight.length * 0.4 + 0.6 }}
+                onClick={() => setStage("mirror")}
+                className="flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group"
+              >
+                <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" /> Back
+              </motion.button>
+              <motion.button 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: content[path].insight.length * 0.4 + 0.5 }}
+                onClick={() => setStage("guide")}
+                className="mt-12 px-10 py-4 bg-[#2D2926] text-[#FDFCFB] rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#8C3B24] transition-all duration-500 shadow-xl"
+              >
+                Meet Jennifer
+              </motion.button>
+            </div>
           </motion.div>
         )}
 
@@ -533,14 +577,22 @@ export default function MirrorExperience() {
                     <p className="text-lg text-[#2D2926]/60 font-light leading-relaxed mb-12">
                       Certified Clinical Trauma Professional with experience as a clinical director, college faculty, and statewide program administrator. Jennifer uses continuous improvement methods to make care more efficient and effective.
                     </p>
-                    <motion.button 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setStage("door")}
-                      className="px-10 py-4 bg-[#8C3B24] text-white rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl"
-                    >
-                      Begin Your Work
-                    </motion.button>
+                    <div className="flex items-center gap-8">
+                      <button 
+                        onClick={() => setStage("insight")}
+                        className="flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-[#2D2926]/40 hover:text-[#2D2926] transition-colors duration-500 group"
+                      >
+                        <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" /> Back
+                      </button>
+                      <motion.button 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setStage("door")}
+                        className="px-10 py-4 bg-[#8C3B24] text-white rounded-full text-[10px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl"
+                      >
+                        Begin Your Work
+                      </motion.button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -619,15 +671,26 @@ export default function MirrorExperience() {
                   <span className="cursor-pointer hover:text-[#8C3B24] transition-colors duration-500">Security</span>
                   <span className="cursor-pointer hover:text-[#8C3B24] transition-colors duration-500">Confidentiality</span>
                 </div>
-                <motion.button 
-                  onClick={() => {
-                    setStage("splash");
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="hover:text-[#8C3B24] transition-colors duration-500"
-                >
-                  Return to Top
-                </motion.button>
+                <div className="flex gap-12">
+                  <motion.button 
+                    onClick={() => {
+                      setStage("guide");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="hover:text-[#8C3B24] transition-colors duration-500"
+                  >
+                    Back to Bio
+                  </motion.button>
+                  <motion.button 
+                    onClick={() => {
+                      setStage("splash");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="hover:text-[#8C3B24] transition-colors duration-500"
+                  >
+                    Return to Top
+                  </motion.button>
+                </div>
               </div>
             </div>
           </motion.div>

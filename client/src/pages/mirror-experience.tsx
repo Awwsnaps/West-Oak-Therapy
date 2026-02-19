@@ -674,28 +674,8 @@ export default function MirrorExperience() {
                 </div>
               </motion.div>
 
-              {/* FAQ Section */}
-              <div className="mb-32 text-left">
-                <h2 className="font-syne font-bold text-4xl mb-16 tracking-tight border-b border-[#2D2926]/5 pb-8">Practice FAQ</h2>
-                <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
-                  {[
-                    { q: "Who is my therapist and what is her approach?", a: "Jennifer Weinmann, LMFT, combines evidence‑based interventions with trauma‑informed, systems‑focused care. Her approach balances measurable treatment planning with relational warmth to help clients heal from trauma and create durable change." },
-                    { q: "What therapeutic models do you use?", a: "Trauma‑informed, evidence‑based modalities tailored to each client. Relational Life Therapy (RLT) is used for couples and family work. Treatment integrates systems thinking and measurable outcome tracking." },
-                    { q: "How long is a session?", a: "Sessions are available in 60, 90, or 120 minute lengths. Frequency and duration are individualized—weekly is common at the start, then adjusted based on progress and life demands." },
-                    { q: "Why don’t you take insurance?", a: "To preserve clinical autonomy, protect your privacy, and allow for flexible, optimal care tailored to your needs rather than reimbursable constraints. Documentation for out-of-network reimbursement is provided." },
-                    { q: "Is therapy confidential?", a: "Yes. Clinical records are confidential and protected by law. Exceptions include imminent risk of harm or legal requirements, which are reviewed during intake." },
-                    { q: "How do I start?", a: "A brief intake call clarifies needs, availability, and fit. You'll be asked about goals, current concerns, and any immediate safety issues." }
-                  ].map((faq, i) => (
-                    <div key={i} className="group">
-                      <h4 className="font-syne font-bold text-lg mb-4 text-[#2D2926] group-hover:text-[#8C3B24] transition-colors duration-500">{faq.q}</h4>
-                      <p className="text-[#2D2926]/60 font-light leading-relaxed">{faq.a}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* Modern Architect Style Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24 text-left border-t border-[#2D2926]/5 pt-24">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24 text-left border-t border-[#2D2926]/5 pt-24 mb-32">
                 {infoSections.flatMap(group => group.items).map((item, i) => (
                   <motion.div
                     key={item.id}
@@ -717,6 +697,26 @@ export default function MirrorExperience() {
                     </p>
                   </motion.div>
                 ))}
+              </div>
+
+              {/* FAQ Section */}
+              <div className="mb-32 text-left border-t border-[#2D2926]/5 pt-24">
+                <h2 className="font-syne font-bold text-4xl mb-16 tracking-tight pb-8">Practice FAQ</h2>
+                <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+                  {[
+                    { q: "Who is my therapist and what is her approach?", a: "Jennifer Weinmann, LMFT, combines evidence‑based interventions with trauma‑informed, systems‑focused care. Her approach balances measurable treatment planning with relational warmth to help clients heal from trauma and create durable change." },
+                    { q: "What therapeutic models do you use?", a: "Trauma‑informed, evidence‑based modalities tailored to each client. Relational Life Therapy (RLT) is used for couples and family work. Treatment integrates systems thinking and measurable outcome tracking." },
+                    { q: "How long is a session?", a: "Sessions are available in 60, 90, or 120 minute lengths. Frequency and duration are individualized—weekly is common at the start, then adjusted based on progress and life demands." },
+                    { q: "Why don’t you take insurance?", a: "To preserve clinical autonomy, protect your privacy, and allow for flexible, optimal care tailored to your needs rather than reimbursable constraints. Documentation for out-of-network reimbursement is provided." },
+                    { q: "Is therapy confidential?", a: "Yes. Clinical records are confidential and protected by law. Exceptions include imminent risk of harm or legal requirements, which are reviewed during intake." },
+                    { q: "How do I start?", a: "A brief intake call clarifies needs, availability, and fit. You'll be asked about goals, current concerns, and any immediate safety issues." }
+                  ].map((faq, i) => (
+                    <div key={i} className="group">
+                      <h4 className="font-syne font-bold text-lg mb-4 text-[#2D2926] group-hover:text-[#8C3B24] transition-colors duration-500">{faq.q}</h4>
+                      <p className="text-[#2D2926]/60 font-light leading-relaxed">{faq.a}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Final Footer Style Reset */}

@@ -308,78 +308,45 @@ export default function MirrorExperience() {
             </section>
 
             {/* About Section */}
-            <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 py-20 md:py-32 bg-[#F8F7F5]">
+            <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 py-20 md:py-32 bg-[#FAF9F6]">
               <div className="container mx-auto max-w-6xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start mb-20 md:mb-32">
-                  <div className="relative group md:sticky md:top-32">
-                    <div className="aspect-[4/5] rounded-3xl overflow-hidden brightness-105 contrast-[0.95] shadow-2xl">
-                      <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover scale-100" />
-                    </div>
-                    <div className="absolute -bottom-10 -right-10 w-48 md:w-64 h-48 md:h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
-                    <div className="mt-6 md:mt-8 p-6 md:p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
-                      <p className="italic text-[#8C3B24] font-serif text-lg md:text-xl leading-relaxed">
-                        "Healing accelerates when strategy meets compassion in service of transformation."
-                      </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+                  <div className="relative">
+                    <div className="aspect-[4/5] md:aspect-[1.1] rounded-[2.5rem] overflow-hidden shadow-sm">
+                      <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   
-                  <div className="space-y-12 md:space-y-16">
-                    <div>
-                      <h2 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl mb-6 md:mb-8 tracking-tight text-[#2D2926] leading-tight">
-                        The <span className="italic font-serif font-light text-[#8C3B24]">Strategic</span> Healer.
-                      </h2>
-                      <p className="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
-                        Licensed marriage and family therapist with fourteen years of clinical experience helping professionals, couples, and families heal from trauma, address co-occurring mental health and substance-use challenges, and rebuild meaningful connection.
+                  <div className="space-y-8 md:space-y-10 text-left">
+                    <h2 className="font-syne font-bold text-5xl md:text-7xl tracking-tight text-[#2D2926] leading-[1.1]">
+                      Rooted in <br />
+                      <span className="italic font-serif font-light text-[#8C3B24]">Excellence.</span>
+                    </h2>
+                    
+                    <div className="space-y-6">
+                      <p className="text-lg md:text-xl text-[#2D2926]/60 font-light leading-relaxed max-w-lg">
+                        I am Jennifer Weinmann. My practice is built on the intersection of deep clinical expertise and a modern, architectural approach to human connection.
+                      </p>
+                      <p className="text-lg md:text-xl text-[#2D2926]/60 font-light leading-relaxed max-w-lg">
+                        We don't just talk about problems; we map the structural patterns that define your life, reinforcing what works and redesigning what doesn't.
                       </p>
                     </div>
 
-                    <div className="grid gap-10 md:gap-12">
-                      <div>
-                        <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-4 md:mb-6">What to expect</h3>
-                        <p className="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed">
-                          Strategically compassionate care that balances clinical clarity with human warmth. Sessions combine structured assessment, measurable goals, and practical skill‑building with narrative reframing and relational repair.
-                        </p>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
-                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                          <h4 className="font-syne font-bold text-sm mb-3">Trauma & Co-occurring</h4>
-                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Integrated approaches for managing mental health and substance-use together.</p>
-                        </div>
-                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                          <h4 className="font-syne font-bold text-sm mb-3">Family & Couples</h4>
-                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Repairing patterns and shifting dynamics using Relational Life Therapy (RLT).</p>
-                        </div>
-                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                          <h4 className="font-syne font-bold text-sm mb-3">Professionals</h4>
-                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Depth-oriented therapy that respects high-level career demands.</p>
-                        </div>
-                        <div className="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
-                          <h4 className="font-syne font-bold text-sm mb-3">Crisis Management</h4>
-                          <p className="text-xs md:text-sm text-[#2D2926]/50 font-light">Collaborative, system-level responses when safety concerns arise.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="pt-8 border-t border-[#2D2926]/10">
-                      <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#2D2926]/40 mb-6">Professional Background</h3>
-                      <p className="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed mb-8">
-                        Certified Clinical Trauma Professional with experience as a clinical director, college faculty, and statewide program administrator. Jennifer uses continuous improvement methods to make care more efficient and effective.
-                      </p>
+                    <div className="pt-4">
                       <button 
                         onClick={() => {
                           const el = document.getElementById('why-here');
                           el?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="flex items-center gap-4 text-[#8C3B24] font-semibold tracking-[0.2em] uppercase text-[10px] md:text-[11px] group"
+                        className="flex items-center gap-4 text-[#8C3B24]/60 font-bold tracking-[0.2em] uppercase text-[10px] md:text-[11px] group transition-all duration-300"
                       >
-                        Begin Your Mapping <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
+                        Begin Your Mapping <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 opacity-40 group-hover:opacity-100" />
                       </button>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-[#22333B] rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 text-white relative overflow-hidden">
+                <div className="mt-32 bg-[#22333B] rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 text-white relative overflow-hidden">
                   <div className="relative z-10 max-w-3xl">
                     <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#D79E54] mb-6 md:mb-8">A Note About Fit</h3>
                     <p className="text-xl md:text-4xl font-light leading-tight mb-8 md:mb-12">

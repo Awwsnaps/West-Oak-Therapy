@@ -156,6 +156,7 @@ export default function MirrorExperience() {
           {[
             { label: "Home", action: () => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); } },
             { label: "About", action: () => setStage("guide") },
+            { label: "Mental Health", action: () => setStage("mental-health" as any) },
             { label: "Service", action: () => setStage("service") }
           ].map((item) => (
             <button 
@@ -887,6 +888,124 @@ export default function MirrorExperience() {
           </motion.div>
         )}
 
+      </AnimatePresence>
+
+      {/* STAGE 6: MENTAL HEALTH VALUE */}
+      <AnimatePresence>
+        {stage === ("mental-health" as any) && (
+          <motion.div 
+            key="mental-health"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="min-h-screen pt-40 md:pt-48 pb-20 px-8 flex flex-col items-center relative z-10 overflow-y-auto bg-[#FDFCFB]"
+          >
+            <div className="max-w-5xl w-full">
+              <header className="mb-20 md:mb-32 text-left">
+                <span className="text-[10px] tracking-[0.5em] uppercase text-[#8C3B24] font-bold mb-6 block">Structural Value</span>
+                <h1 className="font-syne font-bold text-5xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.85] mb-12">
+                  The <span className="italic font-serif font-light text-[#8C3B24]">Value</span> <br /> of Investment.
+                </h1>
+                <p className="text-xl md:text-3xl font-light text-[#2D2926]/60 max-w-3xl leading-relaxed">
+                  Mental health is not a luxury—it is the internal infrastructure that supports everything else in your life.
+                </p>
+              </header>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 mb-32">
+                {[
+                  {
+                    title: "Daily Functioning & Productivity",
+                    content: "Regular therapy helps reduce symptoms that interfere with work, sleep, and relationships. When symptoms are managed, clients report better focus, fewer sick days, and greater capacity to meet personal and professional responsibilities.",
+                    id: "01"
+                  },
+                  {
+                    title: "Prevention & Crisis Mitigation",
+                    content: "Early, consistent care reduces the likelihood of problems worsening into emergencies that require urgent care, hospitalization, or legal involvement. Preventing crises typically costs far less—financially and emotionally—than responding to them.",
+                    id: "02"
+                  },
+                  {
+                    title: "Efficiency through Consistency",
+                    content: "Regular attendance and active engagement often shorten the total course of treatment. Investing in regular sessions and homework reduces the need for repeated or prolonged interventions later.",
+                    id: "03"
+                  },
+                  {
+                    title: "Lower Indirect Costs",
+                    content: "Therapy can decrease hidden expenses such as lost wages, reduced job performance, relationship breakdowns, and the time and money spent navigating multiple providers or systems.",
+                    id: "04"
+                  },
+                  {
+                    title: "Relationship Resilience",
+                    content: "Couples and family work improves communication and problem‑solving, which reduces recurring conflicts and the downstream costs of relationship stress (legal fees, separation costs, family disruption).",
+                    id: "05"
+                  },
+                  {
+                    title: "Clinical Flexibility",
+                    content: "Paying privately preserves clinical autonomy and privacy, allowing care that’s tailored to your needs rather than constrained by third‑party requirements. That flexibility supports more effective, individualized treatment.",
+                    id: "06"
+                  }
+                ].map((item, i) => (
+                  <motion.div 
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 1 }}
+                    className="group"
+                  >
+                    <div className="flex items-center gap-4 mb-6">
+                      <span className="text-[10px] font-mono tracking-widest text-[#8C3B24]/40 uppercase">Module {item.id}</span>
+                      <div className="h-px flex-1 bg-[#2D2926]/5" />
+                    </div>
+                    <h3 className="font-syne font-bold text-2xl md:text-3xl mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">
+                      {item.title}
+                    </h3>
+                    <p className="text-base md:text-lg text-[#2D2926]/50 font-light leading-relaxed">
+                      {item.content}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="bg-[#2D2926] rounded-[2rem] md:rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden text-center"
+              >
+                <div className="relative z-10 max-w-3xl mx-auto">
+                  <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#D79E54] mb-8">Practical ROI</h3>
+                  <p className="text-2xl md:text-4xl font-light leading-tight mb-12 italic font-serif">
+                    "Think of therapy as targeted, preventive care: the upfront cost of sessions yields savings by reducing emergency care, minimizing lost income, and shortening the time spent struggling with untreated problems."
+                  </p>
+                  <button 
+                    onClick={() => {
+                      setStage("service");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="px-12 py-5 bg-[#D79E54] text-white rounded-full text-[11px] tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-[#2D2926] transition-all duration-700"
+                  >
+                    Begin Your Investment
+                  </button>
+                </div>
+                <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px]" />
+              </motion.div>
+
+              {/* Footer */}
+              <div className="mt-48 pt-16 border-t border-[#2D2926]/5 flex flex-col md:flex-row justify-between items-center gap-12 text-[#2D2926]/30 text-[10px] tracking-[0.4em] uppercase font-bold text-center md:text-left w-full">
+                <div>© 2026 Jennifer Weinmann / West Oak</div>
+                <div className="flex gap-12">
+                  <span className="cursor-pointer hover:text-[#8C3B24] transition-colors duration-500">Security</span>
+                  <span className="cursor-pointer hover:text-[#8C3B24] transition-colors duration-500">Confidentiality</span>
+                </div>
+                <div className="flex gap-12">
+                  <button onClick={() => { setStage("guide"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="hover:text-[#8C3B24] transition-colors duration-500">Back to Bio</button>
+                  <button onClick={() => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="hover:text-[#8C3B24] transition-colors duration-500">Return to Top</button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );

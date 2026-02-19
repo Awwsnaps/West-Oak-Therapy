@@ -674,7 +674,64 @@ export default function MirrorExperience() {
                 </div>
               </motion.div>
 
-              {/* Modern Architect Style Grid */}
+              {/* Services Offered Section */}
+              <div className="mb-48 text-left">
+                <h2 className="font-syne font-bold text-4xl md:text-6xl mb-16 tracking-tight text-[#2D2926]">
+                  Services <br /> <span className="italic font-serif font-light text-[#8C3B24]">Offered.</span>
+                </h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {[
+                    { 
+                      title: "Individual Therapy", 
+                      content: "Trauma‑informed, evidence‑based care for anxiety, depression, trauma, and co‑occurring substance‑use concerns. Work focuses on measurable goals, nervous‑system regulation, practical skills, and systems‑aware interventions that support lasting change." 
+                    },
+                    { 
+                      title: "Couples and Family Therapy", 
+                      content: "Relational Life Therapy (RLT)–informed work to repair patterns, improve communication, and shift generational dynamics. Sessions emphasize structured conversation practices, safety‑first pacing, and everyday skills for rebuilding connection." 
+                    },
+                    { 
+                      title: "Co‑occurring Disorders Treatment", 
+                      content: "Integrated care for people managing both mental health and substance use. Harm‑reduction strategies, relapse‑prevention planning, and coordinated supports help clients reduce harm while maintaining daily responsibilities." 
+                    },
+                    { 
+                      title: "Trauma‑Informed Care", 
+                      content: "Stabilization, pacing, somatic and narrative approaches tailored to complex presentations. Emphasis on safety, stepwise processing, and tools that preserve functioning while doing deep therapeutic work." 
+                    },
+                    { 
+                      title: "Crisis Assessment", 
+                      content: "Rapid safety assessment, short‑term stabilization, and coordinated responses with system partners when needed. Clear safety planning and next steps to protect well‑being and continuity of care." 
+                    },
+                    { 
+                      title: "Supervision & Consultation", 
+                      content: "Approved supervision and case consultation for clinicians and agencies, focused on trauma‑informed practice and co‑occurring disorders." 
+                    }
+                  ].map((service, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1, duration: 0.8 }}
+                      className="p-8 bg-white rounded-[2rem] border border-[#2D2926]/5 shadow-sm hover:shadow-xl hover:shadow-[#2D2926]/5 transition-all duration-500 group flex flex-col justify-between"
+                    >
+                      <div>
+                        <h3 className="font-syne font-bold text-2xl mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{service.title}</h3>
+                        <p className="text-[#2D2926]/60 font-light leading-relaxed">
+                          {service.content}
+                        </p>
+                      </div>
+                      <div className="mt-8 pt-6 border-t border-[#2D2926]/5 flex justify-end">
+                        <ArrowUpRight className="w-5 h-5 text-[#2D2926]/20 group-hover:text-[#8C3B24] transition-colors" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                <p className="mt-16 text-center text-[#2D2926]/40 font-light tracking-wide italic">
+                  Request an intake call to discuss fit and next steps.
+                </p>
+              </div>
+
+              {/* Modern Architect Style Grid (Logistics) */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24 text-left border-t border-[#2D2926]/5 pt-24 mb-32">
                 {infoSections.flatMap(group => group.items).map((item, i) => (
                   <motion.div

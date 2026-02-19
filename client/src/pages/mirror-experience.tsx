@@ -140,11 +140,11 @@ export default function MirrorExperience() {
     <div className="min-h-screen bg-[#FDFCFB] text-[#2D2926] font-dm selection:bg-[#E5E0DA] selection:text-[#2D2926] overflow-hidden relative">
       
       {/* Header & Nav */}
-      <nav className={`fixed top-0 w-full z-[100] px-8 py-6 md:px-12 flex justify-between items-center transition-all duration-700 border-b ${
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[100] px-8 py-4 flex justify-between items-center transition-all duration-700 rounded-full border ${
         stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight"
-          ? "bg-[#FDFCFB]/90 border-[#2D2926]/5 text-[#2D2926]" 
+          ? "bg-[#1A1A1A]/80 border-white/10 text-white" 
           : "bg-[#1A1A1A]/90 border-white/5 text-[#FDFCFB]"
-      } backdrop-blur-xl`}>
+      } backdrop-blur-xl shadow-2xl`}>
         <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => {
           setStage("splash");
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -152,27 +152,33 @@ export default function MirrorExperience() {
           West Oak Therapy
         </div>
         
-        <div className="flex items-center gap-8">
-          <div className="hidden md:flex items-center gap-8">
-            {[
-              { label: "Book", action: () => setStage("door") },
-              { label: "Portal", action: () => {} },
-              { label: "FAQ", action: () => {} },
-              { label: "Logistics", action: () => setStage("door") }
-            ].map((item) => (
-              <button 
-                key={item.label}
-                onClick={item.action}
-                className="text-[10px] tracking-[0.3em] uppercase font-bold hover:text-[#8C3B24] transition-colors duration-500"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+        <div className="hidden md:flex items-center gap-10">
+          {[
+            { label: "Home", action: () => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); } },
+            { label: "About", action: () => { document.getElementById('about-jen')?.scrollIntoView({ behavior: 'smooth' }); } },
+            { label: "Blog", action: () => {} },
+            { label: "Service", action: () => setStage("door") }
+          ].map((item) => (
+            <button 
+              key={item.label}
+              onClick={item.action}
+              className="text-[10px] tracking-[0.2em] uppercase font-bold hover:text-[#D79E54] transition-colors duration-500"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
 
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => setStage("door")}
+            className="hidden md:block px-6 py-2 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
+          >
+            Book a Consultation
+          </button>
           <button className="md:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 group">
-            <span className={`w-8 h-px transition-all ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#2D2926]/60 group-hover:bg-[#2D2926]" : "bg-[#FDFCFB]/60 group-hover:bg-[#FDFCFB]"}`}></span>
-            <span className={`w-5 h-px transition-all group-hover:w-8 ${stage === "door" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight" ? "bg-[#2D2926]/60 group-hover:bg-[#2D2926]" : "bg-[#FDFCFB]/60 group-hover:bg-[#FDFCFB]"}`}></span>
+            <span className="w-8 h-px bg-white/60 group-hover:bg-white transition-all"></span>
+            <span className="w-5 h-px bg-white/60 group-hover:bg-white transition-all group-hover:w-8"></span>
           </button>
         </div>
       </nav>
@@ -239,51 +245,60 @@ export default function MirrorExperience() {
             className="min-h-screen bg-[#FDFCFB] text-[#2D2926] relative z-10 overflow-x-hidden"
           >
             {/* Hero Section */}
-            <section className="h-screen flex flex-col justify-center px-8 md:px-24">
+            <section className="relative h-screen flex flex-col justify-end px-8 md:px-24 pb-20 md:pb-32 overflow-hidden">
+              {/* Cinematic Background Image */}
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src="/src/assets/images/hero-bg.png" 
+                  alt="Scandinavian architectural backdrop" 
+                  className="w-full h-full object-cover brightness-75 contrast-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              </div>
+
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-4xl"
+                className="relative z-10 w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-end"
               >
-                <span className="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-10 block font-semibold">Licensed Marriage & Family Therapy</span>
-                <h1 className="font-syne font-bold text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight mb-12">
-                  Healing <br />
-                  <span className="italic font-serif font-light text-[#8C3B24] tracking-normal">Structure</span> <br />
-                  & Heart.
-                </h1>
-                <p className="text-xl md:text-2xl font-light max-w-xl leading-relaxed text-[#2D2926]/70 mb-16">
-                  A modern therapeutic practice specializing in high-performance relationship architecture and deep emotional restoration.
-                </p>
-                <div className="flex gap-6">
-                  <button 
-                    onClick={() => {
-                      const el = document.getElementById('about-jen');
-                      el?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="px-10 py-5 border border-[#2D2926]/10 rounded-full text-[11px] tracking-[0.25em] uppercase hover:bg-[#2D2926] hover:text-[#FDFCFB] transition-all duration-700 ease-in-out"
-                  >
-                    Explore
-                  </button>
+                <div className="flex flex-col items-start">
+                  <div className="flex gap-3 mb-8">
+                    {["Construct Meaning", "Map Connection", "Architect Peace"].map((tag) => (
+                      <span key={tag} className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[9px] tracking-[0.2em] uppercase font-bold text-white/90">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h1 className="font-syne font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-0 text-white">
+                    Building <br />
+                    <span className="italic font-serif font-light text-[#D79E54] tracking-normal">Resilient</span> <br />
+                    Intimacy.
+                  </h1>
+                </div>
+
+                <div className="flex flex-col items-start md:pl-12">
+                  <div className="flex items-center gap-3 mb-8 group cursor-pointer">
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-[#D79E54] transition-all duration-500">
+                      <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-current border-b-[5px] border-b-transparent translate-x-0.5" />
+                    </div>
+                    <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-white/80 group-hover:text-white transition-colors">How we work</span>
+                  </div>
+                  
+                  <p className="text-lg md:text-xl font-light leading-relaxed text-white/70 mb-10 max-w-md">
+                    For high-performing individuals and couples who want a strategic partner, not just another therapist. We map the hidden pathways of connection to create lasting structural change.
+                  </p>
+                  
                   <button 
                     onClick={() => {
                       const el = document.getElementById('why-here');
                       el?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="px-10 py-5 bg-[#8C3B24] text-[#FDFCFB] rounded-full text-[11px] tracking-[0.25em] uppercase hover:bg-[#2D2926] transition-all duration-700 ease-in-out"
+                    className="px-12 py-5 bg-white text-[#1A1A1A] rounded-full text-[11px] tracking-[0.3em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-700 ease-in-out shadow-2xl"
                   >
-                    Reflect
+                    Start Your Reflection
                   </button>
                 </div>
-              </motion.div>
-              
-              <motion.div 
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-20 flex flex-col items-center gap-3"
-              >
-                <span className="text-[9px] tracking-[0.3em] uppercase">Discovery</span>
-                <div className="w-px h-16 bg-[#2D2926]" />
               </motion.div>
             </section>
 

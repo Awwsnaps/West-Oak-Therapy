@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import portrait from "@/assets/jennifer-portrait.png";
 
+import companionshipImage from "@/assets/Serene_Companionship_at_Twilight_1771550012281.png";
+
 export default function MirrorExperience() {
   const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "service">("splash");
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
@@ -254,11 +256,11 @@ export default function MirrorExperience() {
               {/* Cinematic Background Image */}
               <div className="absolute inset-0 z-0">
                 <img 
-                  src="/src/assets/images/hero-bg.png" 
-                  alt="Scandinavian architectural backdrop" 
-                  className="w-full h-full object-cover brightness-75 contrast-110"
+                  src={companionshipImage} 
+                  alt="Serene companionship at twilight" 
+                  className="w-full h-full object-cover brightness-90 contrast-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               </div>
 
               <motion.div

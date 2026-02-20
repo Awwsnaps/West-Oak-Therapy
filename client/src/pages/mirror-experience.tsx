@@ -762,7 +762,7 @@ export default function MirrorExperience() {
                   <div className="lg:pt-24">
                     <div className="p-8 md:p-12 bg-[#F8F7F5] rounded-[2rem] border border-[#2D2926]/5 shadow-sm space-y-8 md:space-y-10">
                       <p className="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
-                        Fees are collected after the conclusion of each session and billed through the practice’s Electronic Health Record (EHR), <span className="font-bold text-[#2D2926]">SimplePractice</span>.
+                        Fees are collected after the conclusion of each session and billed through the practice’s Electronic Health Record (EHR), <span className="font-bold text-[#2D2926]">Sessions Health</span>.
                       </p>
                       
                       <div className="pt-8 md:pt-10 border-t border-[#2D2926]/10">

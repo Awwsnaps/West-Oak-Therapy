@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import companionshipImage from "@/assets/Serene_Companionship_at_Twilight_1771550012281.png";
+import treeImage from "@/assets/simon-wilkes-S297j2CsdlM-unsplash_1771550247524.jpg";
 import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
@@ -255,8 +255,8 @@ export default function MirrorExperience() {
               {/* Cinematic Background Image */}
               <div className="absolute inset-0 z-0">
                 <img 
-                  src={companionshipImage} 
-                  alt="Serene companionship at twilight" 
+                  src={treeImage} 
+                  alt="Solitary tree in misty field at sunrise" 
                   className="w-full h-full object-cover brightness-90 contrast-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

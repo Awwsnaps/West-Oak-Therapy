@@ -10,6 +10,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={MirrorExperience} />
+      <Route path="/mirror" component={MirrorExperience} />
       <Route component={NotFound} />
     </Switch>
   );

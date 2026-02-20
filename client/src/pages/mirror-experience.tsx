@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import portrait from "@/assets/jennifer-portrait.png";
-
 import companionshipImage from "@/assets/Serene_Companionship_at_Twilight_1771550012281.png";
+import portrait from "@/assets/jennifer-portrait.png";
 
 export default function MirrorExperience() {
   const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "service">("splash");

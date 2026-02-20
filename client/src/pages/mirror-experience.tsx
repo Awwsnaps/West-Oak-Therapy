@@ -277,7 +277,7 @@ export default function MirrorExperience() {
                   </div>
                   <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1] md:leading-[0.9] tracking-tighter mb-0 text-white">
                     I understand <br />
-                    <span className="italic font-serif font-light text-[#D79E54] tracking-normal">hurt</span> and I also <br />
+                    <span className="italic font-serif font-light text-[#D79E54] tracking-normal">hurt,</span> and I <br />
                     understand <span className="italic font-serif font-light text-[#D79E54] tracking-normal">healing.</span>
                   </h1>
                 </div>

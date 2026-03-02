@@ -142,19 +142,19 @@ export default function MirrorExperience() {
     <div className="min-h-screen bg-[#FDFCFB] text-[#2D2926] font-dm selection:bg-[#E5E0DA] selection:text-[#2D2926] overflow-hidden relative">
       
       {/* Header & Nav */}
-      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[100] px-8 py-4 flex justify-between items-center transition-all duration-700 rounded-full border ${
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[100] px-6 md:px-8 py-3 md:py-4 flex justify-between items-center transition-all duration-700 rounded-full border ${
         stage === "service" || stage === "guide" || stage === "splash" || stage === "mirror" || stage === "insight"
           ? "bg-[#1A1A1A]/80 border-white/10 text-white" 
           : "bg-[#1A1A1A]/90 border-white/5 text-[#FDFCFB]"
       } backdrop-blur-xl shadow-2xl`}>
-        <div className="font-syne font-bold text-lg tracking-tight cursor-pointer" onClick={() => {
+        <div className="font-syne font-bold text-base md:text-lg tracking-tight cursor-pointer whitespace-nowrap" onClick={() => {
           setStage("splash");
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}>
           West Oak Therapy
         </div>
         
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-8">
           {[
             { label: "Home", action: () => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); } },
             { label: "About", action: () => setStage("guide") },
@@ -164,43 +164,43 @@ export default function MirrorExperience() {
             <button 
               key={item.label}
               onClick={item.action}
-              className="text-[10px] tracking-[0.2em] uppercase font-bold hover:text-[#D79E54] transition-colors duration-500"
+              className="text-[9px] tracking-[0.2em] uppercase font-bold hover:text-[#D79E54] transition-colors duration-500"
             >
               {item.label}
             </button>
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex flex-col items-end mr-2">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="hidden xl:flex flex-col items-end mr-2">
             <button 
               onClick={() => window.open('https://westoaktherapy.sessionshealth.com', '_blank')}
-              className="px-6 py-2 border border-white/20 text-white rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-white hover:text-[#1A1A1A] transition-all duration-500"
+              className="px-5 py-2 border border-white/20 text-white rounded-full text-[9px] tracking-[0.1em] uppercase font-bold hover:bg-white hover:text-[#1A1A1A] transition-all duration-500"
             >
               Client Portal
             </button>
-            <span className="text-[7px] text-white/40 uppercase tracking-widest mt-1 mr-2">Secure scheduling & messaging</span>
+            <span className="text-[6px] text-white/40 uppercase tracking-widest mt-1 mr-2">Secure scheduling</span>
           </div>
           <button 
             onClick={() => setStage("service")}
-            className="hidden md:block px-6 py-2 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
+            className="hidden lg:block px-5 py-2 bg-white text-[#1A1A1A] rounded-full text-[9px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
           >
             Book a Consultation
           </button>
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 group relative z-[110]"
+            className="lg:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 group relative z-[110]"
           >
             <motion.span 
-              animate={isMobileMenuOpen ? { rotate: 45, y: 7, width: "32px" } : { rotate: 0, y: 0, width: "32px" }}
+              animate={isMobileMenuOpen ? { rotate: 45, y: 7, width: "28px" } : { rotate: 0, y: 0, width: "28px" }}
               className="h-px bg-white transition-all"
             />
             <motion.span 
-              animate={isMobileMenuOpen ? { opacity: 0, x: 20 } : { opacity: 1, x: 0, width: "20px" }}
+              animate={isMobileMenuOpen ? { opacity: 0, x: 20 } : { opacity: 1, x: 0, width: "18px" }}
               className="h-px bg-white transition-all"
             />
             <motion.span 
-              animate={isMobileMenuOpen ? { rotate: -45, y: -7, width: "32px" } : { rotate: 0, y: 0, width: "32px" }}
+              animate={isMobileMenuOpen ? { rotate: -45, y: -7, width: "28px" } : { rotate: 0, y: 0, width: "28px" }}
               className="h-px bg-white transition-all"
             />
           </button>
@@ -217,7 +217,7 @@ export default function MirrorExperience() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed inset-0 z-[105] bg-[#1A1A1A] flex flex-col items-center justify-center p-8 md:hidden"
           >
-            <div className="flex flex-col items-center gap-8 w-full">
+            <div className="flex flex-col items-center gap-6 w-full max-w-sm">
               {[
                 { label: "Home", action: () => { setStage("splash"); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
                 { label: "About", action: () => { setStage("guide"); setIsMobileMenuOpen(false); } },
@@ -227,19 +227,19 @@ export default function MirrorExperience() {
                 <button 
                   key={item.label}
                   onClick={item.action}
-                  className="text-2xl tracking-[0.2em] uppercase font-bold text-white hover:text-[#D79E54] transition-colors"
+                  className="text-xl tracking-[0.2em] uppercase font-bold text-white hover:text-[#D79E54] transition-colors"
                 >
                   {item.label}
                 </button>
               ))}
               
-              <div className="flex flex-col gap-4 w-full mt-12">
+              <div className="flex flex-col gap-4 w-full mt-8">
                 <button 
                   onClick={() => {
                     window.open('https://westoaktherapy.sessionshealth.com', '_blank');
                     setIsMobileMenuOpen(false);
                   }}
-                  className="w-full py-4 border border-white/20 text-white rounded-full text-xs tracking-[0.2em] uppercase font-bold"
+                  className="w-full py-4 border border-white/20 text-white rounded-full text-[10px] tracking-[0.2em] uppercase font-bold"
                 >
                   Client Portal
                 </button>
@@ -248,7 +248,7 @@ export default function MirrorExperience() {
                     setStage("service");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="w-full py-4 bg-white text-[#1A1A1A] rounded-full text-xs tracking-[0.2em] uppercase font-bold"
+                  className="w-full py-4 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.2em] uppercase font-bold"
                 >
                   Book a Consultation
                 </button>
@@ -335,7 +335,7 @@ export default function MirrorExperience() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end"
+                className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-end"
               >
                 <div className="flex flex-col items-start pt-24 md:pt-0">
                   <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
@@ -345,14 +345,14 @@ export default function MirrorExperience() {
                       </span>
                     ))}
                   </div>
-                  <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[0.9] tracking-tighter mb-0 text-white">
+                  <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl leading-[1.1] md:leading-[0.9] tracking-tighter mb-0 text-white">
                     I understand <br className="hidden sm:block" />
                     <span className="italic font-serif font-light text-[#D79E54] tracking-normal">hurt,</span> and I <br className="hidden sm:block" />
                     understand <span className="italic font-serif font-light text-[#D79E54] tracking-normal">healing.</span>
                   </h1>
                 </div>
 
-                <div className="flex flex-col items-start md:pl-12 pb-4 md:pb-0">
+                <div className="flex flex-col items-start lg:pl-12 pb-4 md:pb-0">
                   <div className="flex items-center gap-3 mb-6 md:mb-8 group cursor-pointer">
                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-[#D79E54] transition-all duration-500">
                       <div className="w-0 h-0 border-t-[4px] md:border-t-[5px] border-t-transparent border-l-[6px] md:border-l-[8px] border-l-current border-b-[4px] md:border-b-[5px] border-b-transparent translate-x-0.5" />
@@ -360,7 +360,7 @@ export default function MirrorExperience() {
                     <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase font-bold text-white/80 group-hover:text-white transition-colors">How we work</span>
                   </div>
                   
-                  <p className="text-base md:text-xl font-light leading-relaxed text-white/70 mb-8 md:mb-10 max-w-md">
+                  <p className="text-base md:text-xl font-light leading-relaxed text-white/70 mb-8 md:mb-10 max-w-md lg:max-w-lg">
                     For motivated individuals and couples who want a strategic partner, not just another therapist. We map the hidden pathways of connection to create lasting structural change.
                   </p>
                   

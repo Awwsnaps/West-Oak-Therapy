@@ -172,7 +172,7 @@ export default function MirrorExperience() {
         </div>
 
         <div className="flex items-center gap-3 md:gap-4">
-          <div className="hidden xl:flex flex-col items-end mr-2">
+          <div className="hidden lg:flex flex-col items-end mr-2">
             <button 
               onClick={() => window.open('https://westoaktherapy.sessionshealth.com', '_blank')}
               className="px-5 py-2 border border-white/20 text-white rounded-full text-[9px] tracking-[0.1em] uppercase font-bold hover:bg-white hover:text-[#1A1A1A] transition-all duration-500"

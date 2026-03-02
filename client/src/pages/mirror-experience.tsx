@@ -182,7 +182,7 @@ export default function MirrorExperience() {
             <span className="text-[6px] text-white/40 uppercase tracking-widest mt-1 mr-2">Secure scheduling</span>
           </div>
           <button 
-            onClick={() => setStage("service")}
+            onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
             className="hidden lg:block px-5 py-2 bg-white text-[#1A1A1A] rounded-full text-[9px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
           >
             Book a Consultation
@@ -245,7 +245,7 @@ export default function MirrorExperience() {
                 </button>
                 <button 
                   onClick={() => {
-                    setStage("service");
+                    window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request";
                     setIsMobileMenuOpen(false);
                   }}
                   className="w-full py-4 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.2em] uppercase font-bold"
@@ -708,6 +708,7 @@ export default function MirrorExperience() {
                 
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full max-w-xl mx-auto justify-center mt-12 md:mt-16">
                   <motion.button 
+                    onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
                     whileHover={{ scale: 1.03, backgroundColor: "#1A1A1A" }}
                     whileTap={{ scale: 0.97 }}
                     className="w-full md:w-auto px-10 md:px-14 py-4 md:py-6 bg-[#2D2926] text-[#FDFCFB] text-[10px] md:text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-2xl"

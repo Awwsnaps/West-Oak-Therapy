@@ -709,7 +709,7 @@ export default function MirrorExperience() {
                       ))}
                     </div>
                     <h2 className="font-syne font-bold text-4xl md:text-7xl mb-8 tracking-tight leading-[1.1]">
-                      Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
+                      The <br /> <span className="italic font-serif font-light text-[#8C3B24]">Practice.</span>
                     </h2>
                     
                     <div className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-12">

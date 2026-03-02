@@ -696,35 +696,6 @@ export default function MirrorExperience() {
             className="min-h-screen flex flex-col items-center justify-start pt-24 md:pt-32 pb-12 md:pb-20 px-6 md:px-8 text-center bg-[#FDFCFB] text-[#2D2926] relative z-10 overflow-y-auto"
           >
             <div className="container mx-auto max-w-6xl">
-              <motion.div
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1.2 }}
-                className="mb-20 md:mb-32"
-              >
-                <h1 className="font-syne font-bold text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] mb-8 md:mb-12 tracking-tighter leading-[0.85]">
-                  Construct <br />
-                  <span className="italic font-serif font-light text-[#8C3B24]">Meaning.</span>
-                </h1>
-                
-                <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full max-w-xl mx-auto justify-center mt-12 md:mt-16">
-                  <motion.button 
-                    onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
-                    whileHover={{ scale: 1.03, backgroundColor: "#1A1A1A" }}
-                    whileTap={{ scale: 0.97 }}
-                    className="w-full md:w-auto px-10 md:px-14 py-4 md:py-6 bg-[#2D2926] text-[#FDFCFB] text-[10px] md:text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-2xl"
-                  >
-                    Consultation
-                  </motion.button>
-                  <motion.button 
-                    whileHover={{ scale: 1.03, backgroundColor: "#F8F7F5" }}
-                    whileTap={{ scale: 0.97 }}
-                    className="w-full md:w-auto px-10 md:px-14 py-4 md:py-6 border border-[#2D2926]/10 text-[#2D2926] text-[10px] md:text-sm font-semibold tracking-[0.3em] uppercase transition-all duration-700 rounded-full"
-                  >
-                    Portal
-                  </motion.button>
-                </div>
-              </motion.div>
 
               {/* Services Offered Section */}
               <div className="mb-24 md:mb-48 text-left">

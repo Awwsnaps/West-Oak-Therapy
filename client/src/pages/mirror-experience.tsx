@@ -732,7 +732,7 @@ export default function MirrorExperience() {
                   Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
                 </h2>
                 
-                <div className="mb-16 md:mb-24 aspect-[21/9] w-full rounded-[2rem] overflow-hidden shadow-sm relative">
+                <div className="mb-16 md:mb-24 aspect-[4/5] md:aspect-[3/4] max-w-2xl mx-auto w-full rounded-[2rem] overflow-hidden shadow-sm relative">
                   <img src={portraitAlternate} alt="Therapy Services" className="w-full h-full object-cover object-center" />
                 </div>
                 

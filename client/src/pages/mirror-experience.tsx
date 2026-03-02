@@ -8,6 +8,7 @@ export default function MirrorExperience() {
   const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "service">("splash");
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
   const [mirrorIndex, setMirrorIndex] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Updated sections data from new practice info
   const infoSections = [
@@ -186,12 +187,76 @@ export default function MirrorExperience() {
           >
             Book a Consultation
           </button>
-          <button className="md:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 group">
-            <span className="w-8 h-px bg-white/60 group-hover:bg-white transition-all"></span>
-            <span className="w-5 h-px bg-white/60 group-hover:bg-white transition-all group-hover:w-8"></span>
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 group relative z-[110]"
+          >
+            <motion.span 
+              animate={isMobileMenuOpen ? { rotate: 45, y: 7, width: "32px" } : { rotate: 0, y: 0, width: "32px" }}
+              className="h-px bg-white transition-all"
+            />
+            <motion.span 
+              animate={isMobileMenuOpen ? { opacity: 0, x: 20 } : { opacity: 1, x: 0, width: "20px" }}
+              className="h-px bg-white transition-all"
+            />
+            <motion.span 
+              animate={isMobileMenuOpen ? { rotate: -45, y: -7, width: "32px" } : { rotate: 0, y: 0, width: "32px" }}
+              className="h-px bg-white transition-all"
+            />
           </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[105] bg-[#1A1A1A] flex flex-col items-center justify-center p-8 md:hidden"
+          >
+            <div className="flex flex-col items-center gap-8 w-full">
+              {[
+                { label: "Home", action: () => { setStage("splash"); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
+                { label: "About", action: () => { setStage("guide"); setIsMobileMenuOpen(false); } },
+                { label: "Therapy Services", action: () => { setStage("mental-health" as any); setIsMobileMenuOpen(false); } },
+                { label: "Service", action: () => { setStage("service"); setIsMobileMenuOpen(false); } }
+              ].map((item) => (
+                <button 
+                  key={item.label}
+                  onClick={item.action}
+                  className="text-2xl tracking-[0.2em] uppercase font-bold text-white hover:text-[#D79E54] transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+              
+              <div className="flex flex-col gap-4 w-full mt-12">
+                <button 
+                  onClick={() => {
+                    window.open('https://westoaktherapy.sessionshealth.com', '_blank');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-4 border border-white/20 text-white rounded-full text-xs tracking-[0.2em] uppercase font-bold"
+                >
+                  Client Portal
+                </button>
+                <button 
+                  onClick={() => {
+                    setStage("service");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-4 bg-white text-[#1A1A1A] rounded-full text-xs tracking-[0.2em] uppercase font-bold"
+                >
+                  Book a Consultation
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Minimal ambient light - Scandinavian soft focus */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -280,9 +345,9 @@ export default function MirrorExperience() {
                       </span>
                     ))}
                   </div>
-                  <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1] md:leading-[0.9] tracking-tighter mb-0 text-white">
-                    I understand <br />
-                    <span className="italic font-serif font-light text-[#D79E54] tracking-normal">hurt,</span> and I <br />
+                  <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[0.9] tracking-tighter mb-0 text-white">
+                    I understand <br className="hidden sm:block" />
+                    <span className="italic font-serif font-light text-[#D79E54] tracking-normal">hurt,</span> and I <br className="hidden sm:block" />
                     understand <span className="italic font-serif font-light text-[#D79E54] tracking-normal">healing.</span>
                   </h1>
                 </div>
@@ -315,29 +380,29 @@ export default function MirrorExperience() {
             {/* About Section */}
             <section id="about-jen" className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 py-20 md:py-32 bg-[#FAF9F6]">
               <div className="container mx-auto max-w-6xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
-                  <div className="relative">
-                    <div className="aspect-[4/5] md:aspect-[1.1] rounded-[2.5rem] overflow-hidden shadow-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center">
+                  <div className="relative order-2 md:order-1">
+                    <div className="aspect-[4/5] md:aspect-[1.1] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-sm">
                       <img src={portrait} alt="Jennifer Weinmann" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   
-                  <div className="space-y-8 md:space-y-10 text-left">
-                    <h2 className="font-syne font-bold text-5xl md:text-7xl tracking-tight text-[#2D2926] leading-[1.1]">
+                  <div className="space-y-6 md:space-y-10 text-left order-1 md:order-2">
+                    <h2 className="font-syne font-bold text-4xl md:text-7xl tracking-tight text-[#2D2926] leading-[1.1]">
                       Rooted in <br />
                       <span className="italic font-serif font-light text-[#8C3B24]">Excellence.</span>
                     </h2>
                     
-                    <div className="space-y-6">
-                      <p className="text-lg md:text-xl text-[#2D2926]/60 font-light leading-relaxed max-w-lg">
+                    <div className="space-y-4 md:space-y-6">
+                      <p className="text-base md:text-xl text-[#2D2926]/60 font-light leading-relaxed max-w-lg">
                         I am Jennifer Weinmann. My practice is built on the intersection of deep clinical expertise and a modern, architectural approach to human connection.
                       </p>
-                      <p className="text-lg md:text-xl text-[#2D2926]/60 font-light leading-relaxed max-w-lg">
+                      <p className="text-base md:text-xl text-[#2D2926]/60 font-light leading-relaxed max-w-lg">
                         We don't just talk about problems; we map the structural patterns that define your life, reinforcing what works and redesigning what doesn't.
                       </p>
                     </div>
 
-                    <div className="pt-4">
+                    <div className="pt-2 md:pt-4">
                       <button 
                         onClick={() => {
                           const el = document.getElementById('why-here');
@@ -351,15 +416,15 @@ export default function MirrorExperience() {
                   </div>
                 </div>
 
-                <div className="mt-32 bg-[#22333B] rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 text-white relative overflow-hidden">
+                <div className="mt-16 md:mt-32 bg-[#22333B] rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 text-white relative overflow-hidden">
                   <div className="relative z-10 max-w-3xl">
                     <h3 className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#D79E54] mb-6 md:mb-8">A Note About Fit</h3>
                     <p className="text-xl md:text-4xl font-light leading-tight mb-8 md:mb-12">
                       Clients who benefit most are ready for <span className="italic font-serif text-[#D79E54]">honest, sustained work</span> and want a therapist who combines clinical rigor with genuine empathy.
                     </p>
-                    <div className="flex flex-wrap gap-3 md:gap-4">
+                    <div className="flex flex-wrap gap-2 md:gap-4">
                       {["Clinical Rigor", "Genuine Empathy", "Sustained Change"].map((tag) => (
-                        <span key={tag} className="px-3 md:px-4 py-2 bg-white/10 rounded-full text-[8px] md:text-[10px] tracking-widest uppercase border border-white/10">
+                        <span key={tag} className="px-3 py-1.5 md:px-4 md:py-2 bg-white/10 rounded-full text-[7px] md:text-[10px] tracking-widest uppercase border border-white/10 whitespace-nowrap">
                           {tag}
                         </span>
                       ))}
@@ -372,25 +437,25 @@ export default function MirrorExperience() {
             </section>
 
             {/* Why are you here Section */}
-            <section id="why-here" className="min-h-screen flex flex-col items-center justify-center px-8 py-32 bg-[#FDFCFB]">
+            <section id="why-here" className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-20 md:py-32 bg-[#FDFCFB]">
               <div className="container mx-auto max-w-4xl text-center">
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
-                  className="mb-16 max-w-2xl mx-auto"
+                  className="mb-12 md:mb-16 max-w-2xl mx-auto"
                 >
-                  <span className="text-[10px] tracking-[0.5em] uppercase text-[#8C3B24] font-bold mb-6 block">The Orientation</span>
-                  <h2 className="font-syne font-bold text-5xl md:text-7xl mb-8 tracking-tight text-[#2D2926]">
+                  <span className="text-[10px] tracking-[0.5em] uppercase text-[#8C3B24] font-bold mb-4 md:mb-6 block text-center">The Orientation</span>
+                  <h2 className="font-syne font-bold text-4xl md:text-7xl mb-6 md:mb-8 tracking-tight text-[#2D2926]">
                     Where do we <br /> begin?
                   </h2>
-                  <p className="text-lg md:text-xl text-[#2D2926]/60 font-light leading-relaxed">
+                  <p className="text-base md:text-xl text-[#2D2926]/60 font-light leading-relaxed px-4">
                     Select the path that most closely aligns with your current reality. This choice isn't permanent—it's simply the structural starting point for our reflection. 
                   </p>
                 </motion.div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-6xl mx-auto px-4 md:px-0">
                   {[
                     { label: "My relationship is struggling", val: "relationship", color: "bg-[#8C3B24]" },
                     { label: "We keep having the same fight", val: "same_fight", color: "bg-[#D79E54]" },
@@ -409,14 +474,14 @@ export default function MirrorExperience() {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.6 }}
                       onClick={() => handleChoice(opt.val as any)}
-                      className={`group relative w-full aspect-video overflow-hidden rounded-2xl ${opt.color} transition-all duration-500 hover:scale-[1.05] active:scale-[0.98] text-left px-6 py-8 flex flex-col justify-between shadow-lg shadow-[#2D2926]/5`}
+                      className={`group relative w-full aspect-square sm:aspect-video overflow-hidden rounded-2xl ${opt.color} transition-all duration-500 hover:scale-[1.05] active:scale-[0.98] text-left px-5 md:px-6 py-6 md:py-8 flex flex-col justify-between shadow-lg shadow-[#2D2926]/5`}
                     >
                       <div className="flex justify-between items-start">
-                        <span className={`text-[10px] font-mono tracking-widest ${i === 8 ? "text-[#2D2926]/40" : "text-white/40"}`}>CASE-0{i + 1}</span>
-                        <ArrowUpRight className={`w-6 h-6 ${i === 8 ? "text-[#2D2926]/40" : "text-white/40"} group-hover:text-white group-hover:rotate-45 transition-all duration-500`} />
+                        <span className={`text-[9px] md:text-[10px] font-mono tracking-widest ${i === 8 ? "text-[#2D2926]/40" : "text-white/40"}`}>CASE-0{i + 1}</span>
+                        <ArrowUpRight className={`w-5 h-5 md:w-6 md:h-6 ${i === 8 ? "text-[#2D2926]/40" : "text-white/40"} group-hover:text-white group-hover:rotate-45 transition-all duration-500`} />
                       </div>
                       
-                      <span className={`text-xl md:text-2xl font-syne font-bold tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-500 ${i === 8 ? "text-[#2D2926]" : "text-white"}`}>
+                      <span className={`text-lg md:text-2xl font-syne font-bold tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-500 ${i === 8 ? "text-[#2D2926]" : "text-white"}`}>
                         {opt.label}
                       </span>
                       
@@ -663,42 +728,42 @@ export default function MirrorExperience() {
               </motion.div>
 
               {/* Services Offered Section */}
-              <div className="mb-32 md:mb-48 text-left">
-                <h2 className="font-syne font-bold text-5xl md:text-7xl mb-12 md:mb-16 tracking-tight leading-[1.1]">
+              <div className="mb-24 md:mb-48 text-left">
+                <h2 className="font-syne font-bold text-4xl md:text-7xl mb-12 md:mb-16 tracking-tight leading-[1.1]">
                   Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
                 </h2>
                 
-                <div className="space-y-24">
+                <div className="space-y-16 md:space-y-24">
                   {/* Category 1: Individual & Relational */}
                   <div className="group">
-                    <div className="flex items-center gap-4 mb-8">
+                    <div className="flex items-center gap-4 mb-6 md:mb-8">
                       <div className="h-px flex-1 bg-[#2D2926]/10" />
-                      <h4 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Individual & Relational Therapy</h4>
-                      <div className="h-px w-12 bg-[#2D2926]/10" />
+                      <h4 className="text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Individual & Relational Therapy</h4>
+                      <div className="h-px w-8 md:w-12 bg-[#2D2926]/10" />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
-                        <h5 className="font-syne font-bold text-xl mb-4 group-hover/card:text-[#8C3B24] transition-colors">Individual Therapy</h5>
-                        <p className="text-base text-[#2D2926]/60 font-light leading-relaxed">Trauma‑informed, evidence‑based care for anxiety, depression, trauma, and co‑occurring substance‑use concerns. Work focuses on measurable goals and systems‑aware interventions.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                      <div className="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-lg md:text-xl mb-3 md:mb-4 group-hover/card:text-[#8C3B24] transition-colors">Individual Therapy</h5>
+                        <p className="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">Trauma‑informed, evidence‑based care for anxiety, depression, trauma, and co‑occurring substance‑use concerns. Work focuses on measurable goals and systems‑aware interventions.</p>
                       </div>
-                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
-                        <h5 className="font-syne font-bold text-xl mb-4 group-hover/card:text-[#8C3B24] transition-colors">Couples and Family Therapy</h5>
-                        <p className="text-base text-[#2D2926]/60 font-light leading-relaxed">Relational Life Therapy (RLT)–informed work to repair patterns, improve communication, and shift generational dynamics with safety‑first pacing.</p>
+                      <div className="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-lg md:text-xl mb-3 md:mb-4 group-hover/card:text-[#8C3B24] transition-colors">Couples and Family Therapy</h5>
+                        <p className="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">Relational Life Therapy (RLT)–informed work to repair patterns, improve communication, and shift generational dynamics with safety‑first pacing.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Category 2: Specialized Clinical */}
                   <div className="group">
-                    <div className="flex items-center gap-4 mb-8">
+                    <div className="flex items-center gap-4 mb-6 md:mb-8">
                       <div className="h-px flex-1 bg-[#2D2926]/10" />
-                      <h4 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Specialized Clinical Services</h4>
-                      <div className="h-px w-12 bg-[#2D2926]/10" />
+                      <h4 className="text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Specialized Clinical Services</h4>
+                      <div className="h-px w-8 md:w-12 bg-[#2D2926]/10" />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
-                        <h5 className="font-syne font-bold text-lg mb-3 group-hover/card:text-[#8C3B24] transition-colors">Co‑occurring Disorders</h5>
-                        <p className="text-sm text-[#2D2926]/60 font-light leading-relaxed">Integrated treatment for managing mental health and substance‑use challenges simultaneously.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                      <div className="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-base md:text-lg mb-2 md:mb-3 group-hover/card:text-[#8C3B24] transition-colors">Co‑occurring Disorders</h5>
+                        <p className="text-xs md:text-sm text-[#2D2926]/60 font-light leading-relaxed">Integrated treatment for managing mental health and substance‑use challenges simultaneously.</p>
                       </div>
                       <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
                         <h5 className="font-syne font-bold text-lg mb-3 group-hover/card:text-[#8C3B24] transition-colors">Trauma-Informed Care</h5>
@@ -740,38 +805,34 @@ export default function MirrorExperience() {
                     <div className="space-y-12 md:space-y-16">
                       <div>
                         <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Individual Therapy</h3>
-                        <div className="space-y-4 md:space-y-6">
-                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
-                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">60 minutes</span>
-                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$200</span>
-                          </div>
-                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
-                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">90 minutes</span>
-                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$300</span>
-                          </div>
-                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
-                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">120 minutes</span>
-                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$400</span>
-                          </div>
-                        </div>
+          <div className="space-y-4 md:space-y-6">
+            {[
+              { label: "60 minutes", price: "$200" },
+              { label: "90 minutes", price: "$300" },
+              { label: "120 minutes", price: "$400" }
+            ].map((f, i) => (
+              <div key={i} className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                <span className="text-sm md:text-lg font-light text-[#2D2926]/60">{f.label}</span>
+                <span className="font-serif italic text-lg md:text-2xl text-[#8C3B24]">{f.price}</span>
+              </div>
+            ))}
+          </div>
                       </div>
 
                       <div>
                         <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Couples Therapy</h3>
-                        <div className="space-y-4 md:space-y-6">
-                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
-                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">60 minutes</span>
-                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$250</span>
-                          </div>
-                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
-                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">90 minutes</span>
-                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$375</span>
-                          </div>
-                          <div className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
-                            <span className="text-base md:text-lg font-light text-[#2D2926]/60">120 minutes</span>
-                            <span className="font-serif italic text-xl md:text-2xl text-[#8C3B24]">$500</span>
-                          </div>
-                        </div>
+          <div className="space-y-4 md:space-y-6">
+            {[
+              { label: "60 minutes", price: "$250" },
+              { label: "90 minutes", price: "$375" },
+              { label: "120 minutes", price: "$500" }
+            ].map((f, i) => (
+              <div key={i} className="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                <span className="text-sm md:text-lg font-light text-[#2D2926]/60">{f.label}</span>
+                <span className="font-serif italic text-lg md:text-2xl text-[#8C3B24]">{f.price}</span>
+              </div>
+            ))}
+          </div>
                       </div>
                     </div>
                   </div>

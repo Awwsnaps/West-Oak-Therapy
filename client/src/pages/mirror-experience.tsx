@@ -157,7 +157,7 @@ export default function MirrorExperience() {
           {[
             { label: "Home", action: () => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); } },
             { label: "About", action: () => setStage("guide") },
-            { label: "Mental Health", action: () => setStage("mental-health" as any) },
+            { label: "Therapy Services", action: () => setStage("mental-health" as any) },
             { label: "Service", action: () => setStage("service") }
           ].map((item) => (
             <button 
@@ -171,11 +171,15 @@ export default function MirrorExperience() {
         </div>
 
         <div className="flex items-center gap-4">
-          <button 
-            className="hidden md:block px-6 py-2 border border-white/20 text-white rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-white hover:text-[#1A1A1A] transition-all duration-500"
-          >
-            Client Portal
-          </button>
+          <div className="hidden md:flex flex-col items-end mr-2">
+            <button 
+              onClick={() => window.open('https://westoaktherapy.sessionshealth.com', '_blank')}
+              className="px-6 py-2 border border-white/20 text-white rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-white hover:text-[#1A1A1A] transition-all duration-500"
+            >
+              Client Portal
+            </button>
+            <span className="text-[7px] text-white/40 uppercase tracking-widest mt-1 mr-2">Secure scheduling & messaging</span>
+          </div>
           <button 
             onClick={() => setStage("service")}
             className="hidden md:block px-6 py-2 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
@@ -292,7 +296,7 @@ export default function MirrorExperience() {
                   </div>
                   
                   <p className="text-base md:text-xl font-light leading-relaxed text-white/70 mb-8 md:mb-10 max-w-md">
-                    For high-performing individuals and couples who want a strategic partner, not just another therapist. We map the hidden pathways of connection to create lasting structural change.
+                    For motivated individuals and couples who want a strategic partner, not just another therapist. We map the hidden pathways of connection to create lasting structural change.
                   </p>
                   
                   <button 
@@ -660,55 +664,67 @@ export default function MirrorExperience() {
 
               {/* Services Offered Section */}
               <div className="mb-32 md:mb-48 text-left">
-                <h2 className="font-syne font-bold text-3xl md:text-6xl mb-12 md:mb-16 tracking-tight text-[#2D2926]">
-                  Services <br /> <span className="italic font-serif font-light text-[#8C3B24]">Offered.</span>
+                <h2 className="font-syne font-bold text-5xl md:text-7xl mb-12 md:mb-16 tracking-tight leading-[1.1]">
+                  Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  {[
-                    { 
-                      title: "Individual Therapy", 
-                      content: "Trauma‑informed, evidence‑based care for anxiety, depression, trauma, and co‑occurring substance‑use concerns. Work focuses on measurable goals, nervous‑system regulation, practical skills, and systems‑aware interventions that support lasting change." 
-                    },
-                    { 
-                      title: "Couples and Family Therapy", 
-                      content: "Relational Life Therapy (RLT)–informed work to repair patterns, improve communication, and shift generational dynamics. Sessions emphasize structured conversation practices, safety‑first pacing, and everyday skills for rebuilding connection." 
-                    },
-                    { 
-                      title: "Co‑occurring Disorders Treatment", 
-                      content: "Integrated care for people managing both mental health and substance use. Harm‑reduction strategies, relapse‑prevention planning, and coordinated supports help clients reduce harm while maintaining daily responsibilities." 
-                    },
-                    { 
-                      title: "Trauma‑Informed Care", 
-                      content: "Stabilization, pacing, somatic and narrative approaches tailored to complex presentations. Emphasis on safety, stepwise processing, and tools that preserve functioning while doing deep therapeutic work." 
-                    },
-                    { 
-                      title: "Crisis Assessment", 
-                      content: "Rapid safety assessment, short‑term stabilization, and coordinated responses with system partners when needed. Clear safety planning and next steps to protect well‑being and continuity of care." 
-                    },
-                    { 
-                      title: "Supervision & Consultation", 
-                      content: "Approved supervision and case consultation for clinicians and agencies, focused on trauma‑informed practice and co‑occurring disorders." 
-                    }
-                  ].map((service, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1, duration: 0.8 }}
-                      className="p-6 md:p-8 bg-white rounded-[1.5rem] md:rounded-[2rem] border border-[#2D2926]/5 shadow-sm hover:shadow-xl hover:shadow-[#2D2926]/5 transition-all duration-500 group flex flex-col justify-between"
-                    >
-                      <div>
-                        <h3 className="font-syne font-bold text-xl md:text-2xl mb-4 md:mb-6 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500">{service.title}</h3>
-                        <p className="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">
-                          {service.content}
-                        </p>
+                
+                <div className="space-y-24">
+                  {/* Category 1: Individual & Relational */}
+                  <div className="group">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="h-px flex-1 bg-[#2D2926]/10" />
+                      <h4 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Individual & Relational Therapy</h4>
+                      <div className="h-px w-12 bg-[#2D2926]/10" />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-xl mb-4 group-hover/card:text-[#8C3B24] transition-colors">Individual Therapy</h5>
+                        <p className="text-base text-[#2D2926]/60 font-light leading-relaxed">Trauma‑informed, evidence‑based care for anxiety, depression, trauma, and co‑occurring substance‑use concerns. Work focuses on measurable goals and systems‑aware interventions.</p>
                       </div>
-                      <div className="mt-6 md:mt-8 pt-6 border-t border-[#2D2926]/5 flex justify-end">
-                        <ArrowUpRight className="w-5 h-5 text-[#2D2926]/20 group-hover:text-[#8C3B24] transition-colors" />
+                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-xl mb-4 group-hover/card:text-[#8C3B24] transition-colors">Couples and Family Therapy</h5>
+                        <p className="text-base text-[#2D2926]/60 font-light leading-relaxed">Relational Life Therapy (RLT)–informed work to repair patterns, improve communication, and shift generational dynamics with safety‑first pacing.</p>
                       </div>
-                    </motion.div>
-                  ))}
+                    </div>
+                  </div>
+
+                  {/* Category 2: Specialized Clinical */}
+                  <div className="group">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="h-px flex-1 bg-[#2D2926]/10" />
+                      <h4 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Specialized Clinical Services</h4>
+                      <div className="h-px w-12 bg-[#2D2926]/10" />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-lg mb-3 group-hover/card:text-[#8C3B24] transition-colors">Co‑occurring Disorders</h5>
+                        <p className="text-sm text-[#2D2926]/60 font-light leading-relaxed">Integrated treatment for managing mental health and substance‑use challenges simultaneously.</p>
+                      </div>
+                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-lg mb-3 group-hover/card:text-[#8C3B24] transition-colors">Trauma-Informed Care</h5>
+                        <p className="text-sm text-[#2D2926]/60 font-light leading-relaxed">Safety-first approaches to processing significant life events and building resilience.</p>
+                      </div>
+                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-lg mb-3 group-hover/card:text-[#8C3B24] transition-colors">Crisis Assessment</h5>
+                        <p className="text-sm text-[#2D2926]/60 font-light leading-relaxed">Thorough clinical evaluation for stabilization and immediate safety planning.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Category 3: Professional */}
+                  <div className="group">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="h-px flex-1 bg-[#2D2926]/10" />
+                      <h4 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Professional Services</h4>
+                      <div className="h-px w-12 bg-[#2D2926]/10" />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="p-8 bg-white border border-[#2D2926]/5 rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm group/card">
+                        <h5 className="font-syne font-bold text-xl mb-4 group-hover/card:text-[#8C3B24] transition-colors">Supervision & Consultation</h5>
+                        <p className="text-base text-[#2D2926]/60 font-light leading-relaxed">Clinical supervision for Associate MFTs and consultation for licensed professionals seeking deeper expertise.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <p className="mt-12 md:mt-16 text-center text-[#2D2926]/40 font-light tracking-wide italic text-sm md:text-base">
                   Request an intake call to discuss fit and next steps.
@@ -769,7 +785,7 @@ export default function MirrorExperience() {
                       <div className="pt-8 md:pt-10 border-t border-[#2D2926]/10">
                         <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-[#2D2926] mb-4 md:mb-6">Out‑of‑network billing (OON)</h4>
                         <p className="text-sm md:text-base text-[#2D2926]/50 font-light leading-relaxed italic">
-                          An itemized statement (superbill) can be provided upon request to submit to your insurer for possible reimbursement; providing a superbill does not guarantee payment—coverage and reimbursement are determined solely by your insurance plan. It may be helpful to check your plan’s OON reimbursement policy before beginning services so you understand any deductible, co‑insurance, or documentation requirements.
+                          You can request a superbill to submit to your insurance for possible reimbursement. Your insurance plan determines whether they will reimburse you and at what amount. It may be helpful to check your plan’s OON reimbursement policy before beginning services so you understand any deductible, co‑insurance, or documentation requirements.
                         </p>
                       </div>
                     </div>
@@ -809,11 +825,11 @@ export default function MirrorExperience() {
                 <h2 className="font-syne font-bold text-3xl md:text-4xl mb-12 md:mb-16 tracking-tight pb-6 md:pb-8">Practice FAQ</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-10 md:gap-y-12">
                   {[
-                    { q: "Who is my therapist and what is her approach?", a: "Jennifer Weinmann, LMFT, combines evidence‑based interventions with trauma‑informed, systems‑focused care. Her approach balances measurable treatment planning with relational warmth to help clients heal from trauma and create durable change." },
+                    { q: "What is your therapeutic approach?", a: "Jennifer Weinmann, LMFT, combines evidence‑based interventions with trauma‑informed, systems‑focused care. Her approach balances measurable treatment planning with relational warmth to help clients heal from trauma and create durable change. For more on my background, see the About section." },
                     { q: "What therapeutic models do you use?", a: "Trauma‑informed, evidence‑based modalities tailored to each client. Relational Life Therapy (RLT) is used for couples and family work. Treatment integrates systems thinking and measurable outcome tracking." },
                     { q: "How long is a session?", a: "Sessions are available in 60, 90, or 120 minute lengths. Frequency and duration are individualized—weekly is common at the start, then adjusted based on progress and life demands." },
                     { q: "Why don’t you take insurance?", a: "To preserve clinical autonomy, protect your privacy, and allow for flexible, optimal care tailored to your needs rather than reimbursable constraints. Documentation for out-of-network reimbursement is provided." },
-                    { q: "Is therapy confidential?", a: "Yes. Clinical records are confidential and protected by law. Exceptions include imminent risk of harm or legal requirements, which are reviewed during intake." },
+                    { q: "Is therapy confidential?", a: "Yes. Your information is confidential and protected by law. The only exceptions are situations involving immediate safety concerns or legal requirements, which we review together during intake." },
                     { q: "How do I start?", a: "A brief intake call clarifies needs, availability, and fit. You'll be asked about goals, current concerns, and any immediate safety issues." }
                   ].map((faq, i) => (
                     <div key={i} className="group">
@@ -839,7 +855,7 @@ export default function MirrorExperience() {
                     }}
                     className="hover:text-[#8C3B24] transition-colors duration-500"
                   >
-                    Back to Bio
+                    About Jennifer
                   </motion.button>
                   <motion.button 
                     onClick={() => {
@@ -967,7 +983,7 @@ export default function MirrorExperience() {
                   <span className="cursor-pointer hover:text-[#8C3B24] transition-colors duration-500">Confidentiality</span>
                 </div>
                 <div className="flex gap-12">
-                  <button onClick={() => { setStage("guide"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="hover:text-[#8C3B24] transition-colors duration-500">Back to Bio</button>
+                  <button onClick={() => { setStage("guide"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="hover:text-[#8C3B24] transition-colors duration-500">About Jennifer</button>
                   <button onClick={() => { setStage("splash"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="hover:text-[#8C3B24] transition-colors duration-500">Return to Top</button>
                 </div>
               </div>

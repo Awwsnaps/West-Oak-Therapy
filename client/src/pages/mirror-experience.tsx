@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import treeImage from "@/assets/simon-wilkes-S297j2CsdlM-unsplash_1771550247524.jpg";
+import treeImage from "@/assets/hero-home.png";
 import portrait from "@/assets/Jen-03.jpg";
 import portraitAlternate from "@/assets/Jen-13.jpg";
 

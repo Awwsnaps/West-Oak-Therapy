@@ -728,12 +728,16 @@ export default function MirrorExperience() {
 
               {/* Services Offered Section */}
               <div className="mb-24 md:mb-48 text-left">
-                <h2 className="font-syne font-bold text-4xl md:text-7xl mb-12 md:mb-16 tracking-tight leading-[1.1]">
-                  Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
-                </h2>
-                
-                <div className="mb-16 md:mb-24 aspect-[4/5] md:aspect-[3/4] max-w-2xl mx-auto w-full rounded-[2rem] overflow-hidden shadow-sm relative">
-                  <img src={portraitAlternate} alt="Therapy Services" className="w-full h-full object-cover object-center" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-16 md:mb-24">
+                  <div>
+                    <h2 className="font-syne font-bold text-4xl md:text-7xl tracking-tight leading-[1.1]">
+                      Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
+                    </h2>
+                  </div>
+                  
+                  <div className="aspect-[4/5] md:aspect-[3/4] w-full rounded-[2rem] overflow-hidden shadow-sm relative">
+                    <img src={portraitAlternate} alt="Therapy Services" className="w-full h-full object-cover object-center" />
+                  </div>
                 </div>
                 
                 <div className="space-y-16 md:space-y-24">

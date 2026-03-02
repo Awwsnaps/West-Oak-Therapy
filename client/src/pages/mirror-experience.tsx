@@ -459,10 +459,10 @@ export default function MirrorExperience() {
                   {[
                     { label: "My relationship is struggling", val: "relationship", color: "bg-[#8C3B24]" },
                     { label: "We keep having the same fight", val: "same_fight", color: "bg-[#D79E54]" },
-                    { label: "I'm using substances to cope", val: "substances", color: "bg-[#2D2926]" },
-                    { label: "I feel disconnected from my life", val: "disconnected", color: "bg-[#434B3D]" },
+                    { label: "I'm using alcohol or cannabis too much", val: "substances", color: "bg-[#2D2926]" },
+                    { label: "I feel disconnected from my family", val: "disconnected", color: "bg-[#434B3D]" },
                     { label: "Career & performance stress", val: "unknown", color: "bg-[#5E503F]" },
-                    { label: "Something else needs to change", val: "unknown", color: "bg-[#22333B]" }
+                    { label: "I don't know, but something needs to change", val: "unknown", color: "bg-[#22333B]" }
                   ].map((opt, i) => (
                     <motion.button
                       key={i}

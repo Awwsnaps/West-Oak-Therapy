@@ -335,9 +335,9 @@ export default function MirrorExperience() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-end"
+                className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-end"
               >
-                <div className="flex flex-col items-start pt-24 md:pt-0">
+                <div className="flex flex-col items-start pt-24 md:pt-0 lg:col-span-7 xl:col-span-8">
                   <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
                     {["Construct Meaning", "Map Connection", "Architect Peace"].map((tag) => (
                       <span key={tag} className="px-3 md:px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[8px] md:text-[9px] tracking-[0.2em] uppercase font-bold text-white/90">
@@ -345,14 +345,14 @@ export default function MirrorExperience() {
                       </span>
                     ))}
                   </div>
-                  <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl leading-[1.1] md:leading-[0.9] tracking-tighter mb-0 text-white">
+                  <h1 className="font-syne font-bold text-5xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-[1.1] md:leading-[0.95] tracking-tighter mb-0 text-white">
                     I understand <br className="hidden sm:block" />
                     <span className="italic font-serif font-light text-[#D79E54] tracking-normal">hurt,</span> and I <br className="hidden sm:block" />
                     understand <span className="italic font-serif font-light text-[#D79E54] tracking-normal">healing.</span>
                   </h1>
                 </div>
 
-                <div className="flex flex-col items-start lg:pl-12 pb-4 md:pb-0">
+                <div className="flex flex-col items-start lg:col-span-5 xl:col-span-4 lg:pl-8 pb-4 md:pb-0">
                   <div className="flex items-center gap-3 mb-6 md:mb-8 group cursor-pointer">
                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-[#D79E54] transition-all duration-500">
                       <div className="w-0 h-0 border-t-[4px] md:border-t-[5px] border-t-transparent border-l-[6px] md:border-l-[8px] border-l-current border-b-[4px] md:border-b-[5px] border-b-transparent translate-x-0.5" />
@@ -360,7 +360,7 @@ export default function MirrorExperience() {
                     <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase font-bold text-white/80 group-hover:text-white transition-colors">How we work</span>
                   </div>
                   
-                  <p className="text-base md:text-xl font-light leading-relaxed text-white/70 mb-8 md:mb-10 max-w-md lg:max-w-lg">
+                  <p className="text-base md:text-xl font-light leading-relaxed text-white/70 mb-8 md:mb-10 max-w-md">
                     For motivated individuals and couples who want a strategic partner, not just another therapist. We map the hidden pathways of connection to create lasting structural change.
                   </p>
                   

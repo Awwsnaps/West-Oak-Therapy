@@ -705,28 +705,29 @@ export default function MirrorExperience() {
                       The <br /> <span className="italic font-serif font-light text-[#8C3B24]">Practice.</span>
                     </h2>
                     
-                    <div className="flex flex-col gap-4 mt-8 md:mt-12">
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <motion.button 
-                          onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
-                          whileHover={{ scale: 1.03, backgroundColor: "#1A1A1A" }}
-                          whileTap={{ scale: 0.97 }}
-                          className="w-full sm:w-auto px-8 md:px-10 py-4 bg-[#2D2926] text-[#FDFCFB] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-xl"
-                        >
-                          Consultation
-                        </motion.button>
+                    <div className="flex flex-col sm:flex-row gap-6 md:gap-8 mt-8 md:mt-12 items-start">
+                      <motion.button 
+                        onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
+                        whileHover={{ scale: 1.03, backgroundColor: "#1A1A1A" }}
+                        whileTap={{ scale: 0.97 }}
+                        className="w-full sm:w-auto px-8 md:px-10 py-4 bg-[#2D2926] text-[#FDFCFB] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-xl shrink-0"
+                      >
+                        Consultation
+                      </motion.button>
+                      
+                      <div className="flex flex-col gap-3 w-full sm:w-auto">
                         <motion.button 
                           onClick={() => window.open('https://westoaktherapy.sessionshealth.com', '_blank')}
                           whileHover={{ scale: 1.03, backgroundColor: "#F8F7F5" }}
                           whileTap={{ scale: 0.97 }}
-                          className="w-full sm:w-auto px-8 md:px-10 py-4 border border-[#2D2926]/20 text-[#2D2926] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full"
+                          className="w-full px-8 md:px-10 py-4 border border-[#2D2926]/20 text-[#2D2926] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full"
                         >
                           Client Portal
                         </motion.button>
+                        <p className="text-[10px] md:text-[11px] text-[#2D2926]/50 tracking-wide leading-relaxed pl-2 max-w-[280px]">
+                          Access your secure portal for scheduling, paperwork, and messaging.
+                        </p>
                       </div>
-                      <p className="text-[10px] md:text-xs text-[#2D2926]/50 tracking-wider">
-                        Access your secure portal for scheduling, paperwork, and messaging.
-                      </p>
                     </div>
                   </div>
                   

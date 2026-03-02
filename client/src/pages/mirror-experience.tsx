@@ -730,9 +730,35 @@ export default function MirrorExperience() {
               <div className="mb-24 md:mb-48 text-left">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-16 md:mb-24">
                   <div>
-                    <h2 className="font-syne font-bold text-4xl md:text-7xl tracking-tight leading-[1.1]">
+                    <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
+                      {["Construct Meaning", "Map Connection", "Architect Peace"].map((tag) => (
+                        <span key={tag} className="px-3 md:px-4 py-1.5 bg-[#2D2926]/5 border border-[#2D2926]/10 rounded-full text-[8px] md:text-[9px] tracking-[0.2em] uppercase font-bold text-[#2D2926]/80">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h2 className="font-syne font-bold text-4xl md:text-7xl mb-8 tracking-tight leading-[1.1]">
                       Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
                     </h2>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-12">
+                      <motion.button 
+                        onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
+                        whileHover={{ scale: 1.03, backgroundColor: "#1A1A1A" }}
+                        whileTap={{ scale: 0.97 }}
+                        className="w-full sm:w-auto px-8 md:px-10 py-4 bg-[#2D2926] text-[#FDFCFB] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-xl"
+                      >
+                        Consultation
+                      </motion.button>
+                      <motion.button 
+                        onClick={() => window.open('https://westoaktherapy.sessionshealth.com', '_blank')}
+                        whileHover={{ scale: 1.03, backgroundColor: "#F8F7F5" }}
+                        whileTap={{ scale: 0.97 }}
+                        className="w-full sm:w-auto px-8 md:px-10 py-4 border border-[#2D2926]/20 text-[#2D2926] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full"
+                      >
+                        Client Portal
+                      </motion.button>
+                    </div>
                   </div>
                   
                   <div className="aspect-[4/5] md:aspect-[3/4] w-full rounded-[2rem] overflow-hidden shadow-sm relative">

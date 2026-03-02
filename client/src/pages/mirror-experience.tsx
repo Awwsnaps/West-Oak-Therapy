@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import treeImage from "@/assets/simon-wilkes-S297j2CsdlM-unsplash_1771550247524.jpg";
-import portrait from "@/assets/jennifer-portrait.png";
+import portrait from "@/assets/Jen-03.jpg";
+import portraitAlternate from "@/assets/Jen-13.jpg";
 
 export default function MirrorExperience() {
   const [stage, setStage] = useState<"splash" | "mirror" | "insight" | "guide" | "service">("splash");
@@ -730,6 +731,10 @@ export default function MirrorExperience() {
                 <h2 className="font-syne font-bold text-4xl md:text-7xl mb-12 md:mb-16 tracking-tight leading-[1.1]">
                   Therapy <br /> <span className="italic font-serif font-light text-[#8C3B24]">Services.</span>
                 </h2>
+                
+                <div className="mb-16 md:mb-24 aspect-[21/9] w-full rounded-[2rem] overflow-hidden shadow-sm relative">
+                  <img src={portraitAlternate} alt="Therapy Services" className="w-full h-full object-cover object-center" />
+                </div>
                 
                 <div className="space-y-16 md:space-y-24">
                   {/* Category 1: Individual & Relational */}

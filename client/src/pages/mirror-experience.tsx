@@ -180,7 +180,7 @@ export default function MirrorExperience() {
             >
               Client Portal
             </button>
-            <span className="text-[6px] text-white/40 uppercase tracking-widest mt-1 mr-2">Secure scheduling</span>
+            <span className="text-[6px] text-white/40 uppercase tracking-widest mt-1 mr-2 text-right">Access your secure portal for <br/> scheduling, paperwork, and messaging</span>
           </div>
           <button 
             onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
@@ -701,13 +701,6 @@ export default function MirrorExperience() {
               <div className="mb-24 md:mb-48 text-left">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-16 md:mb-24">
                   <div>
-                    <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
-                      {["Construct Meaning", "Map Connection", "Architect Peace"].map((tag) => (
-                        <span key={tag} className="px-3 md:px-4 py-1.5 bg-[#2D2926]/5 border border-[#2D2926]/10 rounded-full text-[8px] md:text-[9px] tracking-[0.2em] uppercase font-bold text-[#2D2926]/80">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                     <h2 className="font-syne font-bold text-4xl md:text-7xl mb-8 tracking-tight leading-[1.1]">
                       The <br /> <span className="italic font-serif font-light text-[#8C3B24]">Practice.</span>
                     </h2>

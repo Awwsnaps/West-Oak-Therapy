@@ -1,0 +1,18 @@
+# Claude Code local files
+.local/
+
+# Replit specific
+.replit
+replit.nix
+.upm/
+.cache/
+
+# Server (not needed for deployment)
+server/
+script/
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/

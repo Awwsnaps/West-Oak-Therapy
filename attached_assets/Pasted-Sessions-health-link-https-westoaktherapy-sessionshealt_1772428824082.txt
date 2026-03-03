@@ -1,0 +1,129 @@
+Sessions health link:  
+https://westoaktherapy.sessionshealth.com
+
+I ran it through Gemini, we can take and add what we think is best. Here are some suggestions it produced from the client perspective:
+
+Navigation clarity
+1. Rename “Mental Health Service”
+Clients skim navigation quickly. “Mental Health Service” is vague and doesn’t signal what they’ll find inside. From your current page content :
+
+Current: Mental Health Service
+
+Clearer options:
+
+Services
+
+Therapy Services
+
+What I Offer
+
+Therapy & Specialties
+
+These options match what clients expect and reduce hesitation about where to click.
+
+🔐 Add a short explanation of the Client Portal
+Your site currently lists Client Portal in the top navigation with no context. From your current page content :
+
+Add a one‑line explanation on the homepage or under the button:
+
+“Access your secure portal for scheduling, paperwork, and messaging.”
+
+“Log in to complete forms, manage appointments, and communicate securely.”
+
+This prevents clients from wondering whether the portal is for new clients, existing clients, or both.
+
+🗂️ Grouping services into clearer categories
+Your services are currently presented as one long list, which can feel dense for clients skimming for relevance. From your current page content :
+
+Current list includes:
+
+Individual Therapy
+
+Couples and Family Therapy
+
+Co‑occurring Disorders Treatment
+
+Trauma‑Informed Care
+
+Crisis Assessment
+
+Supervision & Consultation
+
+Clearer grouping example:
+
+Individual & Relational Therapy
+Individual Therapy
+
+Couples and Family Therapy
+
+Specialized Clinical Services
+Co‑occurring Disorders Treatment
+
+Trauma‑Informed Care
+
+Crisis Assessment
+
+Professional Services
+Supervision & Consultation
+
+This structure helps clients quickly find what applies to them without reading every paragraph.
+
+💵 Clarify the fee structure
+Your fee section is clear, but clients may skim past the OON explanation because it’s dense. From your current page content :
+
+Current OON language: “An itemized statement (superbill) can be provided upon request to submit to your insurer for possible reimbursement…”
+
+Clearer, client‑friendly version: “You can request a superbill to submit to your insurance for possible reimbursement. Your insurance plan determines whether they will reimburse you and at what amount.”
+
+This keeps the legal accuracy but reduces cognitive load.
+
+❓ FAQ clarity
+Two small adjustments would make the FAQ easier to skim. From your current page content :
+
+1. Avoid repeating the About page
+Current FAQ question: “Who is my therapist and what is her approach?”
+
+Clearer alternative: “What is your therapeutic approach?” (Then link to the About page for your bio.)
+
+2. Make confidentiality more concrete
+Current: “Clinical records are confidential and protected by law…”
+
+Clearer: “Your information is confidential and protected by law. The only exceptions are situations involving immediate safety concerns or legal requirements, which we review together during intake.”
+
+This grounds the concept in something clients can picture.
+
+🦶 Footer clarity
+Your footer currently includes:
+
+Security
+
+Confidentiality
+
+Back to Bio
+
+Return to Top
+
+“Back to Bio” may confuse clients because “Bio” isn’t a visible page title.
+
+Clearer options:
+
+About Jennifer
+
+About the Therapist
+
+Meet Your Therapist
+
+This aligns with the language clients see elsewhere on the site.
+
+🌱 Summary of the clearest improvements
+Rename Mental Health Service → Services or Therapy Services
+
+Add a one‑line explanation under Client Portal
+
+Group services into intuitive categories
+
+Simplify the OON explanation
+
+Adjust FAQ questions for clarity and reduce repetition
+
+Rename Back to Bio → About Jennifer

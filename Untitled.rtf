@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red224\green224\blue224;\red25\green29\blue39;}
+{\*\expandedcolortbl;;\csgenericrgb\c87761\c87761\c87761;\csgenericrgb\c9839\c11388\c15260\c95000;}
+\margl1440\margr1440\vieww11520\viewh20920\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 I want to add a new public feature: "Archetypal Autopsy" profiles for \
+public figures. These pages require no login and are accessible to anyone.\
+\
+FEATURE OVERVIEW:\
+- URL pattern: /figures/:slug (example: /figures/donald-trump)\
+- Content is hardcoded in a TypeScript data file (no database needed)\
+- No authentication required \'97 fully public\
+- Matches BrandNeue design system (Cormorant Garamond headings, \
+  DM Sans body, warm white/cream/ink palette, calm authority aesthetic)\
+\
+WHAT TO BUILD:\
+\
+1. Create a data file at client/src/data/publicFigures.ts\
+   - TypeScript interface for a PublicFigure profile\
+   - Array of profiles, starting with Donald Trump (data below)\
+   - Fields needed: slug, name, title, subtitle, disclaimer, \
+     domains (array of 4, each with 3 archetypes), tensionPairs, \
+     historicalParallels, closingStatement, ctaText\
+\
+2. Create a React page at client/src/pages/FigureProfile.tsx\
+   - Reads the slug from the URL\
+   - Finds the matching profile from publicFigures.ts\
+   - Renders the full profile (see sections below)\
+   - Returns 404 if slug not found\
+   - Fully public \'97 no auth check\
+\
+3. Add the route to the React Router config\
+   - /figures/:slug \uc0\u8594  FigureProfile page\
+   - No auth wrapper\
+\
+4. Add an Express route in server routes\
+   - GET /figures/:slug should serve the React app (SPA fallback)\
+   - Make sure it doesn't conflict with existing API routes\
+\
+PAGE SECTIONS (in order):\
+\
+Section 1 \'97 Hero\
+  - "BRANDNEUE \'b7 ARCHETYPAL AUTOPSY SERIES" (small caps label)\
+  - Person's name (large Cormorant Garamond)\
+  - Their title (e.g. "THE SOVEREIGN PROVOCATEUR")\
+  - Subtitle line\
+  - Disclaimer text (styled as a callout box)\
+\
+Section 2 \'97 Intro\
+  - "What the System Sees" heading\
+  - 2-3 paragraphs explaining the BrandNeue approach\
+  - Pull quote: "Identity is a system, not a type."\
+\
+Section 3 \'97 The 12 Archetypes\
+  - 4 domain sections (Structure, Balance, Legacy, Social)\
+  - Each domain has 3 archetypes\
+  - Each archetype: number badge, domain label, archetype name, \
+    description paragraph\
+  - Domain sections have a divider with the domain name\
+\
+Section 4 \'97 Tension Analysis\
+  - "The Collision Points" heading\
+  - Table/grid of archetype tension pairs\
+  - Each pair: Archetype A vs Archetype B, tension name, \
+    tension description\
+  - Pull quote below\
+\
+Section 5 \'97 Historical Parallels\
+  - "He Has Walked This Road Before" heading (adapt pronoun to subject)\
+  - Cards for each historical figure: name, era, shared archetypes, \
+    paragraph analysis\
+\
+Section 6 \'97 The Real Point\
+  - Closing statement\
+  - Pull quote\
+  - CTA card (dark background, BrandNeue brand colors)\
+  - "DISCOVER YOUR 12 ARCHETYPES" heading\
+  - Description lines\
+  - Button linking to / (homepage / assessment start)\
+\
+DESIGN NOTES:\
+- Take full design inspiration from the existing /results page \'97 \
+  match its layout patterns, card styles, section treatments, \
+  spacing, and visual hierarchy exactly. The figure profile should \
+  feel like a natural extension of the same design system already \
+  in use, not a new design direction.\
+- Use the existing BrandNeue color palette and typography\
+- Archetype domain headers should use distinct but harmonious treatment\
+- The page should feel like a premium editorial piece, not a blog post\
+- Mobile responsive\
+- No sidebar \'97 full width editorial layout\
+- Archetype cards: clean, bordered, with number badge\
+\
+TRUMP PROFILE DATA:\
+Name: Donald J. Trump\
+Slug: donald-trump\
+Title: THE SOVEREIGN PROVOCATEUR\
+Subtitle: What 40 years of public behavior, 10,000+ hours of speeches, \
+and one of the most analyzed personal brands in modern history reveals \
+through the BrandNeue 72-Archetype Lens.\
+\
+Disclaimer: Donald Trump has not taken the BrandNeue assessment. This \
+Archetypal Autopsy is an illustrative analysis based entirely on public \
+record \'97 speeches, interviews, books, and observable behavior spanning \
+four decades. It demonstrates the analytical depth of the 72-archetype \
+framework. What we can see from the outside is already this precise. \
+Imagine what your full assessment reveals.\
+\
+[Use all content from the document I've previously reviewed \'97 all 12 \
+archetypes across 4 domains, all 4 tension pairs, all 5 historical \
+parallels, and the closing statement. You have access to the full \
+content from the archetypal autopsy document already in this session.]\
+\
+After building, show me the file structure you created and the URL \
+I can use to test it on localhost.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf2 \cb3 \CocoaLigature0 Run this in your terminal:                                                                                          \
+                                                                                                                      \
+  claude /login                                                                                                       \
+                                                                                                                      \
+  It will prompt you to choose between logging in with your Claude.ai account (subscription) or with an Anthropic API \
+  key (API billing). Select the API key option and paste in your key from https://console.anthropic.com.              \
+                                                                                                                      \
+  Make sure you have a credit card added and API billing enabled in the Console first, otherwise the key won't work.  
+\f0 \cf0 \cb1 \CocoaLigature1 \
+}

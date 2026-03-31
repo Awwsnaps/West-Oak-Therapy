@@ -10,13 +10,14 @@ export default function MirrorExperience() {
   const [path, setPath] = useState<"relationship" | "substances" | "disconnected" | "same_fight" | "unknown" | null>(null);
   const [mirrorIndex, setMirrorIndex] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   // Updated sections data from new practice info
   const infoSections = [
     {
       group: "Practice",
       items: [
-        { id: "exp", title: "The Strategic Healer", content: "Jennifer Weinmann, LMFT, is a licensed therapist with fourteen years of clinical experience. She blends evidence‑based assessment with systems thinking and trauma‑informed care to help professionals, couples, and families rebuild meaningful connection." },
+        { id: "exp", title: "The Relationship Thought Partner", content: "Jennifer Weinmann, LMFT, is a licensed therapist with fourteen years of clinical experience. She blends evidence‑based assessment with systems thinking and trauma‑informed care to help professionals, couples, and families rebuild meaningful connection." },
         { id: "approach", title: "Clinical Approach", content: "Strategically compassionate care balancing clinical clarity with human warmth. Using Relational Life Therapy (RLT) and outcome tracking to make progress visible, durable, and far‑reaching." }
       ]
     },
@@ -354,7 +355,7 @@ export default function MirrorExperience() {
                 </div>
 
                 <div className="flex flex-col items-start lg:col-span-5 xl:col-span-4 lg:pl-8 pb-4 md:pb-0">
-                  <div className="flex items-center gap-3 mb-6 md:mb-8 group cursor-pointer">
+                  <div className="flex items-center gap-3 mb-6 md:mb-8 group cursor-pointer" onClick={() => setIsVideoOpen(true)}>
                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-[#D79E54] transition-all duration-500">
                       <div className="w-0 h-0 border-t-[4px] md:border-t-[5px] border-t-transparent border-l-[6px] md:border-l-[8px] border-l-current border-b-[4px] md:border-b-[5px] border-b-transparent translate-x-0.5" />
                     </div>
@@ -620,7 +621,7 @@ export default function MirrorExperience() {
                 <div className="space-y-12 md:space-y-16">
                   <div>
                     <h2 className="font-syne font-bold text-4xl sm:text-5xl md:text-7xl mb-6 md:mb-8 tracking-tight text-[#2D2926] leading-tight">
-                      The <span className="italic font-serif font-light text-[#8C3B24]">Strategic</span> Healer.
+                      The <span className="italic font-serif font-light text-[#8C3B24]">Relationship</span> Thought Partner.
                     </h2>
                     <p className="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
                       Licensed marriage and family therapist with fourteen years of clinical experience helping professionals, couples, and families heal from trauma, address co-occurring mental health and substance-use challenges, and rebuild meaningful connection.
@@ -741,7 +742,7 @@ export default function MirrorExperience() {
                   <div className="group">
                     <div className="flex items-center gap-4 mb-6 md:mb-8">
                       <div className="h-px flex-1 bg-[#2D2926]/10" />
-                      <h4 className="text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Individual & Relational Therapy</h4>
+                      <h4 className="text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Individual & Couples</h4>
                       <div className="h-px w-8 md:w-12 bg-[#2D2926]/10" />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -823,7 +824,7 @@ export default function MirrorExperience() {
                       </div>
 
                       <div>
-                        <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Couples Therapy</h3>
+                        <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Couple and Family Therapy</h3>
           <div className="space-y-4 md:space-y-6">
             {[
               { label: "60 minutes", price: "$250" },
@@ -1052,6 +1053,41 @@ export default function MirrorExperience() {
                 </div>
               </div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-[90vw] max-w-4xl aspect-video"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute -top-10 right-0 text-white/80 hover:text-white text-sm tracking-[0.2em] uppercase font-bold transition-colors"
+              >
+                Close
+              </button>
+              <video
+                src="/intro-video.mp4"
+                controls
+                autoPlay
+                className="w-full h-full rounded-2xl shadow-2xl"
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

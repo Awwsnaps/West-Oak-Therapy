@@ -184,7 +184,7 @@ export default function MirrorExperience() {
             <span className="text-[6px] text-white/40 uppercase tracking-widest mt-1 mr-2 text-right">Access your secure portal for <br/> scheduling, paperwork, and messaging</span>
           </div>
           <button 
-            onClick={() => window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request"}
+            onClick={() => window.open("https://westoaktherapy.sessionshealth.com/", "_blank")}
             className="hidden lg:block px-5 py-2 bg-white text-[#1A1A1A] rounded-full text-[9px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
           >
             Book a Consultation
@@ -247,7 +247,7 @@ export default function MirrorExperience() {
                 </button>
                 <button 
                   onClick={() => {
-                    window.location.href = "mailto:jen@westoaktherapy.com?subject=Consultation%20Request";
+                    window.open("https://westoaktherapy.sessionshealth.com/", "_blank");
                     setIsMobileMenuOpen(false);
                   }}
                   className="w-full py-4 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.2em] uppercase font-bold"

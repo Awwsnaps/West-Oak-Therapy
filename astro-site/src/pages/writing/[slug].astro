@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('writing');
+  return articles.map((article) => ({
+    params: { slug: article.id.replace(/\.md$/, '') },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const canonicalUrl = `https://westoaktherapy.com/writing/${article.id.replace(/\.md$/, '')}`;
+const isHub = article.data.page_type?.includes('Hub');
+---
+
+<BaseLayout
+  title={article.data.meta_title}
+  description={article.data.meta_description}
+  ogTitle={article.data.meta_title}
+  ogDescription={article.data.meta_description}
+>
+  <!-- Article structured data -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.data.meta_title.split('|')[0].trim(),
+    "description": article.data.meta_description,
+    "author": {
+      "@type": "Person",
+      "name": "Jennifer Weinmann",
+      "jobTitle": "Licensed Marriage and Family Therapist",
+      "url": "https://westoaktherapy.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "West Oak Therapy",
+      "url": "https://westoaktherapy.com"
+    },
+    "url": canonicalUrl,
+    "mainEntityOfPage": canonicalUrl
+  })} />
+
+  <main class="min-h-screen bg-[#FDFCFB] text-[#2D2926]">
+
+    <!-- Article Header -->
+    <header class="pt-32 md:pt-40 pb-12 md:pb-20 px-6 md:px-8 border-b border-[#2D2926]/5">
+      <div class="container mx-auto max-w-3xl">
+        <div class="flex items-center gap-3 mb-8">
+          <a href="/writing" class="text-[9px] tracking-[0.3em] uppercase font-bold text-[#2D2926]/30 hover:text-[#8C3B24] transition-colors duration-500">
+            ← Writing
+          </a>
+          {isHub && (
+            <span class="px-3 py-1 bg-[#8C3B24]/10 text-[#8C3B24] rounded-full text-[8px] tracking-[0.2em] uppercase font-bold">Core Guide</span>
+          )}
+        </div>
+
+        {article.data.primary_keyword && (
+          <span class="text-[10px] tracking-[0.4em] uppercase text-[#8C3B24] font-bold mb-6 block">
+            {article.data.primary_keyword}
+          </span>
+        )}
+      </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="px-6 md:px-8 py-12 md:py-20">
+      <div class="container mx-auto max-w-3xl">
+        <div class="
+          prose prose-lg max-w-none
+          prose-headings:font-syne prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-[#2D2926]
+          prose-h1:text-4xl md:prose-h1:text-5xl prose-h1:leading-tight prose-h1:mb-8
+          prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6
+          prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
+          prose-p:text-[#2D2926]/70 prose-p:font-light prose-p:leading-relaxed prose-p:text-lg
+          prose-strong:text-[#2D2926] prose-strong:font-bold
+          prose-em:text-[#8C3B24] prose-em:font-cormorant prose-em:text-xl prose-em:not-italic
+          prose-a:text-[#8C3B24] prose-a:no-underline hover:prose-a:underline
+          prose-hr:border-[#2D2926]/10 prose-hr:my-12
+          prose-blockquote:border-l-[#8C3B24] prose-blockquote:text-[#2D2926]/60 prose-blockquote:font-cormorant prose-blockquote:text-xl prose-blockquote:italic
+          prose-ul:text-[#2D2926]/70 prose-li:font-light
+        ">
+          <Content />
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-20 md:mt-32 p-10 md:p-16 bg-[#2D2926] rounded-[2rem] text-white text-center">
+          <h3 class="font-syne font-bold text-2xl md:text-3xl mb-4 tracking-tight">When you're ready to do the work</h3>
+          <p class="text-white/60 font-light mb-8 max-w-lg mx-auto">West Oak Therapy works with high-performing professionals who are ready to build the internal life to match the external one.</p>
+          <a
+            href="https://westoaktherapy.sessionshealth.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-10 py-4 bg-[#D79E54] text-white rounded-full text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-[#2D2926] transition-all duration-700"
+          >
+            Book a Consultation
+          </a>
+        </div>
+
+        <!-- Back to Writing -->
+        <div class="mt-12 text-center">
+          <a href="/writing" class="text-[9px] tracking-[0.3em] uppercase font-bold text-[#2D2926]/30 hover:text-[#8C3B24] transition-colors duration-500">
+            ← Back to all articles
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

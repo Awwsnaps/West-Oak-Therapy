@@ -6,6 +6,7 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Therapy Services", href: "/value-of-therapy" },
   { label: "Services & Fees", href: "/services" },
+  { label: "Writing", href: "/writing" },
 ];
 
 export default function MobileMenu() {

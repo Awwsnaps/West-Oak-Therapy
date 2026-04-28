@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -11,12 +12,123 @@ const navLinks = [
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  const overlay = (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: "100%" }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: "100%" }}
+          transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 200,
+            background: "#1A1A1A",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "2rem",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem", width: "100%", maxWidth: "24rem" }}>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                style={{
+                  fontSize: "1.25rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  fontWeight: "700",
+                  color: "#FFFFFF",
+                  textDecoration: "none",
+                  fontFamily: "Syne, sans-serif",
+                }}
+              >
+                {link.label}
+              </a>
+            ))}
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", marginTop: "2rem" }}>
+              <a
+                href="https://westoaktherapy.sessionshealth.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                style={{
+                  width: "100%",
+                  padding: "1rem",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  color: "#FFFFFF",
+                  borderRadius: "9999px",
+                  fontSize: "0.625rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  fontWeight: "700",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  display: "block",
+                }}
+              >
+                Client Portal
+              </a>
+              <a
+                href="https://westoaktherapy.sessionshealth.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                style={{
+                  width: "100%",
+                  padding: "1rem",
+                  background: "#FFFFFF",
+                  color: "#1A1A1A",
+                  borderRadius: "9999px",
+                  fontSize: "0.625rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  fontWeight: "700",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  display: "block",
+                }}
+              >
+                Book a Consultation
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 
   return (
     <>
+      {/* Hamburger button stays inside the nav */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 group relative z-[110]"
+        className="lg:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 group relative"
+        style={{ zIndex: 210 }}
         aria-label="Toggle menu"
       >
         <motion.span
@@ -33,51 +145,8 @@ export default function MobileMenu() {
         />
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[105] bg-[#1A1A1A] flex flex-col items-center justify-center p-8 md:hidden"
-          >
-            <div className="flex flex-col items-center gap-6 w-full max-w-sm">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-xl tracking-[0.2em] uppercase font-bold text-white hover:text-[#D79E54] transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-
-              <div className="flex flex-col gap-4 w-full mt-8">
-                <a
-                  href="https://westoaktherapy.sessionshealth.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="w-full py-4 border border-white/20 text-white rounded-full text-[10px] tracking-[0.2em] uppercase font-bold text-center"
-                >
-                  Client Portal
-                </a>
-                <a
-                  href="https://westoaktherapy.sessionshealth.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="w-full py-4 bg-white text-[#1A1A1A] rounded-full text-[10px] tracking-[0.2em] uppercase font-bold text-center"
-                >
-                  Book a Consultation
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Overlay portalled to document.body — escapes the nav's transform stacking context */}
+      {mounted && createPortal(overlay, document.body)}
     </>
   );
 }

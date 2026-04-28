@@ -230,7 +230,7 @@ West Oak Therapy works specifically with high-functioning professionals whose su
 
 ---
 
-## FAQ (Schema-friendly)
+## Common questions
 
 **Can a "high-functioning alcoholic" really be hurting their marriage if they're not in crisis?**
 Yes — and often more profoundly than they realize. High-functioning substance use erodes a marriage gradually through small, repeated losses of presence rather than dramatic events. By the time the marriage shows visible damage, the erosion has usually been happening for years.

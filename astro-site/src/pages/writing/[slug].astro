@@ -73,7 +73,7 @@ const hubArticles = allArticles
   <main style="background: #FDFBF7; min-height: 100vh; color: #1F0E0B;">
 
     <!-- Article Header -->
-    <header style="padding: 120px 80px 40px; max-width: 740px; margin: 0 auto;">
+    <header class="article-page-header" style="padding: 164px 80px 40px; max-width: 740px; margin: 0 auto;">
       <!-- Breadcrumb -->
       <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 28px;">
         <a href="/writing" style="font-family: 'Source Sans 3', sans-serif; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: #898B75; text-decoration: none;">Articles</a>
@@ -107,7 +107,7 @@ const hubArticles = allArticles
     </header>
 
     <!-- Hero Image Placeholder -->
-    <div style="padding: 0 80px 16px; max-width: 740px; margin: 0 auto;">
+    <div class="article-page-section" style="padding: 0 80px 16px; max-width: 740px; margin: 0 auto;">
       <div style="height: 200px; background: linear-gradient(135deg, #E1C9B5 0%, #FAF1E5 60%, #E8D5C0 100%); border-radius: 6px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
         <div style="width: 60px; height: 80px; background: #FDFBF7; border-radius: 3px; box-shadow: 0 2px 12px rgba(31,14,11,0.10); display: flex; flex-direction: column; padding: 14px 10px; gap: 6px;">
           <div style="height: 4px; background: #D79E54; border-radius: 2px;"></div>
@@ -129,7 +129,7 @@ const hubArticles = allArticles
     </article>
 
     <!-- Mid-page CTA -->
-    <div style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
+    <div class="article-page-section" style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
       <div style="background: #FAF1E5; border-radius: 6px; padding: 36px 40px; border: 0.5px solid #E1C9B5;">
         <h3 style="font-family: 'Nunito Sans', sans-serif; font-size: 20px; font-weight: 500; color: #1F0E0B; line-height: 1.35; margin: 0 0 12px;">
           If this resonated.
@@ -151,7 +151,7 @@ const hubArticles = allArticles
 
     <!-- Related Reading -->
     {hubArticles.length > 0 && (
-      <div style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
+      <div class="article-page-section" style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
         <div style="font-family: 'Source Sans 3', sans-serif; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: #898B75; margin-bottom: 20px;">
           Related reading
         </div>
@@ -170,7 +170,7 @@ const hubArticles = allArticles
     )}
 
     <!-- Author Bio -->
-    <div style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
+    <div class="article-page-section" style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
       <div style="border-top: 0.5px solid rgba(31,14,11,0.1); padding-top: 28px; display: flex; align-items: flex-start; gap: 18px;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: #E1C9B5; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
           <span style="font-family: 'Nunito Sans', sans-serif; font-size: 16px; font-weight: 600; color: #2F6479;">JW</span>
@@ -191,7 +191,7 @@ const hubArticles = allArticles
   <Footer />
 </BaseLayout>
 
-<style>
+<style is:global>
   /* ── Article body typography ─────────────────────────────────── */
   .article-body {
     font-family: 'Source Sans 3', system-ui, sans-serif;
@@ -330,7 +330,9 @@ const hubArticles = allArticles
 
   /* Responsive padding */
   @media (max-width: 768px) {
-    header, article, div[style*="padding: 56px 80px"] {
+    .article-page-header,
+    .article-body,
+    .article-page-section {
       padding-left: 24px !important;
       padding-right: 24px !important;
     }

@@ -246,7 +246,7 @@ West Oak Therapy works with avoidant high-performers — including people in act
 
 ---
 
-## FAQ (Schema-friendly)
+## Common questions
 
 **Can avoidant attachment really change?**
 Yes. Attachment patterns formed early in life are not destiny — they are predictions your nervous system makes that can be updated through new relational experiences, particularly in therapy. The change is gradual and requires sustained work, but is well-documented.

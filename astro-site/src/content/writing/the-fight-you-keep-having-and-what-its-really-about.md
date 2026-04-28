@@ -222,7 +222,7 @@ West Oak Therapy works with couples in long-running, recurring conflict — incl
 
 ---
 
-## FAQ (Schema-friendly)
+## Common questions
 
 **Why do we keep having the same argument over and over?**
 Because the surface argument is not the actual argument. Recurring fights are nearly always carrying an underlying need — usually about whether each partner feels seen and accepted — that hasn't been named. Until the underlying need is addressed, the surface fight will keep returning, sometimes with different content but the same emotional shape.

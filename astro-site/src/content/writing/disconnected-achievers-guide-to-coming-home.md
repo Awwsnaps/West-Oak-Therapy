@@ -252,7 +252,7 @@ In the meantime, keep reading. The articles below go deeper into the specific pl
 
 ---
 
-## FAQ (Schema-friendly)
+## Common questions
 
 **What does it mean to be "emotionally disconnected" from your family if you're providing for them?**
 Emotional disconnection isn't about whether you're physically present or financially providing — it's about whether the people closest to you have access to the inside of you. Many high-achievers provide everything materially while becoming, over time, functionally unknowable to their spouses and children.

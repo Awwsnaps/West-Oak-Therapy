@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import VideoModal from '../components/VideoModal';
 import PathPicker from '../components/PathPicker';
+import Footer from '../components/Footer.astro';
 import { ArrowUpRight } from 'lucide-react';
 ---
 
@@ -137,18 +138,5 @@ import { ArrowUpRight } from 'lucide-react';
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-[#2D2926]/5 py-12 px-6 md:px-8">
-    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8 text-[#2D2926]/30 text-[10px] tracking-[0.4em] uppercase font-bold">
-      <div>© 2026 Jennifer Weinmann / West Oak</div>
-      <div class="flex gap-12">
-        <span>Security</span>
-        <span>Confidentiality</span>
-      </div>
-      <div class="flex gap-12">
-        <a href="/about" class="hover:text-[#8C3B24] transition-colors duration-500">About Jennifer</a>
-        <a href="/" class="hover:text-[#8C3B24] transition-colors duration-500">Return to Top</a>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </BaseLayout>

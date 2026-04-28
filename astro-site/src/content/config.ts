@@ -9,6 +9,7 @@ const writing = defineCollection({
     primary_keyword: z.string().optional(),
     secondary_keywords: z.array(z.string()).optional(),
     target_persona: z.string().optional(),
+    word_count_target: z.number().optional(),
     schema_type: z.string().optional(),
     canonical_url: z.string().optional(),
     parent_hub: z.string().optional(),

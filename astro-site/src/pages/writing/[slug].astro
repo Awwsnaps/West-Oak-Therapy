@@ -12,10 +12,36 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
+const allArticles = await getCollection('writing');
 const { Content } = await render(article);
 
-const canonicalUrl = `https://westoaktherapy.com/writing/${article.id.replace(/\.md$/, '')}`;
+const slug = article.id.replace(/\.md$/, '');
+const canonicalUrl = `https://westoaktherapy.com/writing/${slug}`;
 const isHub = article.data.page_type?.includes('Hub');
+
+// Read time
+const wordCount = article.data.word_count_target ?? (isHub ? 3000 : 1600);
+const readMin = Math.ceil(wordCount / 250);
+
+// Persona → label
+const persona = article.data.target_persona ?? '';
+let personaLabel = 'Articles';
+if (persona.toLowerCase().includes('skeptic') || persona.toLowerCase().includes('cross-persona')) {
+  personaLabel = 'For the skeptical';
+} else if (persona.toLowerCase().includes('disconnected')) {
+  personaLabel = 'For the disconnected';
+} else if (persona.toLowerCase().includes('numbing')) {
+  personaLabel = 'For the numbing';
+} else if (persona.toLowerCase().includes('avoidant')) {
+  personaLabel = 'For the avoidant';
+} else if (persona.toLowerCase().includes('couples') || persona.toLowerCase().includes('distancer')) {
+  personaLabel = 'For couples';
+}
+
+// Related: show hub articles (excluding self)
+const hubArticles = allArticles
+  .filter(a => a.data.page_type?.includes('Hub') && a.id.replace(/\.md$/, '') !== slug)
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -24,7 +50,6 @@ const isHub = article.data.page_type?.includes('Hub');
   ogTitle={article.data.meta_title}
   ogDescription={article.data.meta_description}
 >
-  <!-- Article structured data -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -45,71 +70,272 @@ const isHub = article.data.page_type?.includes('Hub');
     "mainEntityOfPage": canonicalUrl
   })} />
 
-  <main class="min-h-screen bg-[#FDFCFB] text-[#2D2926]">
+  <main style="background: #FDFBF7; min-height: 100vh; color: #1F0E0B;">
 
     <!-- Article Header -->
-    <header class="pt-32 md:pt-40 pb-12 md:pb-20 px-6 md:px-8 border-b border-[#2D2926]/5">
-      <div class="container mx-auto max-w-3xl">
-        <div class="flex items-center gap-3 mb-8">
-          <a href="/writing" class="text-[9px] tracking-[0.3em] uppercase font-bold text-[#2D2926]/30 hover:text-[#8C3B24] transition-colors duration-500">
-            ← Writing
-          </a>
-          {isHub && (
-            <span class="px-3 py-1 bg-[#8C3B24]/10 text-[#8C3B24] rounded-full text-[8px] tracking-[0.2em] uppercase font-bold">Core Guide</span>
-          )}
-        </div>
-
-        {article.data.primary_keyword && (
-          <span class="text-[10px] tracking-[0.4em] uppercase text-[#8C3B24] font-bold mb-6 block">
-            {article.data.primary_keyword}
-          </span>
+    <header style="padding: 120px 80px 40px; max-width: 740px; margin: 0 auto;">
+      <!-- Breadcrumb -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 28px;">
+        <a href="/writing" style="font-family: 'Source Sans 3', sans-serif; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: #898B75; text-decoration: none;">Articles</a>
+        <span style="color: #898B75; font-size: 11px;">&nbsp;·&nbsp;</span>
+        <span style="font-family: 'Source Sans 3', sans-serif; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: #898B75;">{personaLabel}</span>
+        {isHub && (
+          <span style="margin-left: 8px; padding: 2px 10px; background: #D79E54; color: #FFFFFF; border-radius: 3px; font-family: 'Source Sans 3', sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;">Core Guide</span>
         )}
+      </div>
+
+      <!-- H1 -->
+      <h1 style="font-family: 'Nunito Sans', sans-serif; font-size: clamp(28px, 5vw, 40px); font-weight: 500; color: #1F0E0B; line-height: 1.15; letter-spacing: -0.4px; margin: 0 0 18px;">
+        {article.data.meta_title.split('|')[0].trim()}
+      </h1>
+
+      <!-- Subdeck -->
+      <p style="font-family: 'Source Sans 3', sans-serif; font-size: 18px; line-height: 1.55; color: #5C4F49; margin: 0 0 28px; font-weight: 400;">
+        {article.data.meta_description}
+      </p>
+
+      <!-- Author byline -->
+      <div style="display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 0.5px solid rgba(31,14,11,0.1);">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #E1C9B5; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span style="font-family: 'Nunito Sans', sans-serif; font-size: 13px; font-weight: 600; color: #2F6479;">JW</span>
+        </div>
+        <div style="font-family: 'Source Sans 3', sans-serif; font-size: 13px; color: #5C4F49;">
+          <div style="color: #1F0E0B; font-weight: 600;">Jennifer Weinmann, LMFT</div>
+          <div style="color: #898B75;">{readMin} min read &nbsp;·&nbsp; Telehealth, Washington State</div>
+        </div>
       </div>
     </header>
 
-    <!-- Article Body -->
-    <article class="px-6 md:px-8 py-12 md:py-20">
-      <div class="container mx-auto max-w-3xl">
-        <div class="
-          prose prose-lg max-w-none
-          prose-headings:font-syne prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-[#2D2926]
-          prose-h1:text-4xl md:prose-h1:text-5xl prose-h1:leading-tight prose-h1:mb-8
-          prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6
-          prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
-          prose-p:text-[#2D2926]/70 prose-p:font-light prose-p:leading-relaxed prose-p:text-lg
-          prose-strong:text-[#2D2926] prose-strong:font-bold
-          prose-em:text-[#8C3B24] prose-em:font-cormorant prose-em:text-xl prose-em:not-italic
-          prose-a:text-[#8C3B24] prose-a:no-underline hover:prose-a:underline
-          prose-hr:border-[#2D2926]/10 prose-hr:my-12
-          prose-blockquote:border-l-[#8C3B24] prose-blockquote:text-[#2D2926]/60 prose-blockquote:font-cormorant prose-blockquote:text-xl prose-blockquote:italic
-          prose-ul:text-[#2D2926]/70 prose-li:font-light
-        ">
-          <Content />
-        </div>
-
-        <!-- CTA -->
-        <div class="mt-20 md:mt-32 p-10 md:p-16 bg-[#2D2926] rounded-[2rem] text-white text-center">
-          <h3 class="font-syne font-bold text-2xl md:text-3xl mb-4 tracking-tight">When you're ready to do the work</h3>
-          <p class="text-white/60 font-light mb-8 max-w-lg mx-auto">West Oak Therapy works with high-performing professionals who are ready to build the internal life to match the external one.</p>
-          <a
-            href="https://westoaktherapy.sessionshealth.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-10 py-4 bg-[#D79E54] text-white rounded-full text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-[#2D2926] transition-all duration-700"
-          >
-            Book a Consultation
-          </a>
-        </div>
-
-        <!-- Back to Writing -->
-        <div class="mt-12 text-center">
-          <a href="/writing" class="text-[9px] tracking-[0.3em] uppercase font-bold text-[#2D2926]/30 hover:text-[#8C3B24] transition-colors duration-500">
-            ← Back to all articles
-          </a>
+    <!-- Hero Image Placeholder -->
+    <div style="padding: 0 80px 16px; max-width: 740px; margin: 0 auto;">
+      <div style="height: 200px; background: linear-gradient(135deg, #E1C9B5 0%, #FAF1E5 60%, #E8D5C0 100%); border-radius: 6px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 60px; height: 80px; background: #FDFBF7; border-radius: 3px; box-shadow: 0 2px 12px rgba(31,14,11,0.10); display: flex; flex-direction: column; padding: 14px 10px; gap: 6px;">
+          <div style="height: 4px; background: #D79E54; border-radius: 2px;"></div>
+          <div style="height: 2px; background: #898B75; opacity: 0.4; border-radius: 2px;"></div>
+          <div style="height: 2px; background: #898B75; opacity: 0.4; border-radius: 2px;"></div>
+          <div style="height: 2px; background: #898B75; opacity: 0.4; border-radius: 2px; width: 60%;"></div>
         </div>
       </div>
+      {article.data.primary_keyword && (
+        <div style="font-family: 'Source Sans 3', sans-serif; font-size: 12px; color: #898B75; font-style: italic; margin: 10px 0 0; text-align: center;">
+          {article.data.primary_keyword}
+        </div>
+      )}
+    </div>
+
+    <!-- Article Body -->
+    <article class="article-body" style="padding: 40px 80px 0; max-width: 740px; margin: 0 auto;">
+      <Content />
     </article>
+
+    <!-- Mid-page CTA -->
+    <div style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
+      <div style="background: #FAF1E5; border-radius: 6px; padding: 36px 40px; border: 0.5px solid #E1C9B5;">
+        <h3 style="font-family: 'Nunito Sans', sans-serif; font-size: 20px; font-weight: 500; color: #1F0E0B; line-height: 1.35; margin: 0 0 12px;">
+          If this resonated.
+        </h3>
+        <p style="font-family: 'Source Sans 3', sans-serif; font-size: 16px; line-height: 1.65; color: #5C4F49; margin: 0 0 22px;">
+          You can talk with someone who works with this specifically. A confidential consultation, no commitment.
+        </p>
+        <a
+          href="https://westoaktherapy.sessionshealth.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block; padding: 11px 26px; background: #D79E54; color: #FFFFFF; border-radius: 3px; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.2px; text-decoration: none;"
+        >
+          Schedule a consultation
+        </a>
+        <span style="display: inline-block; margin-left: 14px; font-family: 'Source Sans 3', sans-serif; font-size: 13px; color: #898B75;">or keep reading ↓</span>
+      </div>
+    </div>
+
+    <!-- Related Reading -->
+    {hubArticles.length > 0 && (
+      <div style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
+        <div style="font-family: 'Source Sans 3', sans-serif; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: #898B75; margin-bottom: 20px;">
+          Related reading
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+          {hubArticles.map((a) => (
+            <a
+              href={`/writing/${a.id.replace(/\.md$/, '')}`}
+              style="display: block; background: #FFFFFF; border: 0.5px solid rgba(31,14,11,0.1); border-radius: 4px; padding: 18px; text-decoration: none; transition: border-color 0.3s;"
+            >
+              <div style="font-family: 'Nunito Sans', sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #D79E54; margin-bottom: 8px;">Core Guide · 12 min</div>
+              <div style="font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 500; color: #1F0E0B; line-height: 1.35;">{a.data.meta_title.split('|')[0].trim()}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Author Bio -->
+    <div style="padding: 56px 80px 0; max-width: 740px; margin: 0 auto;">
+      <div style="border-top: 0.5px solid rgba(31,14,11,0.1); padding-top: 28px; display: flex; align-items: flex-start; gap: 18px;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #E1C9B5; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Nunito Sans', sans-serif; font-size: 16px; font-weight: 600; color: #2F6479;">JW</span>
+        </div>
+        <div>
+          <div style="font-family: 'Nunito Sans', sans-serif; font-size: 15px; font-weight: 500; color: #1F0E0B; margin-bottom: 4px;">Jennifer Weinmann, LMFT</div>
+          <div style="font-family: 'Source Sans 3', sans-serif; font-size: 14px; line-height: 1.6; color: #5C4F49; margin-bottom: 8px;">
+            Founder of West Oak Therapy & Consultation. Works with high-performing professionals on the patterns running underneath success — disconnection, numbing, and the relationships you keep half-leaving.
+          </div>
+          <div style="font-family: 'Source Sans 3', sans-serif; font-size: 13px; color: #898B75;">Telehealth available throughout Washington State</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 80px;"></div>
   </main>
 
   <Footer />
 </BaseLayout>
+
+<style>
+  /* ── Article body typography ─────────────────────────────────── */
+  .article-body {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #1F0E0B;
+  }
+
+  /* Drop cap on opening paragraph */
+  .article-body > p:first-of-type::first-letter {
+    float: left;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 64px;
+    line-height: 0.85;
+    font-weight: 500;
+    color: #D79E54;
+    padding: 6px 10px 0 0;
+    margin-top: 6px;
+  }
+
+  .article-body p {
+    margin: 0 0 1.4em;
+    color: #1F0E0B;
+  }
+
+  .article-body h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 500;
+    color: #1F0E0B;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin: 2.5em 0 0.6em;
+  }
+
+  .article-body h2 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.35em;
+    font-weight: 500;
+    color: #2F6479;
+    line-height: 1.3;
+    letter-spacing: -0.1px;
+    margin: 2.5em 0 0.7em;
+  }
+
+  .article-body h3 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #1F0E0B;
+    line-height: 1.35;
+    margin: 2em 0 0.5em;
+  }
+
+  .article-body h4 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #898B75;
+    margin: 2em 0 0.5em;
+  }
+
+  /* Pull quotes */
+  .article-body blockquote {
+    border-left: 3px solid #D79E54;
+    padding: 8px 0 8px 24px;
+    margin: 2em 0;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.15em;
+    line-height: 1.45;
+    color: #1F0E0B;
+    font-style: italic;
+    letter-spacing: -0.1px;
+  }
+
+  .article-body blockquote p {
+    margin: 0;
+  }
+
+  /* Section dividers → 3 gold dots */
+  .article-body hr {
+    border: none;
+    text-align: center;
+    margin: 2.5em 0;
+    height: 1em;
+  }
+
+  .article-body hr::after {
+    content: '· · ·';
+    color: #D79E54;
+    font-size: 20px;
+    letter-spacing: 8px;
+  }
+
+  /* Lists */
+  .article-body ul,
+  .article-body ol {
+    padding-left: 1.5em;
+    margin: 0 0 1.4em;
+  }
+
+  .article-body li {
+    margin-bottom: 0.5em;
+    color: #1F0E0B;
+  }
+
+  /* Strong / em */
+  .article-body strong {
+    font-weight: 600;
+    color: #1F0E0B;
+  }
+
+  .article-body em {
+    font-style: italic;
+    color: #5C4F49;
+  }
+
+  /* Links */
+  .article-body a {
+    color: #2F6479;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .article-body a:hover {
+    color: #D79E54;
+  }
+
+  /* FAQ section headings (the ## FAQ heading) */
+  .article-body h2:has(+ dl),
+  .article-body h2:last-of-type {
+    color: #1F0E0B;
+  }
+
+  /* Responsive padding */
+  @media (max-width: 768px) {
+    header, article, div[style*="padding: 56px 80px"] {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+    .article-body {
+      font-size: 17px;
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}
+
+const {
+  title = 'West Oak Therapy | Jennifer Weinmann, LMFT',
+  description = 'Strategic therapy for motivated individuals and couples. Jennifer Weinmann, LMFT provides trauma-informed, systems-aware care.',
+  ogTitle = 'West Oak Therapy | The Relationship Thought Partner',
+  ogDescription = 'Personalized, strategic therapy for motivated individuals and couples seeking profound transformation. Map the hidden pathways of connection to create lasting change.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="West Oak Therapy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4YJMV7XT9"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W4YJMV7XT9');
+    </script>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Sans:wght@400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen bg-[#FDFCFB] text-[#2D2926] selection:bg-[#E5E0DA] selection:text-[#2D2926]">
+    <Nav currentPath={Astro.url.pathname} />
+    <slot />
+  </body>
+</html>

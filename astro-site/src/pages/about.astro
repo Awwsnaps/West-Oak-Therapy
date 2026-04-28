@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Jennifer Weinmann, LMFT | West Oak Therapy"
+  description="Jennifer Weinmann is a Licensed Marriage and Family Therapist with 14 years of clinical experience. Specializing in trauma, couples therapy, co-occurring disorders, and relational repair using RLT."
+  ogTitle="About Jennifer Weinmann, LMFT | West Oak Therapy"
+  ogDescription="Certified Clinical Trauma Professional and LMFT with 14 years of experience helping professionals, couples, and families heal and rebuild meaningful connection."
+>
+  <!-- Structured Data for Jennifer's practice -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jennifer Weinmann",
+    "jobTitle": "Licensed Marriage and Family Therapist",
+    "description": "Licensed Marriage and Family Therapist with 14 years of clinical experience specializing in trauma, couples therapy, and co-occurring disorders.",
+    "url": "https://westoaktherapy.com/about",
+    "worksFor": {
+      "@type": "MedicalBusiness",
+      "name": "West Oak Therapy",
+      "url": "https://westoaktherapy.com"
+    },
+    "knowsAbout": ["Couples Therapy", "Trauma-Informed Care", "Co-occurring Disorders", "Relational Life Therapy", "Family Therapy"]
+  }
+  </script>
+
+  <main class="min-h-screen bg-[#F8F7F5] text-[#2D2926] pt-24 md:pt-32 pb-12 md:pb-20 px-6 md:px-8">
+    <div class="container mx-auto max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start mb-16 md:mb-24 text-left">
+
+        <!-- Photo Column -->
+        <div class="relative group md:sticky md:top-8">
+          <div class="aspect-[4/5] rounded-3xl overflow-hidden brightness-105 contrast-[0.95] shadow-2xl">
+            <img
+              src="/images/Jen-03.jpg"
+              alt="Jennifer Weinmann, Licensed Marriage and Family Therapist"
+              class="w-full h-full object-cover"
+              width="800"
+              height="1000"
+            />
+          </div>
+          <div class="absolute -bottom-10 -right-10 w-48 md:w-64 h-48 md:h-64 bg-[#E5E0DA]/40 rounded-full blur-3xl -z-10" />
+          <div class="mt-6 md:mt-8 p-6 md:p-8 bg-white rounded-2xl shadow-sm border border-[#2D2926]/5">
+            <p class="italic text-[#8C3B24] font-cormorant text-lg md:text-xl leading-relaxed">
+              "Healing accelerates when strategy meets compassion in service of transformation."
+            </p>
+          </div>
+        </div>
+
+        <!-- Bio Column -->
+        <div class="space-y-12 md:space-y-16">
+          <div>
+            <h1 class="font-syne font-bold text-4xl sm:text-5xl md:text-7xl mb-6 md:mb-8 tracking-tight text-[#2D2926] leading-tight">
+              The <span class="italic font-cormorant font-light text-[#8C3B24]">Relationship</span> Thought Partner.
+            </h1>
+            <p class="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
+              Licensed marriage and family therapist with fourteen years of clinical experience helping professionals, couples, and families heal from trauma, address co-occurring mental health and substance-use challenges, and rebuild meaningful connection.
+            </p>
+          </div>
+
+          <div class="grid gap-10 md:gap-12">
+            <div>
+              <h2 class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-4 md:mb-6">What to expect</h2>
+              <p class="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed">
+                Strategically compassionate care that balances clinical clarity with human warmth. Sessions combine structured assessment, measurable goals, and practical skill‑building with narrative reframing and relational repair.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+              <div class="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                <h3 class="font-syne font-bold text-sm mb-2 md:mb-3">Trauma & Co-occurring</h3>
+                <p class="text-xs md:text-sm text-[#2D2926]/50 font-light">Integrated approaches for managing mental health and substance-use together.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                <h3 class="font-syne font-bold text-sm mb-2 md:mb-3">Family & Couples</h3>
+                <p class="text-xs md:text-sm text-[#2D2926]/50 font-light">Repairing patterns and shifting dynamics using Relational Life Therapy (RLT).</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                <h3 class="font-syne font-bold text-sm mb-2 md:mb-3">Professionals</h3>
+                <p class="text-xs md:text-sm text-[#2D2926]/50 font-light">Depth-oriented therapy that respects high-level career demands.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[#2D2926]/5">
+                <h3 class="font-syne font-bold text-sm mb-2 md:mb-3">Crisis Management</h3>
+                <p class="text-xs md:text-sm text-[#2D2926]/50 font-light">Collaborative, system-level responses when safety concerns arise.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-[#2D2926]/10">
+            <h2 class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#2D2926]/40 mb-4 md:mb-6">Professional Background</h2>
+            <p class="text-base md:text-lg text-[#2D2926]/60 font-light leading-relaxed mb-10 md:mb-12">
+              Certified Clinical Trauma Professional with experience as a clinical director, college faculty, and statewide program administrator. Jennifer uses continuous improvement methods to make care more efficient and effective.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+              <a
+                href="/services"
+                class="w-full sm:w-auto px-10 py-4 bg-[#8C3B24] text-white rounded-full text-[10px] md:text-[11px] tracking-[0.4em] uppercase hover:bg-[#2D2926] transition-all duration-500 shadow-xl text-center"
+              >
+                View Services & Fees
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#2D2926]/5 py-12 px-6 md:px-8 bg-[#F8F7F5]">
+    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8 text-[#2D2926]/30 text-[10px] tracking-[0.4em] uppercase font-bold">
+      <div>© 2026 Jennifer Weinmann / West Oak</div>
+      <div class="flex gap-12">
+        <span>Security</span>
+        <span>Confidentiality</span>
+      </div>
+      <div class="flex gap-12">
+        <a href="/about" class="hover:text-[#8C3B24] transition-colors duration-500">About Jennifer</a>
+        <a href="/" class="hover:text-[#8C3B24] transition-colors duration-500">Return to Top</a>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

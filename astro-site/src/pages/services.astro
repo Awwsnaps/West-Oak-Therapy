@@ -3,22 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
 
 const fees = {
-  individual: [
-    { label: "60 minutes", price: "$200" },
-    { label: "90 minutes", price: "$300" },
-    { label: "120 minutes", price: "$400" },
+  weekly: [
+    { label: "50 minutes", price: "$400" },
+    { label: "75 minutes", price: "$600" },
+    { label: "100 minutes", price: "$800" },
   ],
-  couples: [
-    { label: "60 minutes", price: "$250" },
-    { label: "90 minutes", price: "$375" },
-    { label: "120 minutes", price: "$500" },
+  intensives: [
+    { label: "60 minutes", price: "$500" },
   ],
 };
 
 const faq = [
   { q: "What is your therapeutic approach?", a: "Jennifer Weinmann, LMFT, combines evidence‑based interventions with trauma‑informed, systems‑focused care. Her approach balances measurable treatment planning with relational warmth to help clients heal from trauma and create durable change." },
   { q: "What therapeutic models do you use?", a: "Trauma‑informed, evidence‑based modalities tailored to each client. Relational Life Therapy (RLT) is used for couples and family work. Treatment integrates systems thinking and measurable outcome tracking." },
-  { q: "How long is a session?", a: "Sessions are available in 60, 90, or 120 minute lengths. Frequency and duration are individualized—weekly is common at the start, then adjusted based on progress and life demands." },
+  { q: "How long is a session?", a: "Weekly sessions are available in 50, 75, or 100 minute lengths. Intensives run 60 minutes. Frequency and duration are individualized—weekly is common at the start, then adjusted based on progress and life demands." },
   { q: "Why don't you take insurance?", a: "To preserve clinical autonomy, protect your privacy, and allow for flexible, optimal care tailored to your needs rather than reimbursable constraints. Documentation for out-of-network reimbursement is provided." },
   { q: "Is therapy confidential?", a: "Yes. Your information is confidential and protected by law. The only exceptions are situations involving immediate safety concerns or legal requirements, which we review together during intake." },
   { q: "How do I start?", a: "A brief intake call clarifies needs, availability, and fit. You'll be asked about goals, current concerns, and any immediate safety issues." },
@@ -27,7 +25,7 @@ const faq = [
 
 <BaseLayout
   title="Therapy Services & Fees | West Oak Therapy — Jennifer Weinmann, LMFT"
-  description="Individual therapy ($200–$400), couples and family therapy ($250–$500). Trauma-informed, evidence-based care in California. Out-of-network superbills available."
+  description="Weekly therapy sessions from $400. Same rates for individuals and couples. Intensives available at $500/60 min. Out-of-network superbills provided."
   ogTitle="Therapy Services & Fees | West Oak Therapy"
   ogDescription="Individual therapy, couples therapy, family therapy, co-occurring disorders treatment. Transparent pricing, no insurance required."
 >
@@ -39,7 +37,7 @@ const faq = [
     "name": "West Oak Therapy",
     "description": "Licensed Marriage and Family Therapy practice offering individual, couples, and family therapy in California.",
     "url": "https://westoaktherapy.com",
-    "priceRange": "$200-$500",
+    "priceRange": "$400-$800",
     "medicalSpecialty": ["Psychiatry", "Psychology"],
     "availableService": [
       {
@@ -176,9 +174,10 @@ const faq = [
 
             <div class="space-y-12 md:space-y-16">
               <div>
-                <h3 class="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Individual Therapy</h3>
+                <h3 class="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-2">Weekly Therapy</h3>
+                <p class="text-xs text-[#2D2926]/40 tracking-wide mb-6 md:mb-8">Individuals &amp; couples — same rate</p>
                 <div class="space-y-4 md:space-y-6">
-                  {fees.individual.map((f) => (
+                  {fees.weekly.map((f) => (
                     <div class="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
                       <span class="text-sm md:text-lg font-light text-[#2D2926]/60">{f.label}</span>
                       <span class="font-cormorant italic text-lg md:text-2xl text-[#8C3B24]">{f.price}</span>
@@ -188,9 +187,10 @@ const faq = [
               </div>
 
               <div>
-                <h3 class="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Couple and Family Therapy</h3>
+                <h3 class="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-2">Intensives</h3>
+                <p class="text-xs text-[#2D2926]/40 tracking-wide mb-6 md:mb-8">Individuals &amp; couples — same rate</p>
                 <div class="space-y-4 md:space-y-6">
-                  {fees.couples.map((f) => (
+                  {fees.intensives.map((f) => (
                     <div class="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
                       <span class="text-sm md:text-lg font-light text-[#2D2926]/60">{f.label}</span>
                       <span class="font-cormorant italic text-lg md:text-2xl text-[#8C3B24]">{f.price}</span>

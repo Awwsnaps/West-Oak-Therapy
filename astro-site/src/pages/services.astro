@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+
+const fees = {
+  individual: [
+    { label: "60 minutes", price: "$200" },
+    { label: "90 minutes", price: "$300" },
+    { label: "120 minutes", price: "$400" },
+  ],
+  couples: [
+    { label: "60 minutes", price: "$250" },
+    { label: "90 minutes", price: "$375" },
+    { label: "120 minutes", price: "$500" },
+  ],
+};
+
+const faq = [
+  { q: "What is your therapeutic approach?", a: "Jennifer Weinmann, LMFT, combines evidence‑based interventions with trauma‑informed, systems‑focused care. Her approach balances measurable treatment planning with relational warmth to help clients heal from trauma and create durable change." },
+  { q: "What therapeutic models do you use?", a: "Trauma‑informed, evidence‑based modalities tailored to each client. Relational Life Therapy (RLT) is used for couples and family work. Treatment integrates systems thinking and measurable outcome tracking." },
+  { q: "How long is a session?", a: "Sessions are available in 60, 90, or 120 minute lengths. Frequency and duration are individualized—weekly is common at the start, then adjusted based on progress and life demands." },
+  { q: "Why don't you take insurance?", a: "To preserve clinical autonomy, protect your privacy, and allow for flexible, optimal care tailored to your needs rather than reimbursable constraints. Documentation for out-of-network reimbursement is provided." },
+  { q: "Is therapy confidential?", a: "Yes. Your information is confidential and protected by law. The only exceptions are situations involving immediate safety concerns or legal requirements, which we review together during intake." },
+  { q: "How do I start?", a: "A brief intake call clarifies needs, availability, and fit. You'll be asked about goals, current concerns, and any immediate safety issues." },
+];
+---
+
+<BaseLayout
+  title="Therapy Services & Fees | West Oak Therapy — Jennifer Weinmann, LMFT"
+  description="Individual therapy ($200–$400), couples and family therapy ($250–$500). Trauma-informed, evidence-based care in California. Out-of-network superbills available."
+  ogTitle="Therapy Services & Fees | West Oak Therapy"
+  ogDescription="Individual therapy, couples therapy, family therapy, co-occurring disorders treatment. Transparent pricing, no insurance required."
+>
+  <!-- Structured Data -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "West Oak Therapy",
+    "description": "Licensed Marriage and Family Therapy practice offering individual, couples, and family therapy in California.",
+    "url": "https://westoaktherapy.com",
+    "priceRange": "$200-$500",
+    "medicalSpecialty": ["Psychiatry", "Psychology"],
+    "availableService": [
+      {
+        "@type": "MedicalTherapy",
+        "name": "Individual Therapy",
+        "description": "Trauma-informed, evidence-based care for anxiety, depression, trauma, and co-occurring substance-use concerns."
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Couples and Family Therapy",
+        "description": "Relational Life Therapy (RLT)–informed work to repair patterns, improve communication, and shift generational dynamics."
+      }
+    ]
+  }
+  </script>
+
+  <main class="min-h-screen flex flex-col items-start pt-24 md:pt-32 pb-12 md:pb-20 px-6 md:px-8 text-left bg-[#FDFCFB] text-[#2D2926]">
+    <div class="container mx-auto max-w-6xl w-full">
+
+      <!-- Header -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center mb-16 md:mb-24">
+        <div>
+          <h1 class="font-syne font-bold text-4xl md:text-7xl mb-8 tracking-tight leading-[1.1]">
+            The <br /><span class="italic font-cormorant font-light text-[#8C3B24]">Practice.</span>
+          </h1>
+
+          <div class="flex flex-col sm:flex-row gap-6 md:gap-8 mt-8 md:mt-12 items-start">
+            <a
+              href="https://westoaktherapy.sessionshealth.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto px-8 md:px-10 py-4 bg-[#2D2926] text-[#FDFCFB] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full shadow-xl shrink-0 hover:bg-[#8C3B24] text-center"
+            >
+              Book a Consultation
+            </a>
+
+            <div class="flex flex-col gap-3 w-full sm:w-auto">
+              <a
+                href="https://westoaktherapy.sessionshealth.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full px-8 md:px-10 py-4 border border-[#2D2926]/20 text-[#2D2926] text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-700 rounded-full hover:bg-[#F8F7F5] text-center"
+              >
+                Client Portal
+              </a>
+              <p class="text-[10px] md:text-[11px] text-[#2D2926]/50 tracking-wide leading-relaxed pl-2 max-w-[280px]">
+                Access your secure portal for scheduling, paperwork, and messaging.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="aspect-[4/5] md:aspect-[3/4] w-full rounded-[2rem] overflow-hidden shadow-sm relative">
+          <img
+            src="/images/Jen-13.jpg"
+            alt="Jennifer Weinmann therapy services"
+            class="w-full h-full object-cover object-center"
+            width="800"
+            height="1000"
+          />
+        </div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="space-y-16 md:space-y-24 mb-24 md:mb-48">
+
+        <!-- Individual & Couples -->
+        <div>
+          <div class="flex items-center gap-4 mb-6 md:mb-8">
+            <div class="h-px flex-1 bg-[#2D2926]/10" />
+            <h2 class="text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Individual & Couples</h2>
+            <div class="h-px w-8 md:w-12 bg-[#2D2926]/10" />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div class="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm">
+              <h3 class="font-syne font-bold text-lg md:text-xl mb-3 md:mb-4">Individual Therapy</h3>
+              <p class="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">Trauma‑informed, evidence‑based care for anxiety, depression, trauma, and co‑occurring substance‑use concerns. Work focuses on measurable goals and systems‑aware interventions.</p>
+            </div>
+            <div class="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm">
+              <h3 class="font-syne font-bold text-lg md:text-xl mb-3 md:mb-4">Couples and Family Therapy</h3>
+              <p class="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">Relational Life Therapy (RLT)–informed work to repair patterns, improve communication, and shift generational dynamics with safety‑first pacing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specialized Clinical -->
+        <div>
+          <div class="flex items-center gap-4 mb-6 md:mb-8">
+            <div class="h-px flex-1 bg-[#2D2926]/10" />
+            <h2 class="text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Specialized Clinical Services</h2>
+            <div class="h-px w-8 md:w-12 bg-[#2D2926]/10" />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <div class="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm">
+              <h3 class="font-syne font-bold text-base md:text-lg mb-2 md:mb-3">Co‑occurring Disorders</h3>
+              <p class="text-xs md:text-sm text-[#2D2926]/60 font-light leading-relaxed">Integrated treatment for managing mental health and substance‑use challenges simultaneously.</p>
+            </div>
+            <div class="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm">
+              <h3 class="font-syne font-bold text-base md:text-lg mb-2 md:mb-3">Trauma-Informed Care</h3>
+              <p class="text-xs md:text-sm text-[#2D2926]/60 font-light leading-relaxed">Safety-first approaches to processing significant life events and building resilience.</p>
+            </div>
+            <div class="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm">
+              <h3 class="font-syne font-bold text-base md:text-lg mb-2 md:mb-3">Crisis Assessment</h3>
+              <p class="text-xs md:text-sm text-[#2D2926]/60 font-light leading-relaxed">Thorough clinical evaluation for stabilization and immediate safety planning.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Services -->
+        <div>
+          <div class="flex items-center gap-4 mb-6 md:mb-8">
+            <div class="h-px flex-1 bg-[#2D2926]/10" />
+            <h2 class="text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Professional Services</h2>
+            <div class="h-px w-8 md:w-12 bg-[#2D2926]/10" />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div class="p-6 md:p-8 bg-white border border-[#2D2926]/5 rounded-[1.5rem] md:rounded-[2rem] hover:border-[#D79E54]/20 transition-all duration-500 shadow-sm">
+              <h3 class="font-syne font-bold text-lg md:text-xl mb-3 md:mb-4">Supervision & Consultation</h3>
+              <p class="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">Clinical supervision for Associate MFTs and consultation for licensed professionals seeking deeper expertise.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mb-24 md:mb-32 text-center text-[#2D2926]/40 font-light tracking-wide italic text-sm md:text-base">
+        Request an intake call to discuss fit and next steps.
+      </p>
+
+      <!-- Fees Section -->
+      <div class="mb-20 md:mb-32 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
+          <div>
+            <h2 class="font-syne font-bold text-3xl md:text-5xl mb-12 md:mb-16 tracking-tight">Fees</h2>
+
+            <div class="space-y-12 md:space-y-16">
+              <div>
+                <h3 class="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Individual Therapy</h3>
+                <div class="space-y-4 md:space-y-6">
+                  {fees.individual.map((f) => (
+                    <div class="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                      <span class="text-sm md:text-lg font-light text-[#2D2926]/60">{f.label}</span>
+                      <span class="font-cormorant italic text-lg md:text-2xl text-[#8C3B24]">{f.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] mb-6 md:mb-8">Couple and Family Therapy</h3>
+                <div class="space-y-4 md:space-y-6">
+                  {fees.couples.map((f) => (
+                    <div class="flex justify-between items-baseline border-b border-[#2D2926]/10 pb-4">
+                      <span class="text-sm md:text-lg font-light text-[#2D2926]/60">{f.label}</span>
+                      <span class="font-cormorant italic text-lg md:text-2xl text-[#8C3B24]">{f.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:pt-24">
+            <div class="p-8 md:p-12 bg-[#F8F7F5] rounded-[2rem] border border-[#2D2926]/5 shadow-sm space-y-8 md:space-y-10">
+              <p class="text-lg md:text-xl text-[#2D2926]/70 font-light leading-relaxed">
+                Fees are collected after the conclusion of each session and billed through the practice's Electronic Health Record (EHR), <span class="font-bold text-[#2D2926]">Sessions Health</span>.
+              </p>
+              <div class="pt-8 md:pt-10 border-t border-[#2D2926]/10">
+                <h4 class="text-[10px] tracking-[0.3em] uppercase font-bold text-[#2D2926] mb-4 md:mb-6">Out‑of‑network billing (OON)</h4>
+                <p class="text-sm md:text-base text-[#2D2926]/50 font-light leading-relaxed italic">
+                  You can request a superbill to submit to your insurance for possible reimbursement. Your insurance plan determines whether they will reimburse you and at what amount. It may be helpful to check your plan's OON reimbursement policy before beginning services so you understand any deductible, co‑insurance, or documentation requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-20 md:mb-32 text-left border-t border-[#2D2926]/5 pt-16 md:pt-24">
+        <h2 class="font-syne font-bold text-3xl md:text-4xl mb-12 md:mb-16 tracking-tight">Practice FAQ</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-10 md:gap-y-12">
+          {faq.map((item) => (
+            <div>
+              <h3 class="font-syne font-bold text-base md:text-lg mb-3 md:mb-4 text-[#2D2926] hover:text-[#8C3B24] transition-colors duration-500">{item.q}</h3>
+              <p class="text-sm md:text-base text-[#2D2926]/60 font-light leading-relaxed">{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

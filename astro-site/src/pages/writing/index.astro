@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('writing');
+
+// Separate hubs from spokes
+const hubs = articles.filter(a => a.data.page_type?.includes('Hub'));
+const spokes = articles.filter(a => !a.data.page_type?.includes('Hub'));
+
+// Helper: get slug from filename
+const getSlug = (id: string) => id.replace(/\.md$/, '');
+---
+
+<BaseLayout
+  title="Writing | West Oak Therapy — Articles on Relationships, Therapy & Connection"
+  description="Long-form articles on couples therapy, emotional disconnection, substance use, and relational repair — written for high-performing professionals ready to do real work."
+  ogTitle="Writing | West Oak Therapy"
+  ogDescription="In-depth articles on the patterns that shape relationships, written by Jennifer Weinmann, LMFT."
+>
+  <main class="min-h-screen pt-32 md:pt-40 pb-20 px-6 md:px-8 bg-[#FDFCFB] text-[#2D2926]">
+    <div class="container mx-auto max-w-5xl">
+
+      <!-- Header -->
+      <header class="mb-20 md:mb-32">
+        <span class="text-[10px] tracking-[0.5em] uppercase text-[#8C3B24] font-bold mb-6 block">West Oak Writing</span>
+        <h1 class="font-syne font-bold text-5xl md:text-7xl tracking-tighter leading-[0.9] mb-8">
+          On relationships.<br />
+          <span class="italic font-cormorant font-light text-[#8C3B24]">On coming home.</span>
+        </h1>
+        <p class="text-xl text-[#2D2926]/60 font-light leading-relaxed max-w-2xl">
+          Long-form articles on the patterns that shape your relationships, your relationship with work, and your relationship with yourself. Written for people who are ready to understand, not just cope.
+        </p>
+      </header>
+
+      <!-- Hub / Pillar Articles -->
+      <section class="mb-20 md:mb-32">
+        <div class="flex items-center gap-4 mb-10 md:mb-12">
+          <div class="h-px flex-1 bg-[#2D2926]/10" />
+          <h2 class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Core Guides</h2>
+          <div class="h-px w-12 bg-[#2D2926]/10" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {hubs.map((article) => {
+            const slug = getSlug(article.id);
+            return (
+              <a
+                href={`/writing/${slug}`}
+                class="group block p-8 md:p-10 bg-[#F8F7F5] border border-[#2D2926]/5 rounded-[2rem] hover:border-[#8C3B24]/20 hover:bg-white transition-all duration-500 shadow-sm"
+              >
+                <span class="text-[9px] font-mono tracking-widest text-[#8C3B24]/50 uppercase mb-4 block">Core Guide</span>
+                <h3 class="font-syne font-bold text-xl md:text-2xl mb-4 tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500 leading-snug">
+                  {article.data.meta_title.split('|')[0].trim()}
+                </h3>
+                <p class="text-sm md:text-base text-[#2D2926]/50 font-light leading-relaxed">
+                  {article.data.meta_description}
+                </p>
+                <span class="inline-block mt-6 text-[9px] tracking-[0.3em] uppercase font-bold text-[#8C3B24]/60 group-hover:text-[#8C3B24] transition-colors duration-500">
+                  Read →
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+
+      <!-- Spoke / Deep-Dive Articles -->
+      <section class="mb-20">
+        <div class="flex items-center gap-4 mb-10 md:mb-12">
+          <div class="h-px flex-1 bg-[#2D2926]/10" />
+          <h2 class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-bold text-[#8C3B24] whitespace-nowrap">Deep Dives</h2>
+          <div class="h-px w-12 bg-[#2D2926]/10" />
+        </div>
+
+        <div class="grid grid-cols-1 gap-px bg-[#2D2926]/5 rounded-[2rem] overflow-hidden">
+          {spokes.map((article, i) => {
+            const slug = getSlug(article.id);
+            return (
+              <a
+                href={`/writing/${slug}`}
+                class="group flex items-start gap-6 p-6 md:p-8 bg-[#FDFCFB] hover:bg-[#F8F7F5] transition-all duration-300"
+              >
+                <span class="font-mono text-[9px] tracking-widest text-[#2D2926]/20 pt-1 shrink-0 w-8">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-syne font-bold text-base md:text-lg tracking-tight group-hover:text-[#8C3B24] transition-colors duration-500 mb-2">
+                    {article.data.meta_title.split('|')[0].trim()}
+                  </h3>
+                  <p class="text-sm text-[#2D2926]/50 font-light leading-relaxed line-clamp-2">
+                    {article.data.meta_description}
+                  </p>
+                </div>
+                <svg class="w-4 h-4 text-[#2D2926]/20 group-hover:text-[#8C3B24] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500 shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

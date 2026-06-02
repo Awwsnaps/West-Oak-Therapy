@@ -1,0 +1,81 @@
+backend:
+  name: git-gateway
+  branch: astro-migration
+
+locale: en
+
+# Where uploaded images get stored
+media_folder: "astro-site/public/images"
+public_folder: "/images"
+
+collections:
+  - name: "writing"
+    label: "Articles"
+    label_singular: "Article"
+    folder: "astro-site/src/content/writing"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "writing/{{slug}}"
+    summary: "{{meta_title}}"
+    sortable_fields: ["meta_title", "target_persona", "page_type"]
+    fields:
+
+      # ── Visible in browser tab + Google ──────────────────────────
+      - label: "Page Title"
+        name: "meta_title"
+        widget: "string"
+        hint: "Shown in browser tabs and Google results. Format: Topic | West Oak Therapy. Keep under 60 characters."
+
+      - label: "Meta Description"
+        name: "meta_description"
+        widget: "text"
+        hint: "The summary sentence shown under the title in Google. Keep under 155 characters."
+
+      # ── Content structure ─────────────────────────────────────────
+      - label: "Page Type"
+        name: "page_type"
+        widget: "select"
+        options:
+          - { label: "Core Guide (Hub)", value: "Hub Page (Pillar Content)" }
+          - { label: "Article (Spoke)", value: "Spoke Page (Long-tail)" }
+        default: "Spoke Page (Long-tail)"
+        required: false
+
+      - label: "Audience"
+        name: "target_persona"
+        widget: "select"
+        options:
+          - { label: "Disconnected Achiever", value: "The Disconnected Achiever (Sarah)" }
+          - { label: "Numbing Achiever", value: "The Numbing Achiever" }
+          - { label: "Avoidant Achiever", value: "The Avoidant Achiever" }
+          - { label: "Couples", value: "Cross-persona (couples)" }
+          - { label: "Skeptics / Objection-handler", value: "Cross-cluster (objection-handler)" }
+        required: false
+
+      # ── SEO keywords ──────────────────────────────────────────────
+      - label: "Primary Keyword"
+        name: "primary_keyword"
+        widget: "string"
+        required: false
+        hint: "The main search phrase this article targets (e.g. 'successful but disconnected from family')"
+
+      - label: "Secondary Keywords"
+        name: "secondary_keywords"
+        widget: "list"
+        required: false
+        hint: "Additional search phrases — one per line"
+
+      # ── Read time estimate ────────────────────────────────────────
+      - label: "Estimated Word Count"
+        name: "word_count_target"
+        widget: "number"
+        default: 1600
+        required: false
+        hint: "Used to calculate the read-time shown on the article page"
+
+      # ── Article body ──────────────────────────────────────────────
+      - label: "Article Body"
+        name: "body"
+        widget: "markdown"

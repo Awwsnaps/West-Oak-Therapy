@@ -1,0 +1,57 @@
+---
+import MobileMenu from './MobileMenu';
+
+interface Props {
+  currentPath: string;
+}
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Therapy Services', href: '/value-of-therapy' },
+  { label: 'Services & Fees', href: '/services' },
+  { label: 'Writing', href: '/writing' },
+];
+---
+
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[100] px-6 md:px-8 py-3 md:py-4 flex justify-between items-center rounded-full border bg-[#1A1A1A]/80 border-white/10 text-white backdrop-blur-xl shadow-2xl">
+  <a href="/" class="font-syne font-bold text-base md:text-lg tracking-tight whitespace-nowrap hover:text-[#D79E54] transition-colors duration-500">
+    West Oak Therapy
+  </a>
+
+  <div class="hidden lg:flex items-center gap-8">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class={`text-[9px] tracking-[0.2em] uppercase font-bold transition-colors duration-500 ${currentPath === link.href ? 'text-[#D79E54]' : 'text-white hover:text-[#D79E54]'}`}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+
+  <div class="flex items-center gap-3 md:gap-4">
+    <div class="hidden lg:flex flex-col items-end mr-2">
+      <a
+        href="https://westoaktherapy.sessionshealth.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-5 py-2 border border-white/20 text-white rounded-full text-[9px] tracking-[0.1em] uppercase font-bold hover:bg-white hover:text-[#1A1A1A] transition-all duration-500"
+      >
+        Client Portal
+      </a>
+      <span class="text-[6px] text-white/40 uppercase tracking-widest mt-1 mr-2 text-right">Access your secure portal for <br /> scheduling, paperwork, and messaging</span>
+    </div>
+    <a
+      href="https://westoaktherapy.sessionshealth.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden lg:block px-5 py-2 bg-white text-[#1A1A1A] rounded-full text-[9px] tracking-[0.1em] uppercase font-bold hover:bg-[#D79E54] hover:text-white transition-all duration-500"
+    >
+      Book a Consultation
+    </a>
+
+    <MobileMenu client:load />
+  </div>
+</nav>

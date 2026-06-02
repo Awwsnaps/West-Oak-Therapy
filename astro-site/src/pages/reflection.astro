@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReflectionFlow from '../components/ReflectionFlow';
+---
+
+<BaseLayout
+  title="Begin Your Reflection | West Oak Therapy"
+  description="A guided reflection to help you understand your patterns and find the right path forward with Jennifer Weinmann, LMFT."
+>
+  <main class="min-h-screen bg-[#FDFCFB] text-[#2D2926] relative overflow-hidden">
+    <!-- Ambient light -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+      <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-[#E5E0DA]/30 blur-[150px] rounded-full" />
+    </div>
+
+    <ReflectionFlow client:load />
+  </main>
+</BaseLayout>
